@@ -1,0 +1,7 @@
+{
+	"fields": {
+		"contactAddress": {
+			"type": "contactAddress"
+		}
+	}
+}

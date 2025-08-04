@@ -1,9 +1,9 @@
 {
-    "module": "{@name}",
-    "name": "{@nameLabel}",
-    "description": "{@description}",
-    "author": "{@author}",
-    "bundled": {@bundled},
+    "module": "EnhancedFields",
+    "name": "Enhanced Fields",
+    "description": "Enhanced field types and functionality for EspoCRM.",
+    "author": "Alfred Cerny",
+    "bundled": false,
     "acceptableVersions": [
         ">=9.1.0"
     ],

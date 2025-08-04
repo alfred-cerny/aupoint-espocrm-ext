@@ -1,0 +1,14 @@
+{
+    "readLoaderClassNameList": [
+        "__APPEND__",
+        "Espo\\Modules\\EnhancedFields\\Classes\\FieldProcessing\\ContactAddress\\Loader"
+    ],
+    "listLoaderClassNameList": [
+        "__APPEND__",
+        "Espo\\Modules\\EnhancedFields\\Classes\\FieldProcessing\\ContactAddress\\Loader"
+    ],
+    "saverClassNameList": [
+        "__APPEND__",
+        "Espo\\Modules\\EnhancedFields\\Classes\\FieldProcessing\\ContactAddress\\Saver"
+    ]
+}

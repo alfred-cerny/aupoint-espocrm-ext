@@ -1,0 +1,78 @@
+{
+	"collection": {
+		"order": "asc",
+		"orderBy": "name"
+	},
+	"fields": {
+		"account": {
+			"type": "link"
+		},
+		"city": {
+			"maxLength": 100,
+			"type": "varchar"
+		},
+		"country": {
+			"maxLength": 100,
+			"type": "varchar"
+		},
+		"createdAt": {
+			"readOnly": true,
+			"type": "datetime"
+		},
+		"description": {
+			"type": "wysiwyg"
+		},
+		"invalid": {
+			"type": "bool"
+		},
+		"modifiedAt": {
+			"readOnly": true,
+			"type": "datetime"
+		},
+		"name": {
+			"index": true,
+			"maxLength": 512,
+			"readOnly": true,
+			"required": true,
+			"type": "varchar",
+			"view": "views/fields/varchar"
+		},
+		"postalCode": {
+			"maxLength": 40,
+			"type": "varchar"
+		},
+		"primary": {
+			"notStorable": true,
+			"type": "bool"
+		},
+		"state": {
+			"maxLength": 100,
+			"type": "varchar"
+		},
+		"street": {
+			"dbType": "varchar",
+			"maxLength": 255,
+			"type": "text"
+		},
+		"type": {
+			"options": [
+				""
+			],
+			"type": "enum"
+		}
+	},
+	"indexes": {
+		"name": {
+			"columns": [
+				"name"
+			]
+		}
+	},
+	"links": {
+		"account": {
+			"entity": "Account",
+			"foreign": "contactAddresses",
+			"type": "belongsTo"
+		}
+	}
+}

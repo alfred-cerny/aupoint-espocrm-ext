@@ -1,0 +1,5 @@
+{
+    "contactAddressRepository": {
+        "className": "Espo\\Modules\\EnhancedFields\\Repositories\\ContactAddress"
+    }
+}

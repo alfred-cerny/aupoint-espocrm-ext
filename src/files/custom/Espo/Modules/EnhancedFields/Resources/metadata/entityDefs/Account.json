@@ -1,0 +1,15 @@
+{
+	"fields": {
+		"contactAddress": {
+			"type": "contactAddress"
+		}
+	},
+	"links": {
+		"contactAddresses": {
+			"entity": "ContactAddress",
+			"relationName": "entityContactAddress",
+			"foreign": "account",
+			"type": "hasMany"
+		}
+	}
+}

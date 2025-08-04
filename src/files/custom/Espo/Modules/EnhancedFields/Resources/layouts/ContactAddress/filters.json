@@ -1,0 +1,9 @@
+[
+	"name",
+	"street",
+	"city",
+	"state",
+	"postalCode",
+	"country",
+    "description"
+]

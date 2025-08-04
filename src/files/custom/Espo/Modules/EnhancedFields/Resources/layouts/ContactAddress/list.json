@@ -1,0 +1,17 @@
+[
+	{
+		"name": "name",
+		"link": true
+	},
+	{
+		"name": "type",
+		"link": true
+	},
+	{
+		"name": "postalCode"
+	},
+	{
+		"name": "account",
+		"link": true
+	}
+]

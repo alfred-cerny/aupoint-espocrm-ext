@@ -1,0 +1,44 @@
+{
+	"actualFields": [
+		"isInvalid",
+		"",
+		"data"
+	],
+	"attributeExtractorClassName": "Espo\\Modules\\EnhancedFields\\Core\\Field\\ContactAddress\\ContactAddressGroupAttributeExtractor",
+	"converterClassName": "Espo\\Modules\\EnhancedFields\\Core\\Utils\\Database\\Orm\\FieldConverters\\ContactAddress",
+	"fieldDefs": {
+		"notStorable": true
+	},
+	"fields": {
+		"isInvalid": {
+			"customizationDefaultDisabled": true,
+			"customizationInlineEditDisabledDisabled": true,
+			"customizationReadOnlyDisabled": true,
+			"layoutDefaultSidePanelDisabled": true,
+			"layoutDetailDisabled": true,
+			"mergeDisabled": true,
+			"notStorable": true,
+			"type": "bool"
+		}
+	},
+	"filter": false,
+	"params": [
+		{
+			"default": false,
+			"name": "required",
+			"type": "bool"
+		},
+		{
+			"name": "audited",
+			"type": "bool"
+		},
+		{
+			"hidden": true,
+			"name": "onlyPrimary",
+			"type": "bool"
+		}
+	],
+	"personalData": true,
+	"valueFactoryClassName": "Espo\\Modules\\EnhancedFields\\Core\\Field\\ContactAddress\\ContactAddressGroupFactory",
+	"view": "enhanced-fields:views/fields/contact-address"
+}

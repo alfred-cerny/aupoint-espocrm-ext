@@ -1,0 +1,13 @@
+{
+    "fields": {
+        "name": "Address",
+        "street": "Street",
+        "city": "City",
+        "state": "State",
+        "country": "Country",
+        "postalCode": "Postal Code"
+    },
+    "labels": {
+        "Create ContactAddress": "Create Contact Address"
+    }
+}
