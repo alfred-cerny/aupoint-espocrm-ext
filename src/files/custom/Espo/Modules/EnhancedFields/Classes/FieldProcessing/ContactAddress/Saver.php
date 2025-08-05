@@ -110,7 +110,10 @@ class Saver implements SaverInterface {
 
 			$type = $row->type ??
 				$this->metadata
-					->get(['entityDefs', $entity->getEntityType(), 'fields', 'contactAddress', 'defaultType']);
+					->get(['entityDefs', $entity->getEntityType(), 'fields', 'contactAddress', 'type', 'options']);
+			if (is_array($type)) {
+				$type = $type[0];
+			}
 
 			$hash->$key = [
 				'primary' => !empty($row->primary),
@@ -151,10 +154,14 @@ class Saver implements SaverInterface {
 			if (empty($key)) {
 				continue;
 			}
-
+			$type = $row->type ?? null;
+			if (is_array($type)) {
+				$type = $type[0];
+			}
+			
 			$hashPrevious->$key = [
 				'primary' => (bool)$row->primary,
-				'type' => $row->type,
+				'type' => $type,
 				'street' => $row->street ?? '',
 				'city' => $row->city ?? '',
 				'state' => $row->state ?? '',
@@ -247,7 +254,7 @@ class Saver implements SaverInterface {
 
 				if (!$skipSave) {
 					$contactAddress->set([
-						'type' => $hash->{$name}['type'],
+						'type' => [$hash->{$name}['type']], //type is multiEnum
 						'street' => $hash->{$name}['street'],
 						'city' => $hash->{$name}['city'],
 						'state' => $hash->{$name}['state'],

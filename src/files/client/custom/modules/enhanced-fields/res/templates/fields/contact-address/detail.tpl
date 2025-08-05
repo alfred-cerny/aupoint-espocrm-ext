@@ -1,31 +1,34 @@
 {{#if contactAddressData}}
     {{#each contactAddressData}}
-        <div class="contact-address-item" style="padding-bottom: 15px; margin-bottom: 10px; border-bottom: 1px solid #ddd;">
-            {{#if primary}}
-                <span style="float: right; font-size: 0.8em; font-weight: bold; color: #555;">{{translate 'Primary'}}</span>
-            {{/if}}
-
-            <div class="address-details" {{#if primary}}style="font-weight: bold;"{{/if}}>
-                {{#if street}}{{street}}<br>{{/if}}
-                {{#if city}}{{city}}{{/if}}{{#if state}}{{#if city}}, {{/if}}{{state}}{{/if}}{{#if postalCode}} {{postalCode}}{{/if}}
-                {{#if country}}{{#if city}}<br>{{else}}{{#if state}}<br>{{else}}{{#if postalCode}}<br>{{/if}}{{/if}}{{/if}}{{country}}{{/if}}
+        <div class="contact-address-item" style="padding-bottom: 15px; margin-bottom: 10px; border-bottom: 1px solid #ddd; display: flex; align-items: flex-start;">
+            <div class="address-label" style="font-weight: bold; min-width: 150px; margin-right: 20px; flex-shrink: 0; {{#if primary}}color: #0066cc;{{/if}}">
+                {{#if primary}}★ {{/if}}{{#if description}}{{{description}}}{{/if}}
+                {{#if primary}}
+                    <span style="font-size: 0.8em; color: #0066cc; font-weight: normal; display: block;">({{translate 'Primary'}})</span>
+                {{/if}}
             </div>
 
-            <div class="metadata" style="font-size: 0.9em; color: #666; margin-top: 5px;">
-                <span>
-                    {{translate 'Account'}}:
-                    {{#if accountId}}
-                        <a data-name="{{../name}}Account-{{@index}}" href="/#Account/view/{{accountId}}">{{accountId}}</a>
-                    {{else}}
-                        <span class="none-value">{{translate 'None'}}</span>
+            <div class="address-content" style="flex: 1; {{#if primary}}border-left: 3px solid #0066cc; padding-left: 10px;{{/if}}">
+                <div class="address-details">
+                    {{#if street}}{{street}}<br>{{/if}}
+                    {{#if city}}{{city}}{{/if}}{{#if state}}{{#if city}}, {{/if}}{{state}}{{/if}}{{#if postalCode}} {{postalCode}}{{/if}}
+                    {{#if country}}{{#if city}}<br>{{else}}{{#if state}}<br>{{else}}{{#if postalCode}}<br>{{/if}}{{/if}}{{/if}}{{country}}{{/if}}
+                </div>
+
+                <div class="metadata" style="font-size: 0.9em; color: #666; margin-top: 5px;">
+                    <span>
+                        {{translate 'Account'}}:
+                        {{#if accountId}}
+                            <a data-name="{{../name}}Account-{{@index}}" href="/#Account/view/{{accountId}}">{{accountName}}</a>
+                        {{else}}
+                            <span class="none-value">{{translate 'None'}}</span>
+                        {{/if}}
+                    </span>
+                    {{#if type}}
+                        <span style="margin: 0 8px;">|</span>
+                        <span>{{translate 'Type'}}: {{type}}</span>
                     {{/if}}
-                </span>
-                <span style="margin: 0 8px;">|</span>
-                {{#if type}}<span>{{translate 'Type'}}: {{type}}</span>{{/if}}
-                {{#if description}}
-                    <span style="margin: 0 8px;">|</span>
-                    <span>{{translate 'Description'}}: {{description}}</span>
-                {{/if}}
+                </div>
             </div>
         </div>
     {{/each}}

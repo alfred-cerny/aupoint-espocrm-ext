@@ -1,5 +1,14 @@
 {
-    "fieldTypes": {
-        "contactAddress": "Contact Address"
-    }
+	"fieldTypes": {
+		"contactAddress": "Contact Address"
+	},
+	"fields": {
+		"contactAddress": "Organization addresses"
+	},
+	"scopeNamesPlural": {
+		"ContactAddress": "Address"
+	},
+	"scopeNamesSingular": {
+		"ContactAddress": "Address"
+	}
 }

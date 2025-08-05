@@ -1,13 +1,30 @@
 {
-    "fields": {
-        "name": "Address",
-        "street": "Street",
-        "city": "City",
-        "state": "State",
-        "country": "Country",
-        "postalCode": "Postal Code"
-    },
-    "labels": {
-        "Create ContactAddress": "Create Contact Address"
-    }
+	"fields": {
+		"account": "Account",
+		"city": "City",
+		"country": "Country",
+		"description": "Description",
+		"name": "Address",
+		"postalCode": "Postal Code",
+		"state": "State",
+		"street": "Street",
+		"type": "Type"
+	},
+	"labels": {
+		"Create ContactAddress": "Create Contact Address"
+	},
+	"messages": {
+		"accountIsRequired": "Account is required"
+	},
+	"options": {
+		"type": {
+			"Billing Address": "Billing Address",
+			"Construction Site": "Construction Site",
+			"Distribution Center": "Distribution Center",
+			"Factory": "Factory",
+			"Head Office": "Head Office",
+			"Regional Office": "Regional Office",
+			"Satellite Office": "Satellite Office"
+		}
+	}
 }

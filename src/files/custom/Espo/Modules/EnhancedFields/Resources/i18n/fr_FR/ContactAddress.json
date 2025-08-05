@@ -1,0 +1,30 @@
+{
+	"fields": {
+		"account": "Compte",
+		"city": "Ville",
+		"country": "Pays",
+		"description": "Nom",
+		"name": "Adresse",
+		"postalCode": "Code postal",
+		"state": "État/Région",
+		"street": "Rue",
+		"type": "Type"
+	},
+	"labels": {
+		"Create ContactAddress": "Créer une adresse de contact"
+	},
+	"messages": {
+		"accountIsRequired": "Un compte est requis"
+	},
+	"options": {
+		"type": {
+			"Billing Address": "Adresse de facturation",
+			"Construction Site": "Chantier",
+			"Distribution Center": "Centre de distribution",
+			"Factory": "Usine",
+			"Head Office": "Bureau chef",
+			"Regional Office": "Bureau régional",
+			"Satellite Office": "Bureau satellite"
+		}
+	}
+}

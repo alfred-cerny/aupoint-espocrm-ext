@@ -7,36 +7,36 @@
                     <input type="radio" class="primary-radio" name="{{../name}}-primary" {{#if primary}}checked{{/if}}>
                 </div>
                 <div class="col-sm-10">
+                    <div class="row" style="margin-top: 5px;">
+                        <div class="col-sm-12">
+                            <input type="text" class="form-control contact-address-description" placeholder="{{translate 'description' category='fields' scope='ContactAddress'}}" value="{{description}}">
+                        </div>
+                    </div>
                     <div class="row">
                         <div class="col-sm-12">
-                            <input type="text" class="form-control contact-address-street" placeholder="{{translate 'street' category='fields'}}" value="{{street}}">
+                            <input type="text" class="form-control contact-address-street" placeholder="{{translate 'street' category='fields' scope='ContactAddress'}}" value="{{street}}">
                         </div>
                     </div>
                     <div class="row" style="margin-top: 5px;">
                         <div class="col-sm-4">
-                            <input type="text" class="form-control contact-address-city" placeholder="{{translate 'city' category='fields'}}" value="{{city}}">
+                            <input type="text" class="form-control contact-address-city" placeholder="{{translate 'city' category='fields' scope='ContactAddress'}}" value="{{city}}">
                         </div>
                         <div class="col-sm-3">
-                            <input type="text" class="form-control contact-address-state" placeholder="{{translate 'state' category='fields'}}" value="{{state}}">
+                            <input type="text" class="form-control contact-address-state" placeholder="{{translate 'state' category='fields' scope='ContactAddress'}}" value="{{state}}">
                         </div>
                         <div class="col-sm-3">
-                            <input type="text" class="form-control contact-address-postal-code" placeholder="{{translate 'postalCode' category='fields'}}" value="{{postalCode}}">
+                            <input type="text" class="form-control contact-address-postal-code" placeholder="{{translate 'postalCode' category='fields' scope='ContactAddress'}}" value="{{postalCode}}">
                         </div>
                         <div class="col-sm-2">
-                            <input type="text" class="form-control contact-address-country" placeholder="{{translate 'country' category='fields'}}" value="{{country}}">
+                            <input type="text" class="form-control contact-address-country" placeholder="{{translate 'country' category='fields' scope='ContactAddress'}}" value="{{country}}">
                         </div>
                     </div>
                     <div class="row" style="margin-top: 5px;">
                         <input type="hidden" class="contact-address-account-id" value="{{accountId}}">
+                        <input type="hidden" class="contact-address-account-name" value="{{accountName}}">
                         <div class="col-sm-6" data-name="{{../name}}Account-{{@index}}"></div>
-                        <div class="col-sm-6">
-                            <input type="text" class="form-control contact-address-type" placeholder="{{translate 'type' category='fields'}}" value="{{type}}">
-                        </div>
-                    </div>
-                    <div class="row" style="margin-top: 5px;">
-                        <div class="col-sm-12">
-                            <input type="text" class="form-control contact-address-description" placeholder="{{translate 'description' category='fields'}}" value="{{description}}">
-                        </div>
+                        <input type="hidden" class="contact-address-type-val" value="{{type}}">
+                        <div class="col-sm-6 contact-address-type"></div>
                     </div>
                 </div>
                 <div class="col-sm-1">

@@ -1,0 +1,11 @@
+{
+	"fields": {
+		"contactAddress": "Adresses de l'organisation"
+	},
+	"scopeNamesPlural": {
+		"ContactAddress": "Adresses de l'organisation"
+	},
+	"scopeNamesSingular": {
+		"ContactAddress": "Adress de l'organisation"
+	}
+}

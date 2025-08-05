@@ -72,7 +72,7 @@ class Loader implements LoaderInterface {
 		$repository = $this->entityManager->getRepository(ContactAddress::ENTITY_TYPE);
 
 		$contactAddressData = $repository->getContactAddressData($entity);
-		$GLOBALS['log']->debug("Loaded contactAddressData: " . json_encode($contactAddressData));
+
 		$entity->set('contactAddressData', $contactAddressData);
 		$entity->setFetched('contactAddressData', $contactAddressData);
 	}

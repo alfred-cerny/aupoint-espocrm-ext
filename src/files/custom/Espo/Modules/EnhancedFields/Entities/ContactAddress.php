@@ -17,7 +17,8 @@ class ContactAddress extends Entity {
 		'country',
 		'invalid',
 		'description',
-		'accountId'
+		'accountId',
+		'accountName'
 	];
 
 	public function getCity(): ?string {

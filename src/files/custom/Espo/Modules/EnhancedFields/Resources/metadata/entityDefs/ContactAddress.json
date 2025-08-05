@@ -5,6 +5,7 @@
 	},
 	"fields": {
 		"account": {
+			"required": true,
 			"type": "link"
 		},
 		"city": {
@@ -55,10 +56,20 @@
 			"type": "text"
 		},
 		"type": {
+			"allowCustomOptions": true,
+			"displayAsLabel": true,
+			"maxCount": 1,
 			"options": [
-				""
+				"",
+				"Head Office",
+				"Satellite Office",
+				"Regional Office",
+				"Factory",
+				"Distribution Center",
+				"Construction Site",
+				"Billing Address"
 			],
-			"type": "enum"
+			"type": "multiEnum"
 		}
 	},
 	"indexes": {
@@ -72,6 +83,7 @@
 		"account": {
 			"entity": "Account",
 			"foreign": "contactAddresses",
+			"relationName": "entityContactAddress",
 			"type": "belongsTo"
 		}
 	}
