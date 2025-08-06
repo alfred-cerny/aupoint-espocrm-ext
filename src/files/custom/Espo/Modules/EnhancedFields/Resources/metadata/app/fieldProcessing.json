@@ -1,14 +1,14 @@
 {
     "readLoaderClassNameList": [
         "__APPEND__",
-        "Espo\\Modules\\EnhancedFields\\Classes\\FieldProcessing\\ContactAddress\\Loader"
+        "Espo\\Modules\\EnhancedFields\\Classes\\FieldProcessing\\AccountAddress\\Loader"
     ],
     "listLoaderClassNameList": [
         "__APPEND__",
-        "Espo\\Modules\\EnhancedFields\\Classes\\FieldProcessing\\ContactAddress\\Loader"
+        "Espo\\Modules\\EnhancedFields\\Classes\\FieldProcessing\\AccountAddress\\Loader"
     ],
     "saverClassNameList": [
         "__APPEND__",
-        "Espo\\Modules\\EnhancedFields\\Classes\\FieldProcessing\\ContactAddress\\Saver"
+        "Espo\\Modules\\EnhancedFields\\Classes\\FieldProcessing\\AccountAddress\\Saver"
     ]
 }

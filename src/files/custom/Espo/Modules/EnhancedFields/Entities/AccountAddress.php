@@ -5,9 +5,9 @@ namespace Espo\Modules\EnhancedFields\Entities;
 use Espo\Core\ORM\Entity;
 use stdClass;
 
-class ContactAddress extends Entity {
-	public const ENTITY_TYPE = 'ContactAddress';
-	public const RELATION_ENTITY_CONTACT_ADDRESS = 'EntityContactAddress';
+class AccountAddress extends Entity {
+	public const ENTITY_TYPE = 'AccountAddress';
+	public const RELATION_ENTITY_ACCOUNT_ADDRESS = 'EntityAccountAddress';
 	public const FIELDS = [
 		'type',
 		'street',

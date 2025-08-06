@@ -4,8 +4,8 @@
 		"",
 		"data"
 	],
-	"attributeExtractorClassName": "Espo\\Modules\\EnhancedFields\\Core\\Field\\ContactAddress\\ContactAddressGroupAttributeExtractor",
-	"converterClassName": "Espo\\Modules\\EnhancedFields\\Core\\Utils\\Database\\Orm\\FieldConverters\\ContactAddress",
+	"attributeExtractorClassName": "Espo\\Modules\\EnhancedFields\\Core\\Field\\AccountAddress\\AccountAddressGroupAttributeExtractor",
+	"converterClassName": "Espo\\Modules\\EnhancedFields\\Core\\Utils\\Database\\Orm\\FieldConverters\\AccountAddress",
 	"fieldDefs": {
 		"notStorable": true
 	},
@@ -39,6 +39,6 @@
 		}
 	],
 	"personalData": true,
-	"valueFactoryClassName": "Espo\\Modules\\EnhancedFields\\Core\\Field\\ContactAddress\\ContactAddressGroupFactory",
-	"view": "enhanced-fields:views/fields/contact-address"
+	"valueFactoryClassName": "Espo\\Modules\\EnhancedFields\\Core\\Field\\AccountAddress\\AccountAddressGroupFactory",
+	"view": "enhanced-fields:views/fields/account-address"
 }

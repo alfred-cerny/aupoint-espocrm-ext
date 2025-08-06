@@ -4,22 +4,22 @@ namespace Espo\Modules\EnhancedFields\Repositories;
 
 use Espo\Core\Name\Field;
 use Espo\Core\Templates\Repositories\Base as BaseRepository;
-use Espo\Modules\EnhancedFields\Entities\ContactAddress as ContactAddressEntity;
+use Espo\Modules\EnhancedFields\Entities\AccountAddress as AccountAddressEntity;
 use Espo\ORM\Entity;
 use stdClass;
 
 /**
- * Repository for ContactAddress entity.
+ * Repository for AccountAddress entity.
  * Handles address creation, lookup, and management.
  *
- * @extends BaseRepository<ContactAddressEntity>
+ * @extends BaseRepository<AccountAddressEntity>
  */
-class ContactAddress extends BaseRepository {
+class AccountAddress extends BaseRepository {
 
 	/**
 	 * @return array<int, stdClass>
 	 */
-	public function getContactAddressData(Entity $entity): array {
+	public function getAccountAddressData(Entity $entity): array {
 		if (!$entity->hasId()) {
 			return [];
 		}
@@ -27,12 +27,12 @@ class ContactAddress extends BaseRepository {
 		$dataList = [];
 
 		$addressList = $this
-			->select([Field::ID, Field::NAME, ...ContactAddressEntity::FIELDS, ['en.primary', 'primary']])
+			->select([Field::ID, Field::NAME, ...AccountAddressEntity::FIELDS, ['en.primary', 'primary']])
 			->join(
-				ContactAddressEntity::RELATION_ENTITY_CONTACT_ADDRESS,
+				AccountAddressEntity::RELATION_ENTITY_ACCOUNT_ADDRESS,
 				'en',
 				[
-					'en.contactAddressId:' => 'id',
+					'en.accountAddressId:' => 'id',
 				]
 			)
 			->where([
@@ -45,13 +45,13 @@ class ContactAddress extends BaseRepository {
 
 		foreach ($addressList as $address) {
 			$item = (object)[
-				//'contactAddress' => $address->get(Field::NAME),
-				'contactAddressId' => $address->get(Field::ID),
-				'contactAddressName' => $address->get(Field::NAME),
+				//'accountAddress' => $address->get(Field::NAME),
+				'accountAddressId' => $address->get(Field::ID),
+				'accountAddressName' => $address->get(Field::NAME),
 				'primary' => $address->get('primary'),
 			];
 
-			foreach (ContactAddressEntity::FIELDS as $fieldName) {
+			foreach (AccountAddressEntity::FIELDS as $fieldName) {
 				$fieldValue = $address->get($fieldName);
 				$item->$fieldName = empty($fieldValue) ? null : $fieldValue;
 			}
@@ -67,9 +67,9 @@ class ContactAddress extends BaseRepository {
 	 * Create or find an existing contact address based on normalized data.
 	 *
 	 * @param array $data Address data containing street, city, state, country, postalCode
-	 * @return ContactAddressEntity
+	 * @return AccountAddressEntity
 	 */
-	public function getByData(array $data): ContactAddressEntity {
+	public function getByData(array $data): AccountAddressEntity {
 		$normalizedData = $this->normalizeAddressData($data);
 		$name = $this->formatAddressName($normalizedData);
 
@@ -78,8 +78,8 @@ class ContactAddress extends BaseRepository {
 		if ($address) {
 			return $address;
 		}
-		/** @var $address ContactAddressEntity */
-		$address = $this->entityManager->createEntity(ContactAddressEntity::ENTITY_TYPE, [
+		/** @var $address AccountAddressEntity */
+		$address = $this->entityManager->createEntity(AccountAddressEntity::ENTITY_TYPE, [
 			'name' => $name,
 			'street' => $normalizedData['street'] ?? null,
 			'city' => $normalizedData['city'] ?? null,
@@ -91,13 +91,13 @@ class ContactAddress extends BaseRepository {
 		return $address;
 	}
 
-	public function getByName(string $name): ?ContactAddressEntity {
-		/** @var ?ContactAddressEntity */
+	public function getByName(string $name): ?AccountAddressEntity {
+		/** @var ?AccountAddressEntity */
 		return $this->where(['name' => $name])->findOne();
 	}
 
-	public function getById(string $id): ?ContactAddressEntity {
-		/** @var ?ContactAddressEntity */
+	public function getById(string $id): ?AccountAddressEntity {
+		/** @var ?AccountAddressEntity */
 		return $this->where(['id' => $id])->findOne();
 	}
 
@@ -174,21 +174,21 @@ class ContactAddress extends BaseRepository {
 			$name = $this->formatAddressName($this->normalizeAddressData($data));
 			$entity->set('name', $name);
 		}
-		$hash = ContactAddressEntity::generateAddressKey($entity->getValueMap());
+		$hash = AccountAddressEntity::generateAddressKey($entity->getValueMap());
 		$entity->set('hash', $hash);
 		$GLOBALS['log']->debug('Saving address hash: ' . $hash);
 	}
 
 	public function markAddressInvalid(string $name, bool $isInvalid = true): void {
-		$contactAddress = $this->getByName($name);
+		$accountAddress = $this->getByName($name);
 
-		if (!$contactAddress) {
+		if (!$accountAddress) {
 			return;
 		}
 
-		$contactAddress->set('invalid', $isInvalid);
+		$accountAddress->set('invalid', $isInvalid);
 
-		$this->save($contactAddress);
+		$this->save($accountAddress);
 	}
 
 }

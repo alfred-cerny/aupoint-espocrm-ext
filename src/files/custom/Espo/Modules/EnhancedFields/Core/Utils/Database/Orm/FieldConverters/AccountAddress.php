@@ -7,17 +7,17 @@ use Espo\Core\Utils\Database\Orm\FieldConverter;
 use Espo\Core\Utils\Database\Orm\Defs\AttributeDefs;
 use Espo\Core\Utils\Database\Orm\Defs\EntityDefs;
 use Espo\Core\Utils\Database\Orm\Defs\RelationDefs;
-use Espo\Modules\EnhancedFields\Entities\ContactAddress as ContactAddressEntity;
+use Espo\Modules\EnhancedFields\Entities\AccountAddress as AccountAddressEntity;
 use Espo\ORM\Defs\FieldDefs;
 use Espo\ORM\Name\Attribute;
 use Espo\ORM\Type\AttributeType;
 use Espo\ORM\Type\RelationType;
 
 /**
- * Converts ContactAddress field type to appropriate database schema.
+ * Converts AccountAddress field type to appropriate database schema.
  * Creates many-to-many relationship tables and defines ORM relationships.
  */
-class ContactAddress implements FieldConverter {
+class AccountAddress implements FieldConverter {
 	private const COLUMN_ENTITY_TYPE_LENGTH = 100;
 
 	public function convert(FieldDefs $fieldDefs, string $entityType): EntityDefs {
@@ -26,11 +26,11 @@ class ContactAddress implements FieldConverter {
 		$foreignJoinAlias = "$name$entityType{alias}Foreign";
 		$foreignJoinMiddleAlias = "$name$entityType{alias}ForeignMiddle";
 
-		$contactAddressDefs = AttributeDefs
+		$accountAddressDefs = AttributeDefs
 			::create($name)
 			->withType(AttributeType::VARCHAR)
 			->withParamsMerged(
-				$this->getContactAddressParams($entityType, $foreignJoinAlias, $foreignJoinMiddleAlias)
+				$this->getAccountAddressParams($entityType, $foreignJoinAlias, $foreignJoinMiddleAlias)
 			);
 
 		$dataDefs = AttributeDefs
@@ -39,16 +39,16 @@ class ContactAddress implements FieldConverter {
 			->withNotStorable()
 			->withParamsMerged([
 				AttributeParam::NOT_EXPORTABLE => true,
-				'isContactAddressData' => true,
+				'isAccountAddressData' => true,
 				'field' => $name,
 			]);
 
 		$relationDefs = RelationDefs
-			::create('contactAddresses')
+			::create('accountAddresses')
 			->withType(RelationType::MANY_MANY)
-			->withForeignEntityType(ContactAddressEntity::ENTITY_TYPE)
-			->withRelationshipName('entityContactAddress')
-			->withMidKeys('entityId', 'contactAddressId')
+			->withForeignEntityType(AccountAddressEntity::ENTITY_TYPE)
+			->withRelationshipName('entityAccountAddress')
+			->withMidKeys('entityId', 'accountAddressId')
 			->withConditions(['entityType' => $entityType])
 			->withAdditionalColumn(
 				AttributeDefs
@@ -64,7 +64,7 @@ class ContactAddress implements FieldConverter {
 			);
 
 		return EntityDefs::create()
-			->withAttribute($contactAddressDefs)
+			->withAttribute($accountAddressDefs)
 			->withAttribute($dataDefs)
 			->withRelation($relationDefs);
 	}
@@ -72,7 +72,7 @@ class ContactAddress implements FieldConverter {
 	/**
 	 * @return array<string, mixed>
 	 */
-	private function getContactAddressParams(
+	private function getAccountAddressParams(
 		string $entityType,
 		string $foreignJoinAlias,
 		string $foreignJoinMiddleAlias,
@@ -80,14 +80,14 @@ class ContactAddress implements FieldConverter {
 
 		return [
 			'select' => [
-				"select" => "contactAddresses.name",
-				'leftJoins' => [['contactAddresses', 'contactAddresses', ['primary' => true]]],
+				"select" => "accountAddresses.name",
+				'leftJoins' => [['accountAddresses', 'accountAddresses', ['primary' => true]]],
 			],
 			'selectForeign' => [
 				"select" => "$foreignJoinAlias.name",
 				'leftJoins' => [
 					[
-						'EntityContactAddress',
+						'EntityAccountAddress',
 						$foreignJoinMiddleAlias,
 						[
 							"$foreignJoinMiddleAlias.entityId:" => "{alias}.id",
@@ -96,36 +96,36 @@ class ContactAddress implements FieldConverter {
 						]
 					],
 					[
-						ContactAddressEntity::ENTITY_TYPE,
+						AccountAddressEntity::ENTITY_TYPE,
 						$foreignJoinAlias,
 						[
-							"$foreignJoinAlias.id:" => "$foreignJoinMiddleAlias.contactAddressId",
+							"$foreignJoinAlias.id:" => "$foreignJoinMiddleAlias.accountAddressId",
 							"$foreignJoinAlias.deleted" => false,
 						]
 					]
 				],
 			],
-			'fieldType' => 'ContactAddress',
+			'fieldType' => 'AccountAddress',
 			'where' => [
 				'LIKE' => [
 					'whereClause' => [
 						'id=s' => [
-							'from' => 'EntityContactAddress',
+							'from' => 'EntityAccountAddress',
 							'select' => ['entityId'],
 							'joins' => [
 								[
-									'contactAddress',
-									'contactAddress',
+									'accountAddress',
+									'accountAddress',
 									[
-										'contactAddress.id:' => 'contactAddressId',
-										'contactAddress.deleted' => false,
+										'accountAddress.id:' => 'accountAddressId',
+										'accountAddress.deleted' => false,
 									],
 								],
 							],
 							'whereClause' => [
 								Attribute::DELETED => false,
 								'entityType' => $entityType,
-								'contactAddress.name*' => '{value}',
+								'accountAddress.name*' => '{value}',
 							],
 						],
 					],
@@ -133,51 +133,51 @@ class ContactAddress implements FieldConverter {
 				'NOT LIKE' => [
 					'whereClause' => [
 						'id!=s' => [
-							'from' => 'EntityContactAddress',
+							'from' => 'EntityAccountAddress',
 							'select' => ['entityId'],
 							'joins' => [
 								[
-									'contactAddress',
-									'contactAddress',
+									'accountAddress',
+									'accountAddress',
 									[
-										'contactAddress.id:' => 'contactAddressId',
-										'contactAddress.deleted' => false,
+										'accountAddress.id:' => 'accountAddressId',
+										'accountAddress.deleted' => false,
 									],
 								],
 							],
 							'whereClause' => [
 								Attribute::DELETED => false,
 								'entityType' => $entityType,
-								'contactAddress.name*' => '{value}',
+								'accountAddress.name*' => '{value}',
 							],
 						],
 					],
 				],
 				'=' => [
-					'leftJoins' => [['contactAddresses', 'contactAddressesMultiple']],
+					'leftJoins' => [['accountAddresses', 'accountAddressesMultiple']],
 					'whereClause' => [
-						'contactAddressesMultiple.name=' => '{value}',
+						'accountAddressesMultiple.name=' => '{value}',
 					]
 				],
 				'<>' => [
 					'whereClause' => [
 						'id!=s' => [
-							'from' => 'EntityContactAddress',
+							'from' => 'EntityAccountAddress',
 							'select' => ['entityId'],
 							'joins' => [
 								[
-									'contactAddress',
-									'contactAddress',
+									'accountAddress',
+									'accountAddress',
 									[
-										'contactAddress.id:' => 'contactAddressId',
-										'contactAddress.deleted' => false,
+										'accountAddress.id:' => 'accountAddressId',
+										'accountAddress.deleted' => false,
 									],
 								],
 							],
 							'whereClause' => [
 								Attribute::DELETED => false,
 								'entityType' => $entityType,
-								'contactAddress.name' => '{value}',
+								'accountAddress.name' => '{value}',
 							],
 						],
 					],
@@ -185,22 +185,22 @@ class ContactAddress implements FieldConverter {
 				'IN' => [
 					'whereClause' => [
 						'id=s' => [
-							'from' => 'EntityContactAddress',
+							'from' => 'EntityAccountAddress',
 							'select' => ['entityId'],
 							'joins' => [
 								[
-									'contactAddress',
-									'contactAddress',
+									'accountAddress',
+									'accountAddress',
 									[
-										'contactAddress.id:' => 'contactAddressId',
-										'contactAddress.deleted' => false,
+										'accountAddress.id:' => 'accountAddressId',
+										'accountAddress.deleted' => false,
 									],
 								],
 							],
 							'whereClause' => [
 								Attribute::DELETED => false,
 								'entityType' => $entityType,
-								'contactAddress.name' => '{value}',
+								'accountAddress.name' => '{value}',
 							],
 						],
 					],
@@ -208,36 +208,36 @@ class ContactAddress implements FieldConverter {
 				'NOT IN' => [
 					'whereClause' => [
 						'id=s' => [
-							'from' => 'EntityContactAddress',
+							'from' => 'EntityAccountAddress',
 							'select' => ['entityId'],
 							'joins' => [
 								[
-									'contactAddress',
-									'contactAddress',
+									'accountAddress',
+									'accountAddress',
 									[
-										'contactAddress.id:' => 'contactAddressId',
-										'contactAddress.deleted' => false,
+										'accountAddress.id:' => 'accountAddressId',
+										'accountAddress.deleted' => false,
 									],
 								],
 							],
 							'whereClause' => [
 								Attribute::DELETED => false,
 								'entityType' => $entityType,
-								'contactAddress.name!=' => '{value}',
+								'accountAddress.name!=' => '{value}',
 							],
 						],
 					],
 				],
 				'IS NULL' => [
-					'leftJoins' => [['contactAddresses', 'contactAddressesMultiple']],
+					'leftJoins' => [['accountAddresses', 'accountAddressesMultiple']],
 					'whereClause' => [
-						'contactAddressesMultiple.name=' => null,
+						'accountAddressesMultiple.name=' => null,
 					]
 				],
 				'IS NOT NULL' => [
 					'whereClause' => [
 						'id=s' => [
-							'from' => 'EntityContactAddress',
+							'from' => 'EntityAccountAddress',
 							'select' => ['entityId'],
 							'whereClause' => [
 								Attribute::DELETED => false,
@@ -249,10 +249,10 @@ class ContactAddress implements FieldConverter {
 			],
 			'order' => [
 				'order' => [
-					['contactAddresses.name', '{direction}'],
+					['accountAddresses.name', '{direction}'],
 				],
-				'leftJoins' => [['contactAddresses', 'contactAddresses', ['primary' => true]]],
-				'additionalSelect' => ['contactAddresses.name'],
+				'leftJoins' => [['accountAddresses', 'accountAddresses', ['primary' => true]]],
+				'additionalSelect' => ['accountAddresses.name'],
 			],
 		];
 	}

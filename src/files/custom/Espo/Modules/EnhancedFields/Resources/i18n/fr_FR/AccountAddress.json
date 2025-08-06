@@ -11,7 +11,10 @@
 		"type": "Type"
 	},
 	"labels": {
-		"Create ContactAddress": "Créer une adresse de contact"
+		"Create AccountAddress": "Créer une adresse de compte"
+	},
+	"links": {
+		"account": "Compte"
 	},
 	"messages": {
 		"accountIsRequired": "Un compte est requis"

@@ -1,6 +1,6 @@
-{{#if contactAddressData}}
-    {{#each contactAddressData}}
-        <div class="contact-address-item" style="padding-bottom: 15px; margin-bottom: 10px; border-bottom: 1px solid #ddd; display: flex; align-items: flex-start;">
+{{#if accountAddressData}}
+    {{#each accountAddressData}}
+        <div class="account-address-item" style="padding-bottom: 15px; margin-bottom: 10px; border-bottom: 1px solid #ddd; display: flex; align-items: flex-start;">
             <div class="address-label" style="font-weight: bold; min-width: 150px; margin-right: 20px; flex-shrink: 0; {{#if primary}}color: #0066cc;{{/if}}">
                 {{#if primary}}★ {{/if}}{{#if description}}{{{description}}}{{/if}}
                 {{#if primary}}

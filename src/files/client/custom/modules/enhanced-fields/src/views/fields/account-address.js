@@ -1,23 +1,23 @@
-define('enhanced-fields:views/fields/contact-address', ['views/fields/base', 'ui/select'], (Dep, Select) => {
-		class ContactAddressField extends Dep {
-			type = 'contactAddress';
+define('enhanced-fields:views/fields/account-address', ['views/fields/base', 'ui/select'], (Dep, Select) => {
+		class AccountAddressField extends Dep {
+			type = 'accountAddress';
 
-			editTemplate = 'enhanced-fields:fields/contact-address/edit';
-			detailTemplate = 'enhanced-fields:fields/contact-address/detail';
-			listTemplate = 'enhanced-fields:fields/contact-address/list';
+			editTemplate = 'enhanced-fields:fields/account-address/edit';
+			detailTemplate = 'enhanced-fields:fields/account-address/detail';
+			listTemplate = 'enhanced-fields:fields/account-address/list';
 
 			addressFormat = null;
 
 			validations = ['addressData'];
 
 			events = {
-				'click [data-action="addContactAddress"]': () => {
-					this.addContactAddress();
+				'click [data-action="addAccountAddress"]': () => {
+					this.addAccountAddress();
 				},
-				'click [data-action="removeContactAddress"]': (e) => {
-					const $block = $(e.currentTarget).closest('.contact-address-block');
+				'click [data-action="removeAccountAddress"]': (e) => {
+					const $block = $(e.currentTarget).closest('.account-address-block');
 					const index = $block?.attr('data-id') || 0;
-					this.removeContactAddress(index, $block);
+					this.removeAccountAddress(index, $block);
 				},
 				'click [data-action="setPrimary"]': () => {
 					this.trigger('change');
@@ -39,7 +39,7 @@ define('enhanced-fields:views/fields/contact-address', ['views/fields/base', 'ui
 
 			afterRender() {
 				super.afterRender();
-				this.$el.find('.contact-address-block').each((i, el) => {
+				this.$el.find('.account-address-block').each((i, el) => {
 					const $block = $(el);
 					if (this.mode === 'edit') {
 						this.initAddressAutocomplete($block);
@@ -47,8 +47,8 @@ define('enhanced-fields:views/fields/contact-address', ['views/fields/base', 'ui
 					const accountFieldName = this.getIndexedFieldName('Account', i);
 					this.getModelFactory().create(this.model.name, model => {
 						model.set('accountsIds', this.model.get('accountsIds'));
-						model.set('accountId', $block.find('.contact-address-account-id').val() || null);
-						model.set('accountName', $block.find('.contact-address-account-name').val() || null);
+						model.set('accountId', $block.find('.account-address-account-id').val() || null);
+						model.set('accountName', $block.find('.account-address-account-name').val() || null);
 
 						this.createView(accountFieldName, 'enhanced-fields:views/enhanced-fields/fields/related-account-link', {
 							model,
@@ -65,7 +65,7 @@ define('enhanced-fields:views/fields/contact-address', ['views/fields/base', 'ui
 							view.render();
 						});
 
-						let type = $block.find('.contact-address-type-val').val() || null;
+						let type = $block.find('.account-address-type-val').val() || null;
 						if (type && !Array.isArray(type)) {
 							type = [type];
 						}
@@ -76,12 +76,12 @@ define('enhanced-fields:views/fields/contact-address', ['views/fields/base', 'ui
 							model,
 							mode: this.mode,
 							name: 'type',
-							selector: `.contact-address-block[data-id="${i}"] .contact-address-type`,
+							selector: `.account-address-block[data-id="${i}"] .account-address-type`,
 							defs: {
 								params: {
 									maxCount: 1,
 									allowCustomOptions: true,
-									optionsReference: 'ContactAddress.type',
+									optionsReference: 'AccountAddress.type',
 								}
 							}
 						}).then((view) => {
@@ -94,9 +94,9 @@ define('enhanced-fields:views/fields/contact-address', ['views/fields/base', 'ui
 			initAddressAutocomplete($block) {
 				const config = this.getConfig();
 				const lists = [
-					['.contact-address-country', config.get('addressCountryList') || []],
-					['.contact-address-state', config.get('addressStateList') || []],
-					['.contact-address-city', config.get('addressCityList') || []],
+					['.account-address-country', config.get('addressCountryList') || []],
+					['.account-address-state', config.get('addressStateList') || []],
+					['.account-address-city', config.get('addressCityList') || []],
 				];
 
 				for (const [selector, list] of lists) {
@@ -117,11 +117,11 @@ define('enhanced-fields:views/fields/contact-address', ['views/fields/base', 'ui
 				});
 			}
 
-			addContactAddress() {
+			addAccountAddress() {
 				const data = this.fetchFieldData();
 				const addressData = {
 					primary: data.length === 0,
-					contactAddressId: null
+					accountAddressId: null
 				};
 
 				if (this.model.name === 'Account') {
@@ -133,11 +133,11 @@ define('enhanced-fields:views/fields/contact-address', ['views/fields/base', 'ui
 
 				this.model.set(this.dataFieldName, data, {silent: true});
 				this.reRender().then(() => {
-					this.$el.find('.contact-address-street').last().focus();
+					this.$el.find('.account-address-street').last().focus();
 				});
 			}
 
-			removeContactAddress(index, $block) {
+			removeAccountAddress(index, $block) {
 				const data = this.fetchFieldData();
 				if (data.length <= 1) return;
 
@@ -153,25 +153,25 @@ define('enhanced-fields:views/fields/contact-address', ['views/fields/base', 'ui
 			}
 
 			fetchFieldData() {
-				return this.$el.find('.contact-address-block').map((i, el) => {
+				return this.$el.find('.account-address-block').map((i, el) => {
 					const $block = $(el);
 					const accountFieldName = `${this.name}Account-${i}`;
 
-					let type = $block.find('.contact-address-type .item').attr('data-value') || null;
+					let type = $block.find('.account-address-type .item').attr('data-value') || null;
 					if (type && !Array.isArray(type)) {
 						type = [type];
 					}
 
 					return {
-						contactAddressId: $block.find('.contact-address-id').val() || null,
-						description: $block.find('.contact-address-description').val() || null,
+						accountAddressId: $block.find('.account-address-id').val() || null,
+						description: $block.find('.account-address-description').val() || null,
 						accountId: $block.find(`div[data-name="${accountFieldName}"] input[data-name="accountId"]`).val() || null,
 						accountName: $block.find(`div[data-name="${accountFieldName}"] input[data-name="accountName"]`).val() || null,
-						street: $block.find('.contact-address-street').val().trim() || null,
-						city: $block.find('.contact-address-city').val().trim() || null,
-						state: $block.find('.contact-address-state').val().trim() || null,
-						country: $block.find('.contact-address-country').val().trim() || null,
-						postalCode: $block.find('.contact-address-postal-code').val().trim() || null,
+						street: $block.find('.account-address-street').val().trim() || null,
+						city: $block.find('.account-address-city').val().trim() || null,
+						state: $block.find('.account-address-state').val().trim() || null,
+						country: $block.find('.account-address-country').val().trim() || null,
+						postalCode: $block.find('.account-address-postal-code').val().trim() || null,
 						type: type,
 						primary: $block.find(`input[name="${this.name}-primary"]`).is(':checked'),
 					};
@@ -179,21 +179,21 @@ define('enhanced-fields:views/fields/contact-address', ['views/fields/base', 'ui
 			}
 
 			data() {
-				let contactAddressData = this.model.get(this.dataFieldName);
+				let accountAddressData = this.model.get(this.dataFieldName);
 
 				if (this.mode === 'edit') {
-					contactAddressData = contactAddressData || [];
+					accountAddressData = accountAddressData || [];
 
-					if (!contactAddressData.length) {
-						contactAddressData.push({
+					if (!accountAddressData.length) {
+						accountAddressData.push({
 							street: null,
 							city: null,
 							state: null,
 							country: null,
 							postalCode: null,
 							primary: true,
-							contactAddressId: null,
-							contactAddressName: null,
+							accountAddressId: null,
+							accountAddressName: null,
 							accountId: null,
 							description: null
 						});
@@ -201,7 +201,7 @@ define('enhanced-fields:views/fields/contact-address', ['views/fields/base', 'ui
 				}
 
 				return {
-					contactAddressData: contactAddressData,
+					accountAddressData: accountAddressData,
 					name: this.name,
 				};
 			}
@@ -234,7 +234,7 @@ define('enhanced-fields:views/fields/contact-address', ['views/fields/base', 'ui
 
 				return addressData.some((address, i) => {
 					/*if (!address.accountId) {
-						const msg = this.translate('accountIsRequired', 'messages', 'ContactAddress')
+						const msg = this.translate('accountIsRequired', 'messages', 'AccountAddress')
 							.replace('{field}', this.getLabelText());
 						const accountFieldName = `${this.name}Account-${i}`;
 						this.showValidationMessage(msg, `[data-name="${accountFieldName}"] input`);
@@ -252,6 +252,6 @@ define('enhanced-fields:views/fields/contact-address', ['views/fields/base', 'ui
 			}
 		}
 
-		return ContactAddressField;
+		return AccountAddressField;
 	}
 );

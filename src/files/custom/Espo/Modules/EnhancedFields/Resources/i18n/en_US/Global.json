@@ -1,14 +1,14 @@
 {
 	"fieldTypes": {
-		"contactAddress": "Contact Address"
+		"accountAddress": "Account Address"
 	},
 	"fields": {
-		"contactAddress": "Organization addresses"
+		"accountAddress": "Organization addresses"
 	},
 	"scopeNamesPlural": {
-		"ContactAddress": "Address"
+		"AccountAddress": "Address"
 	},
 	"scopeNamesSingular": {
-		"ContactAddress": "Address"
+		"AccountAddress": "Address"
 	}
 }

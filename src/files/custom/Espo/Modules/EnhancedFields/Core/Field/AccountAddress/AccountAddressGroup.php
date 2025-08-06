@@ -1,29 +1,29 @@
 <?php
 
-namespace Espo\Modules\EnhancedFields\Core\Field\ContactAddress;
+namespace Espo\Modules\EnhancedFields\Core\Field\AccountAddress;
 
 use Countable;
 use Iterator;
 use RuntimeException;
 
 /**
- * Represents a collection of contact addresses for an entity.
+ * Represents a collection of account addresses for an entity.
  * Manages multiple addresses with one primary address.
  */
-class ContactAddressGroup implements Countable, Iterator {
-	/** @var ContactAddress[] */
+class AccountAddressGroup implements Countable, Iterator {
+	/** @var AccountAddress[] */
 	private array $addressList = [];
 
 	private int $position = 0;
 
 	/**
-	 * @param ContactAddress[] $addressList
+	 * @param AccountAddress[] $addressList
 	 */
 	public function __construct(array $addressList = []) {
 		$primaryCount = 0;
 
 		foreach ($addressList as $address) {
-			if (!$address instanceof ContactAddress) {
+			if (!$address instanceof AccountAddress) {
 				throw new RuntimeException("Invalid address object provided.");
 			}
 
@@ -44,11 +44,11 @@ class ContactAddressGroup implements Countable, Iterator {
 	}
 
 	/**
-	 * Get the primary contact address.
+	 * Get the primary account address.
 	 *
-	 * @return ContactAddress|null
+	 * @return AccountAddress|null
 	 */
-	public function getPrimary(): ?ContactAddress {
+	public function getPrimary(): ?AccountAddress {
 		foreach ($this->addressList as $address) {
 			if ($address->isPrimary()) {
 				return $address;
@@ -61,7 +61,7 @@ class ContactAddressGroup implements Countable, Iterator {
 	/**
 	 * Get list of secondary addresses.
 	 *
-	 * @return ContactAddress[]
+	 * @return AccountAddress[]
 	 */
 	public function getSecondaryList(): array {
 		$list = [];
@@ -78,7 +78,7 @@ class ContactAddressGroup implements Countable, Iterator {
 	/**
 	 * Get all addresses.
 	 *
-	 * @return ContactAddress[]
+	 * @return AccountAddress[]
 	 */
 	public function getList(): array {
 		return $this->addressList;
@@ -118,9 +118,9 @@ class ContactAddressGroup implements Countable, Iterator {
 	 * Get address by ID.
 	 *
 	 * @param string $addressId
-	 * @return ContactAddress|null
+	 * @return AccountAddress|null
 	 */
-	public function getByAddressId(string $addressId): ?ContactAddress {
+	public function getByAddressId(string $addressId): ?AccountAddress {
 		foreach ($this->addressList as $address) {
 			if ($address->getAddressId() === $addressId) {
 				return $address;
@@ -138,7 +138,7 @@ class ContactAddressGroup implements Countable, Iterator {
 		$this->position = 0;
 	}
 
-	public function current(): ContactAddress {
+	public function current(): AccountAddress {
 		return $this->addressList[$this->position];
 	}
 

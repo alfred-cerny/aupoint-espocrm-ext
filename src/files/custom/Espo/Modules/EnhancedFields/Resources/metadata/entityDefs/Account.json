@@ -1,13 +1,13 @@
 {
 	"fields": {
-		"contactAddress": {
-			"type": "contactAddress"
+		"accountAddress": {
+			"type": "accountAddress"
 		}
 	},
 	"links": {
-		"contactAddresses": {
-			"entity": "ContactAddress",
-			"relationName": "entityContactAddress",
+		"accountAddresses": {
+			"entity": "AccountAddress",
+			"relationName": "entityAccountAddress",
 			"foreign": "account",
 			"type": "hasMany"
 		}

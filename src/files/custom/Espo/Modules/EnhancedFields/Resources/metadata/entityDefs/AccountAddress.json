@@ -82,8 +82,8 @@
 	"links": {
 		"account": {
 			"entity": "Account",
-			"foreign": "contactAddresses",
-			"relationName": "entityContactAddress",
+			"foreign": "accountAddresses",
+			"relationName": "entityAccountAddress",
 			"type": "belongsTo"
 		}
 	}

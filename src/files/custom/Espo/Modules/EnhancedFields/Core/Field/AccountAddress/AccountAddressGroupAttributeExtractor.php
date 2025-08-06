@@ -1,20 +1,20 @@
 <?php
 
-namespace Espo\Modules\EnhancedFields\Core\Field\ContactAddress;
+namespace Espo\Modules\EnhancedFields\Core\Field\AccountAddress;
 
 use Espo\ORM\Value\AttributeExtractor;
 use stdClass;
 
 /**
- * Extracts attributes from ContactAddressGroup for storage.
- * Converts ContactAddressGroup value objects to data suitable for entity storage.
+ * Extracts attributes from AccountAddressGroup for storage.
+ * Converts AccountAddressGroup value objects to data suitable for entity storage.
  */
-class ContactAddressGroupAttributeExtractor implements AttributeExtractor {
+class AccountAddressGroupAttributeExtractor implements AttributeExtractor {
 	/**
-	 * @param ContactAddressGroup $value
+	 * @param AccountAddressGroup $value
 	 */
 	public function extract(object $value, string $field): stdClass {
-		if (!$value instanceof ContactAddressGroup) {
+		if (!$value instanceof AccountAddressGroup) {
 			throw new \RuntimeException("Invalid value object type.");
 		}
 
@@ -24,8 +24,8 @@ class ContactAddressGroupAttributeExtractor implements AttributeExtractor {
 		foreach ($value->getList() as $address) {
 			$o = new stdClass();
 
-			$o->contactAddressId = $address->getAddressId();
-			$o->contactAddressName = $address->getName();
+			$o->accountAddressId = $address->getAddressId();
+			$o->accountAddressName = $address->getName();
 			$o->street = $address->getStreet();
 			$o->city = $address->getCity();
 			$o->state = $address->getState();

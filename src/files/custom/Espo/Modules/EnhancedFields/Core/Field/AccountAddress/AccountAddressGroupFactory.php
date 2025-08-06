@@ -1,6 +1,6 @@
 <?php
 
-namespace Espo\Modules\EnhancedFields\Core\Field\ContactAddress;
+namespace Espo\Modules\EnhancedFields\Core\Field\AccountAddress;
 
 use Espo\ORM\Entity;
 use Espo\ORM\EntityManager;
@@ -8,10 +8,10 @@ use Espo\ORM\Value\ValueFactory;
 use Espo\Core\Utils\Metadata;
 
 /**
- * Factory for creating ContactAddressGroup value objects from entity data.
- * Handles loading related ContactAddress entities and converting to value objects.
+ * Factory for creating AccountAddressGroup value objects from entity data.
+ * Handles loading related AccountAddress entities and converting to value objects.
  */
-readonly class ContactAddressGroupFactory implements ValueFactory {
+readonly class AccountAddressGroupFactory implements ValueFactory {
 
 	public function __construct(
 		protected EntityManager $entityManager,
@@ -20,30 +20,30 @@ readonly class ContactAddressGroupFactory implements ValueFactory {
 	public function isCreatableFromEntity(Entity $entity, string $field): bool {
 		$type = $this->metadata->get(['entityDefs', $entity->getEntityType(), 'fields', $field, 'type']);
 
-		return $type === 'contactAddress';
+		return $type === 'accountAddress';
 	}
 
-	public function createFromEntity(Entity $entity, string $field): ContactAddressGroup {
+	public function createFromEntity(Entity $entity, string $field): AccountAddressGroup {
 		if (!$this->isCreatableFromEntity($entity, $field)) {
 			throw new \RuntimeException("Can't create from entity.");
 		}
 
-		$contactAddressData = $entity->get($field . 'Data');
+		$accountAddressData = $entity->get($field . 'Data');
 
-		if (empty($contactAddressData)) {
-			return new ContactAddressGroup([]);
+		if (empty($accountAddressData)) {
+			return new AccountAddressGroup([]);
 		}
 
 		$addressList = [];
 
-		foreach ($contactAddressData as $item) {
-			$addressId = $item->contactAddressId ?? null;
+		foreach ($accountAddressData as $item) {
+			$addressId = $item->accountAddressId ?? null;
 
 			if (!$addressId) {
 				continue;
 			}
 
-			$name = $item->contactAddressName ?? '';
+			$name = $item->accountAddressName ?? '';
 			$street = $item->street ?? null;
 			$city = $item->city ?? null;
 			$state = $item->state ?? null;
@@ -51,7 +51,7 @@ readonly class ContactAddressGroupFactory implements ValueFactory {
 			$postalCode = $item->postalCode ?? null;
 			$primary = $item->primary ?? false;
 
-			$addressList[] = new ContactAddress(
+			$addressList[] = new AccountAddress(
 				$addressId,
 				$name,
 				$street,
@@ -63,7 +63,7 @@ readonly class ContactAddressGroupFactory implements ValueFactory {
 			);
 		}
 
-		return new ContactAddressGroup($addressList);
+		return new AccountAddressGroup($addressList);
 	}
 
 }

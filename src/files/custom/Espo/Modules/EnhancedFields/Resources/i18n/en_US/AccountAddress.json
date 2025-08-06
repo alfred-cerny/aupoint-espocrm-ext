@@ -11,7 +11,10 @@
 		"type": "Type"
 	},
 	"labels": {
-		"Create ContactAddress": "Create Contact Address"
+		"Create AccountAddress": "Create Account Address"
+	},
+	"links": {
+		"account": "Account"
 	},
 	"messages": {
 		"accountIsRequired": "Account is required"

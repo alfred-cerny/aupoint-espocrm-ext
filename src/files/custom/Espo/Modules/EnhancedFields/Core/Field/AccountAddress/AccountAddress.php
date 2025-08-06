@@ -1,12 +1,12 @@
 <?php
 
-namespace Espo\Modules\EnhancedFields\Core\Field\ContactAddress;
+namespace Espo\Modules\EnhancedFields\Core\Field\AccountAddress;
 
 /**
- * Represents a single contact address with all its properties.
- * Immutable value object for contact address data.
+ * Represents a single account address with all its properties.
+ * Immutable value object for account address data.
  */
-class ContactAddress {
+class AccountAddress {
 	private string $addressId;
 	private string $name;
 	private ?string $street;
