@@ -16,6 +16,7 @@
                 </div>
 
                 <div class="metadata" style="font-size: 0.9em; color: #666; margin-top: 5px;">
+                    {{#if showAccountInfo}}
                     <span>
                         {{translate 'Account'}}:
                         {{#if accountId}}
@@ -24,8 +25,9 @@
                             <span class="none-value">{{translate 'None'}}</span>
                         {{/if}}
                     </span>
+                    {{/if}}
                     {{#if type}}
-                        <span style="margin: 0 8px;">|</span>
+                        {{#if showAccountInfo}}<span style="margin: 0 8px;">|</span>{{/if}}
                         <span>{{translate 'Type'}}: {{type}}</span>
                     {{/if}}
                 </div>

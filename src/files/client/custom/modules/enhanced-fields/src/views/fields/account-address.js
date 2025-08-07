@@ -161,11 +161,13 @@ define('enhanced-fields:views/fields/account-address', ['views/fields/base', 'ui
 					if (type && !Array.isArray(type)) {
 						type = [type];
 					}
+					const accountId = $block.find(`div[data-name="${accountFieldName}"] input[data-name="accountId"]`).val() || null;
+					const showAccountInfo = this.model.name !== 'Account' || accountId !== this.model.get('id');
 
 					return {
 						accountAddressId: $block.find('.account-address-id').val() || null,
 						description: $block.find('.account-address-description').val() || null,
-						accountId: $block.find(`div[data-name="${accountFieldName}"] input[data-name="accountId"]`).val() || null,
+						accountId,
 						accountName: $block.find(`div[data-name="${accountFieldName}"] input[data-name="accountName"]`).val() || null,
 						street: $block.find('.account-address-street').val().trim() || null,
 						city: $block.find('.account-address-city').val().trim() || null,
@@ -174,6 +176,7 @@ define('enhanced-fields:views/fields/account-address', ['views/fields/base', 'ui
 						postalCode: $block.find('.account-address-postal-code').val().trim() || null,
 						type: type,
 						primary: $block.find(`input[name="${this.name}-primary"]`).is(':checked'),
+						showAccountInfo
 					};
 				}).get();
 			}

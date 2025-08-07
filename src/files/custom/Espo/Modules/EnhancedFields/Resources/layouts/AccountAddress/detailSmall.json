@@ -1,0 +1,46 @@
+[
+	{
+		"label": "Overview",
+		"rows": [
+			[
+				{
+					"name": "street"
+				},
+				{
+					"name": "city"
+				},
+				{
+					"name": "postalCode"
+				}
+			],
+			[
+				{
+					"name": "state"
+				},
+				{
+					"name": "country"
+				}
+			]
+		],
+		"style": "info"
+	},
+	{
+		"label": "Technicals",
+		"rows": [
+			[
+				{
+					"name": "account"
+				},
+				{
+					"name": "type"
+				}
+			],
+			[
+				{
+					"name": "description"
+				}
+			]
+		],
+		"style": "success"
+	}
+]

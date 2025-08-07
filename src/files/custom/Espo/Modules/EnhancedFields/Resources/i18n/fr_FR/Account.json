@@ -3,6 +3,9 @@
 		"sector": "Secteur d’activité",
 		"subsectors": "Sous-secteurs d’activité"
 	},
+	"links": {
+		"accountAddresses": "Adresses de l'organisation"
+	},
 	"options": {
 		"sectors": {
 			"Commerce and Services": "Commerces et services",

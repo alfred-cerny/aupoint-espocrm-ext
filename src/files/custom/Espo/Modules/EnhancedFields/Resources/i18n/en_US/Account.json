@@ -2,5 +2,8 @@
 	"fields": {
 		"sector": "Sector",
 		"subsectors": "Subsectors"
+	},
+	"links": {
+		"accountAddresses": "Organization addresses"
 	}
 }
