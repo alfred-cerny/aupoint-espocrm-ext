@@ -26,9 +26,11 @@
                         {{/if}}
                     </span>
                     {{/if}}
-                    {{#if type}}
+                    {{#if hasLabels}}
                         {{#if showAccountInfo}}<span style="margin: 0 8px;">|</span>{{/if}}
-                        <span>{{translate 'Type'}}: {{type}}</span>
+                        {{#each labels as | label |}}
+                        <span>{{translate 'Labels'}}: {{label}}</span>
+                        {{/each}}
                     {{/if}}
                 </div>
             </div>

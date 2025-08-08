@@ -8,7 +8,7 @@
 		"postalCode": "Postal Code",
 		"state": "State",
 		"street": "Street",
-		"type": "Type"
+		"labels": "Labels"
 	},
 	"labels": {
 		"Create AccountAddress": "Create Account Address"
@@ -20,7 +20,7 @@
 		"accountIsRequired": "Account is required"
 	},
 	"options": {
-		"type": {
+		"labels": {
 			"Billing Address": "Billing Address",
 			"Construction Site": "Construction Site",
 			"Distribution Center": "Distribution Center",

@@ -8,7 +8,7 @@
 		"postalCode": "Code postal",
 		"state": "État/Région",
 		"street": "Rue",
-		"type": "Type"
+		"labels": "Étiquettes"
 	},
 	"labels": {
 		"Create AccountAddress": "Créer une adresse de compte"
@@ -20,7 +20,7 @@
 		"accountIsRequired": "Un compte est requis"
 	},
 	"options": {
-		"type": {
+		"labels": {
 			"Billing Address": "Adresse de facturation",
 			"Construction Site": "Chantier",
 			"Distribution Center": "Centre de distribution",

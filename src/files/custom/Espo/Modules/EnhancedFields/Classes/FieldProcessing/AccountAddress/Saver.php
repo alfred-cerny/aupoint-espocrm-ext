@@ -108,16 +108,16 @@ class Saver implements SaverInterface {
 				continue;
 			}
 
-			$type = $row->type ??
+			/*$labels = $row->labels ??
 				$this->metadata
-					->get(['entityDefs', $entity->getEntityType(), 'fields', 'accountAddress', 'type', 'options']);
+					->get(['entityDefs', $entity->getEntityType(), 'fields', 'accountAddress', 'labels', 'options']);
 			if (is_array($type)) {
 				$type = $type[0];
-			}
+			}*/
 
 			$hash->$key = [
 				'primary' => !empty($row->primary),
-				'type' => $type,
+				'labels' => $row->labels ?? null,
 				'street' => $row->street ?? '',
 				'city' => $row->city ?? '',
 				'state' => $row->state ?? '',
@@ -154,14 +154,14 @@ class Saver implements SaverInterface {
 			if (empty($key)) {
 				continue;
 			}
-			$type = $row->type ?? null;
-			if (is_array($type)) {
-				$type = $type[0];
-			}
-			
+			/*$labels = $row->labels ?? null;
+			if (is_array($labels)) {
+				$labels = $labels[0];
+			}*/
+
 			$hashPrevious->$key = [
 				'primary' => (bool)$row->primary,
-				'type' => $type,
+				'labels' => $row->labels ?? null,
 				'street' => $row->street ?? '',
 				'city' => $row->city ?? '',
 				'state' => $row->state ?? '',
@@ -195,7 +195,7 @@ class Saver implements SaverInterface {
 				$new = false;
 
 				$changed =
-					$hash->{$key}['type'] !== $hashPrevious->{$key}['type'] ||
+					$hash->{$key}['labels'] !== $hashPrevious->{$key}['labels'] ||
 					$hash->{$key}['street'] !== $hashPrevious->{$key}['street'] ||
 					$hash->{$key}['city'] !== $hashPrevious->{$key}['city'] ||
 					$hash->{$key}['state'] !== $hashPrevious->{$key}['state'] ||
@@ -254,7 +254,7 @@ class Saver implements SaverInterface {
 
 				if (!$skipSave) {
 					$accountAddress->set([
-						'type' => [$hash->{$name}['type']], //type is multiEnum
+						'labels' => $hash->{$name}['labels'],
 						'street' => $hash->{$name}['street'],
 						'city' => $hash->{$name}['city'],
 						'state' => $hash->{$name}['state'],
@@ -268,7 +268,7 @@ class Saver implements SaverInterface {
 					$this->entityManager->saveEntity($accountAddress);
 				} else {
 					$revertData[$name] = [
-						'type' => $accountAddress->get('type'),
+						'labels' => $accountAddress->get('labels'),
 						'street' => $accountAddress->get('street'),
 						'city' => $accountAddress->get('city'),
 						'state' => $accountAddress->get('state'),
@@ -290,7 +290,7 @@ class Saver implements SaverInterface {
 
 				$accountAddress->set([
 					'name' => $name,
-					'type' => $hash->{$name}['type'],
+					'labels' => $hash->{$name}['labels'],
 					'street' => $hash->{$name}['street'],
 					'city' => $hash->{$name}['city'],
 					'state' => $hash->{$name}['state'],
@@ -307,7 +307,7 @@ class Saver implements SaverInterface {
 
 				if (!$skipSave) {
 					if (
-						$accountAddress->get('type') !== $hash->{$name}['type'] ||
+						$accountAddress->get('labels') !== $hash->{$name}['labels'] ||
 						$accountAddress->get('street') !== $hash->{$name}['street'] ||
 						$accountAddress->get('city') !== $hash->{$name}['city'] ||
 						$accountAddress->get('state') !== $hash->{$name}['state'] ||
@@ -318,7 +318,7 @@ class Saver implements SaverInterface {
 						$accountAddress->get('description') !== $hash->{$name}['description']
 					) {
 						$accountAddress->set([
-							'type' => $hash->{$name}['type'],
+							'labels' => $hash->{$name}['labels'],
 							'street' => $hash->{$name}['street'],
 							'city' => $hash->{$name}['city'],
 							'state' => $hash->{$name}['state'],
@@ -333,7 +333,7 @@ class Saver implements SaverInterface {
 					}
 				} else {
 					$revertData[$name] = [
-						'type' => $accountAddress->get('type'),
+						'labels' => $accountAddress->get('labels'),
 						'street' => $accountAddress->get('street'),
 						'city' => $accountAddress->get('city'),
 						'state' => $accountAddress->get('state'),
@@ -409,7 +409,7 @@ class Saver implements SaverInterface {
 					continue;
 				}
 
-				$row->type = $revertData[$row->accountAddressId]['type'];
+				$row->labels = $revertData[$row->accountAddressId]['labels'];
 				$row->street = $revertData[$row->accountAddressId]['street'];
 				$row->city = $revertData[$row->accountAddressId]['city'];
 				$row->state = $revertData[$row->accountAddressId]['state'];
@@ -514,10 +514,10 @@ class Saver implements SaverInterface {
 				$accountAddressNew->set('invalid', (bool)$entity->get(self::ATTR_ACCOUNT_ADDRESS_IS_INVALID));
 			}
 
-			$defaultType = $this->metadata
-				->get("entityDefs.{$entity->getEntityType()}.fields.accountAddress.defaultType");
+			$defaultLabels = $this->metadata
+				->get("entityDefs.{$entity->getEntityType()}.fields.accountAddress.defaultLabels");
 
-			$accountAddressNew->set('type', $defaultType);
+			$accountAddressNew->set('labels', $defaultLabels);
 
 			$this->entityManager->saveEntity($accountAddressNew);
 		}

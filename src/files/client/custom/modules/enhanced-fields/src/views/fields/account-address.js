@@ -11,6 +11,9 @@ define('enhanced-fields:views/fields/account-address', ['views/fields/base', 'ui
 			validations = ['addressData'];
 
 			events = {
+				'click [data-action="linkAccountAddress"]': () => {
+					this.linkAccountAddress();
+				},
 				'click [data-action="addAccountAddress"]': () => {
 					this.addAccountAddress();
 				},
@@ -58,30 +61,30 @@ define('enhanced-fields:views/fields/account-address', ['views/fields/base', 'ui
 							foreignScope: 'Account',
 							defs: {
 								params: {
-									required: true
+									required: false
 								}
 							}
 						}).then((view) => {
 							view.render();
 						});
 
-						let type = $block.find('.account-address-type-val').val() || null;
-						if (type && !Array.isArray(type)) {
-							type = [type];
+						let labels = $block.find('.account-address-labels-val').val() || null;
+						if (labels && !Array.isArray(labels)) {
+							labels = [labels];
 						}
-						model.set('type', type);
+						model.set('labels', labels);
 
-						const addressTypeFieldName = this.getIndexedFieldName('Type', i);
-						this.createView(addressTypeFieldName, 'views/fields/multi-enum', {
+						const addressLabelsFieldName = this.getIndexedFieldName('Labels', i);
+						this.createView(addressLabelsFieldName, 'views/fields/multi-enum', {
 							model,
 							mode: this.mode,
-							name: 'type',
-							selector: `.account-address-block[data-id="${i}"] .account-address-type`,
+							name: 'labels',
+							selector: `.account-address-block[data-id="${i}"] .account-address-labels`,
 							defs: {
 								params: {
 									maxCount: 1,
 									allowCustomOptions: true,
-									optionsReference: 'AccountAddress.type',
+									optionsReference: 'AccountAddress.labels',
 								}
 							}
 						}).then((view) => {
@@ -117,12 +120,39 @@ define('enhanced-fields:views/fields/account-address', ['views/fields/base', 'ui
 				});
 			}
 
-			addAccountAddress() {
+			linkAccountAddress() {
+				const accountAddressesIds = this.model.get(this.dataFieldName)?.map(address => address.accountAddressId) || null;
+				let filters = {};
+
+				if (accountAddressesIds && accountAddressesIds.length > 0) {
+					filters = {
+						id: {
+							type: 'notIn',
+							value: accountAddressesIds,
+						}
+					};
+				}
+				this.createView('linkAccountAddress', 'views/modals/select-records', {
+					scope: 'AccountAddress',
+					multiple: true,
+					filters,
+				}).then((view) => {
+					view.render();
+					view.listenTo(view, 'select', (models) => {
+						models.forEach((model) => {
+							model.set('accountAddressId', model.get('id'));
+							model.set('accountAddressName', model.get('name'));
+							this.addAccountAddress(model.attributes || {});
+						});
+					});
+				});
+			}
+
+			addAccountAddress(addressData = {}) {
 				const data = this.fetchFieldData();
-				const addressData = {
-					primary: data.length === 0,
-					accountAddressId: null
-				};
+
+				addressData.accountAddressId ??= null;
+				addressData.primary = data.length === 0;
 
 				if (this.model.name === 'Account') {
 					addressData.accountId = this.model.get('id');
@@ -157,12 +187,11 @@ define('enhanced-fields:views/fields/account-address', ['views/fields/base', 'ui
 					const $block = $(el);
 					const accountFieldName = `${this.name}Account-${i}`;
 
-					let type = $block.find('.account-address-type .item').attr('data-value') || null;
-					if (type && !Array.isArray(type)) {
-						type = [type];
+					let labels = $block.find('.account-address-labels .item').attr('data-value') || null;
+					if (labels && !Array.isArray(labels)) {
+						labels = [labels];
 					}
 					const accountId = $block.find(`div[data-name="${accountFieldName}"] input[data-name="accountId"]`).val() || null;
-					const showAccountInfo = this.model.name !== 'Account' || accountId !== this.model.get('id');
 
 					return {
 						accountAddressId: $block.find('.account-address-id').val() || null,
@@ -174,15 +203,14 @@ define('enhanced-fields:views/fields/account-address', ['views/fields/base', 'ui
 						state: $block.find('.account-address-state').val().trim() || null,
 						country: $block.find('.account-address-country').val().trim() || null,
 						postalCode: $block.find('.account-address-postal-code').val().trim() || null,
-						type: type,
+						labels,
 						primary: $block.find(`input[name="${this.name}-primary"]`).is(':checked'),
-						showAccountInfo
 					};
 				}).get();
 			}
 
 			data() {
-				let accountAddressData = this.model.get(this.dataFieldName);
+				let accountAddressData = this.model.get(this.dataFieldName) ?? {};
 
 				if (this.mode === 'edit') {
 					accountAddressData = accountAddressData || [];
@@ -203,8 +231,14 @@ define('enhanced-fields:views/fields/account-address', ['views/fields/base', 'ui
 					}
 				}
 
+				accountAddressData.forEach(address => {
+					const labels = address.labels ?? null;
+					address.hasLabels = Array.isArray(labels) && labels.length > 0;
+					address.showAccountInfo = this.model.name !== 'Account' || address.accountId !== this.model.get('id');
+				});
+
 				return {
-					accountAddressData: accountAddressData,
+					accountAddressData,
 					name: this.name,
 				};
 			}
@@ -236,21 +270,13 @@ define('enhanced-fields:views/fields/account-address', ['views/fields/base', 'ui
 				}
 
 				return addressData.some((address, i) => {
-					/*if (!address.accountId) {
-						const msg = this.translate('accountIsRequired', 'messages', 'AccountAddress')
-							.replace('{field}', this.getLabelText());
-						const accountFieldName = `${this.name}Account-${i}`;
-						this.showValidationMessage(msg, `[data-name="${accountFieldName}"] input`);
-
-						return true;
-					}*/
 					const addressAccountFieldName = this.getIndexedFieldName('Account', i);
 					const accountInvalid = this.getView(addressAccountFieldName)?.validate();
 
-					const addressTypeFieldName = this.getIndexedFieldName('Type', i);
-					const typeInvalid = this.getView(addressTypeFieldName)?.validate();
+					const addressLabelsFieldName = this.getIndexedFieldName('Labels', i);
+					const labelsInvalid = this.getView(addressLabelsFieldName)?.validate();
 
-					return accountInvalid || typeInvalid;
+					return accountInvalid || labelsInvalid;
 				});
 			}
 		}

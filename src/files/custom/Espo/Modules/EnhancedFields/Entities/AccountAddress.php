@@ -9,7 +9,7 @@ class AccountAddress extends Entity {
 	public const ENTITY_TYPE = 'AccountAddress';
 	public const RELATION_ENTITY_ACCOUNT_ADDRESS = 'EntityAccountAddress';
 	public const FIELDS = [
-		'type',
+		'labels',
 		'street',
 		'city',
 		'state',

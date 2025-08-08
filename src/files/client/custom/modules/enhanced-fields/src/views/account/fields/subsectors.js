@@ -107,6 +107,15 @@ define(['views/fields/multi-enum'], (Dep) => {
 				}
 
 				this.params.options = this.sectorMapping[sector];
+				this.setupTranslatedOptions();
+			}
+
+			setupTranslatedOptions() {
+				this.translatedOptions ??= {};
+
+				this.params.options.forEach(option => {
+					this.translatedOptions[option] ??= this.getLanguage().translateOption(option, 'subsectors', 'Account');
+				});
 			}
 
 			getSector() {

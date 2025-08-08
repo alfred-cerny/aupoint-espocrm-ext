@@ -35,8 +35,8 @@
                         <input type="hidden" class="account-address-account-id" value="{{accountId}}">
                         <input type="hidden" class="account-address-account-name" value="{{accountName}}">
                         <div class="col-sm-6" data-name="{{../name}}Account-{{@index}}"></div>
-                        <input type="hidden" class="account-address-type-val" value="{{type}}">
-                        <div class="col-sm-6 account-address-type"></div>
+                        <input type="hidden" class="account-address-labels-val" value="{{labels}}">
+                        <div class="col-sm-6 account-address-labels"></div>
                     </div>
                 </div>
                 <div class="col-sm-1">
@@ -53,4 +53,9 @@
 <button type="button" class="btn btn-default" data-action="addAccountAddress">
     <span class="fas fa-plus"></span>
     {{translate 'Add'}}
+</button>
+
+<button type="button" class="btn btn-default" data-action="linkAccountAddress">
+    <span class="fas fa-plus"></span>
+    {{translate 'Select'}}
 </button>

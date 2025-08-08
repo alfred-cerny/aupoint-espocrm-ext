@@ -4,6 +4,7 @@
 	"city",
 	"state",
 	"postalCode",
+	"labels",
 	"country",
-    "description"
+	"description"
 ]

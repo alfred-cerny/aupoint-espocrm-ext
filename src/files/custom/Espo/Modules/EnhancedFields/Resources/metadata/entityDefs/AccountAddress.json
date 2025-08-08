@@ -55,7 +55,7 @@
 			"maxLength": 255,
 			"type": "text"
 		},
-		"type": {
+		"labels": {
 			"allowCustomOptions": true,
 			"displayAsLabel": true,
 			"maxCount": 1,

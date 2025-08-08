@@ -1,7 +1,8 @@
 {
 	"fields": {
 		"accountAddress": {
-			"type": "accountAddress"
+			"type": "accountAddress",
+			"tooltip": true
 		}
 	}
 }

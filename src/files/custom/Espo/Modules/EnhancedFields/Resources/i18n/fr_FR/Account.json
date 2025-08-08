@@ -7,7 +7,7 @@
 		"accountAddresses": "Adresses de l'organisation"
 	},
 	"options": {
-		"sectors": {
+		"sector": {
 			"Commerce and Services": "Commerces et services",
 			"Culture and Heritage": "Culture et patrimoine",
 			"Early Childhood": "Petite enfance",
