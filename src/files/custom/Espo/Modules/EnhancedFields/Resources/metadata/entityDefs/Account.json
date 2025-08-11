@@ -3,8 +3,17 @@
 		"accountAddress": {
 			"type": "accountAddress"
 		},
+		"relation": {
+			"options": [
+				"Client",
+				"Prospect",
+				"Partner",
+				"Competitor",
+				"Other"
+			],
+			"type": "multiEnum"
+		},
 		"sector": {
-			"type": "enum",
 			"options": [
 				"",
 				"Industrial",
@@ -20,11 +29,10 @@
 				"Tourism",
 				"Culture and Heritage",
 				"Religious and Spiritual"
-			]
+			],
+			"type": "enum"
 		},
 		"subsectors": {
-			"type": "multiEnum",
-			"view": "enhanced-fields:views/account/fields/subsectors",
 			"options": [
 				"Agriculture, livestock and fishing",
 				"Aeronautics",
@@ -85,14 +93,16 @@
 				"Production establishment (studio, etc.)",
 				"Diocese / Fabrique (church, presbytery, etc.)",
 				"Spiritual retreat center"
-			]
+			],
+			"type": "multiEnum",
+			"view": "enhanced-fields:views/account/fields/subsectors"
 		}
 	},
 	"links": {
 		"accountAddresses": {
 			"entity": "AccountAddress",
-			"relationName": "entityAccountAddress",
 			"foreign": "account",
+			"relationName": "entityAccountAddress",
 			"type": "hasMany"
 		}
 	}

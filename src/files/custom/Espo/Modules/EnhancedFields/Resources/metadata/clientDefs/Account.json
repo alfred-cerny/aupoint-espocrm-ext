@@ -1,7 +1,13 @@
 {
-    "relationshipPanels": {
-        "accountAddresses": {
-            "layout": "listForAccount"
-        }
-    }
+	"relationshipPanels": {
+		"accountAddresses": {
+			"layout": "listForAccount"
+		}
+	},
+	"viewSetupHandlers": {
+		"detail": [
+			"__APPEND__",
+			"enhanced-fields:handlers/account/relation"
+		]
+	}
 }

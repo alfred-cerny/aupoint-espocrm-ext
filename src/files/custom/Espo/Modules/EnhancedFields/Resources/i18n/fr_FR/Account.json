@@ -1,5 +1,6 @@
 {
 	"fields": {
+		"relation": "Type de relation",
 		"sector": "Secteur d’activité",
 		"subsectors": "Sous-secteurs d’activité"
 	},
@@ -7,6 +8,13 @@
 		"accountAddresses": "Adresses de l'organisation"
 	},
 	"options": {
+		"relation": {
+			"Client": "Client",
+			"Competitor": "Concurrent",
+			"Other": "Autre",
+			"Partner": "Partenaire",
+			"Prospect": "Prospect"
+		},
 		"sector": {
 			"Commerce and Services": "Commerces et services",
 			"Culture and Heritage": "Culture et patrimoine",

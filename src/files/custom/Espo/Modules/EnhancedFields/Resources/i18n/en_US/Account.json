@@ -1,9 +1,19 @@
 {
 	"fields": {
+		"relation": "Relation type",
 		"sector": "Sector",
 		"subsectors": "Subsectors"
 	},
 	"links": {
 		"accountAddresses": "Organization addresses"
+	},
+	"options": {
+		"relation": {
+			"Client": "Client",
+			"Competitor": "Competitor",
+			"Other": "Other",
+			"Partner": "Partner",
+			"Prospect": "Prospect"
+		}
 	}
 }

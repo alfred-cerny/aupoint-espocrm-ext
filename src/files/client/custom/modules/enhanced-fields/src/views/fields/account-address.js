@@ -169,7 +169,7 @@ define('enhanced-fields:views/fields/account-address', ['views/fields/base', 'ui
 
 			removeAccountAddress(index, $block) {
 				const data = this.fetchFieldData();
-				if (data.length <= 1) return;
+				if (data.length <= 0) return;
 
 				const wasPrimary = data[index]?.primary;
 				data.splice(index, 1);
@@ -210,24 +210,17 @@ define('enhanced-fields:views/fields/account-address', ['views/fields/base', 'ui
 			}
 
 			data() {
-				let accountAddressData = this.model.get(this.dataFieldName) ?? {};
+				let accountAddressData = this.model.get(this.dataFieldName) ?? [];
+
+				if (!Array.isArray(accountAddressData)) {
+					accountAddressData = [];
+				}
 
 				if (this.mode === 'edit') {
 					accountAddressData = accountAddressData || [];
 
 					if (!accountAddressData.length) {
-						accountAddressData.push({
-							street: null,
-							city: null,
-							state: null,
-							country: null,
-							postalCode: null,
-							primary: true,
-							accountAddressId: null,
-							accountAddressName: null,
-							accountId: null,
-							description: null
-						});
+						accountAddressData = [];
 					}
 				}
 
