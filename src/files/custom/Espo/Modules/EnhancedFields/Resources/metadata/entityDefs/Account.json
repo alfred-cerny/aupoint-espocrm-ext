@@ -4,9 +4,20 @@
 			"type": "accountAddress"
 		},
 		"opportunityBids": {
-			"type": "linkMultiple"
+			"type": "linkMultiple",
+			"view": "enhanced-fields:views/account/fields/bids"
+		},
+		"opportunityBidsData": {
+			"customizationDisabled": true,
+			"notStorable": true,
+			"orderDisabled": true,
+			"type": "jsonObject",
+			"utility": true
 		},
 		"relation": {
+			"default": [
+				"Client"
+			],
 			"options": [
 				"Client",
 				"Prospect",
@@ -14,7 +25,19 @@
 				"Competitor",
 				"Other"
 			],
+			"required": true,
 			"type": "multiEnum"
+		},
+		"relationType": {
+			"notStorable": true,
+			"options": [
+				"Client",
+				"Prospect",
+				"Partner",
+				"Competitor",
+				"Other"
+			],
+			"type": "enum"
 		},
 		"sector": {
 			"options": [

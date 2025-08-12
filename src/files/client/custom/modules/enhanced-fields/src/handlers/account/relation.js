@@ -2,6 +2,7 @@ define([], () => {
 	class RelationHandler {
 		buttons = [];
 		relationFieldName = 'relation';
+		relationType = null;
 
 		constructor(view) {
 			this.view = view;
@@ -9,11 +10,20 @@ define([], () => {
 		}
 
 		process() {
+			this.model.listenTo(this.model, 'changeRelationType', (v) => {
+				debugger;
+				this.onRelationChange(relationName);
+			});
 			this.view.listenTo(this.model, 'change:' + this.relationFieldName, () => {
 				this.reloadButtons();
 				this.reloadHeader();
 			});
 			this.reloadButtons();
+
+			if (this.buttons.length > 0) {
+				this.onRelationChange(this.buttons[0]);
+			}
+
 			this.reloadHeader();
 		}
 
@@ -41,9 +51,17 @@ define([], () => {
 						name: relationName,
 						text: this.view.getLanguage().translateOption(relationName, this.relationFieldName, 'Account'),
 						iconClass: 'fas fa-tools fa-sm',
+						onClick: () => {
+							this.onRelationChange(relationName);
+						}
 					}, true, true);
 				}
 			});
+		}
+
+		onRelationChange(relationName) {
+			this.model.set(this.relationFieldName + 'Type', relationName);
+			this.model.trigger('change:' + this.relationFieldName + 'Type');
 		}
 
 		getRelationsNames() {
