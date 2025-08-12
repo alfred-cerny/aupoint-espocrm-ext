@@ -1,0 +1,11 @@
+{
+	"relationshipPanels": {
+		"bids": {
+			"filterList": [
+				"competitor",
+				"partner"
+			],
+			"layout": "listForOpportunity"
+		}
+	}
+}

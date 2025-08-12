@@ -1,0 +1,26 @@
+{
+	"activities": {
+		"disabled": true
+	},
+	"history": {
+		"disabled": true
+	},
+	"_delimiter_": {
+		"disabled": true
+	},
+	"stream": {
+		"sticked": false,
+		"index": 0
+	},
+	"documents": {
+		"index": 1
+	},
+	"_tabBreak_0": {
+		"index": 0,
+		"tabBreak": true,
+		"tabLabel": "$Bids"
+	},
+	"bids": {
+		"index": 2
+	}
+}

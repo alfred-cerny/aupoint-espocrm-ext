@@ -1,0 +1,55 @@
+{
+	"fields": {
+		"account": {
+			"required": true,
+			"type": "link"
+		},
+		"amount": {
+			"type": "currency"
+		},
+		"opportunity": {
+			"required": true,
+			"type": "link"
+		},
+		"relation": {
+			"displayAsLabel": true,
+			"options": [
+				"Partner",
+				"Competitor",
+				""
+			],
+			"style": {
+				"": "primary",
+				"Competitor": "warning",
+				"Partner": "info"
+			},
+			"type": "enum"
+		},
+		"status": {
+			"displayAsLabel": true,
+			"options": [
+				"",
+				"Win",
+				"Lose"
+			],
+			"style": {
+				"": "info",
+				"Lose": "danger",
+				"Win": "success"
+			},
+			"type": "enum"
+		}
+	},
+	"links": {
+		"account": {
+			"entity": "Account",
+			"foreign": "opportunityBids",
+			"type": "belongsTo"
+		},
+		"opportunity": {
+			"entity": "Opportunity",
+			"foreign": "bids",
+			"type": "belongsTo"
+		}
+	}
+}

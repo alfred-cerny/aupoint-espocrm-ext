@@ -3,9 +3,11 @@
 		"accountAddress": "Adresses de l'organisation"
 	},
 	"scopeNamesPlural": {
-		"AccountAddress": "Adresses de l'organisation"
+		"AccountAddress": "Adresses de l'organisation",
+		"OpportunityBid": "Offres d'opportunité"
 	},
 	"scopeNamesSingular": {
-		"AccountAddress": "Adresse de l'organisation"
+		"AccountAddress": "Adresse de l'organisation",
+		"OpportunityBid": "Offre d'opportunité"
 	}
 }

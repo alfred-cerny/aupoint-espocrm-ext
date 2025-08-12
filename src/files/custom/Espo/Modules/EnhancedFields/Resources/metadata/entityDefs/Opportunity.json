@@ -1,0 +1,14 @@
+{
+	"fields": {
+		"bids": {
+			"type": "linkMultiple"
+		}
+	},
+	"links": {
+		"bids": {
+			"entity": "OpportunityBid",
+			"foreign": "opportunity",
+			"type": "hasMany"
+		}
+	}
+}

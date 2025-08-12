@@ -1,0 +1,7 @@
+{
+	"primaryFilterClassNameMap": {
+		"all": "Espo\\Modules\\EnhancedFields\\Classes\\Select\\OpportunityBid\\PrimaryFilters\\All",
+		"competitor": "Espo\\Modules\\EnhancedFields\\Classes\\Select\\OpportunityBid\\PrimaryFilters\\Competitor",
+		"partner": "Espo\\Modules\\EnhancedFields\\Classes\\Select\\OpportunityBid\\PrimaryFilters\\Partner"
+	}
+}

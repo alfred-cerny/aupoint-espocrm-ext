@@ -1,0 +1,11 @@
+
+{
+	"entity": true,
+	"acl": false,
+	"aclPortal": false,
+	"customizable": false,
+	"disabled": false,
+	"type": "Base",
+	"module": "EnhancedFields",
+	"object": true
+}

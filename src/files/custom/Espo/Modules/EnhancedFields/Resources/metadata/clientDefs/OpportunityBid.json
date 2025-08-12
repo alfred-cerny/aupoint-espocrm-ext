@@ -1,0 +1,10 @@
+{
+	"controller": "controllers/record",
+	"color": "#edc755",
+	"iconClass": "fas fa-truck-monster",
+	"filterList": [
+		"all",
+		"competitor",
+		"partner"
+	]
+}

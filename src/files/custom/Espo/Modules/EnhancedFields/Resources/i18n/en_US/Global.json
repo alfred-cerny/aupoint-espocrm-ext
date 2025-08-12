@@ -6,9 +6,11 @@
 		"accountAddress": "Organization addresses"
 	},
 	"scopeNamesPlural": {
-		"AccountAddress": "Address"
+		"AccountAddress": "Address",
+		"OpportunityBid": "Opportunity Bid"
 	},
 	"scopeNamesSingular": {
-		"AccountAddress": "Address"
+		"AccountAddress": "Address",
+		"OpportunityBid": "Opportunity Bids"
 	}
 }

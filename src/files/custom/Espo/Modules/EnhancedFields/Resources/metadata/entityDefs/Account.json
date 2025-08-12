@@ -3,6 +3,9 @@
 		"accountAddress": {
 			"type": "accountAddress"
 		},
+		"opportunityBids": {
+			"type": "linkMultiple"
+		},
 		"relation": {
 			"options": [
 				"Client",
@@ -103,6 +106,11 @@
 			"entity": "AccountAddress",
 			"foreign": "account",
 			"relationName": "entityAccountAddress",
+			"type": "hasMany"
+		},
+		"opportunityBids": {
+			"entity": "OpportunityBid",
+			"foreign": "account",
 			"type": "hasMany"
 		}
 	}

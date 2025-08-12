@@ -2,6 +2,14 @@
 	"relationshipPanels": {
 		"accountAddresses": {
 			"layout": "listForAccount"
+		},
+		"opportunityBids": {
+			"filterList": [
+				"all",
+				"competitor",
+				"partner"
+			],
+			"layout": "listForAccount"
 		}
 	},
 	"viewSetupHandlers": {

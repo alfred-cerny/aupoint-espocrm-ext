@@ -1,0 +1,30 @@
+[
+	{
+		"label": "Overview",
+		"rows": [
+			[
+				{
+					"name": "relation"
+				},
+				false
+			],
+			[
+				{
+					"name": "opportunity"
+				},
+				{
+					"name": "account"
+				}
+			],
+			[
+				{
+					"name": "amount"
+				},
+				{
+					"name": "status"
+				}
+			]
+		],
+		"style": "info"
+	}
+]

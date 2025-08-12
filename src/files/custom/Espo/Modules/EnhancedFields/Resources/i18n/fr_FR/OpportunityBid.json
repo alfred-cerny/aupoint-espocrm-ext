@@ -1,0 +1,31 @@
+{
+	"fields": {
+		"account": "Compte",
+		"amount": "Le quantité",
+		"opportunity": "Opportunité",
+		"relation": "Type de relation",
+		"status": "Statut"
+	},
+	"links": {
+		"account": "Compte",
+		"opportunity": "opportunité"
+	},
+	"options": {
+		"relation": {
+			"Client": "Client",
+			"Competitor": "Concurrent",
+			"Other": "Autre",
+			"Partner": "Partenaire",
+			"Prospect": "Prospect"
+		},
+		"status": {
+			"Lose": "Perdre",
+			"Win": "Gagner"
+		}
+	},
+	"presetFilters": {
+		"all": "Toute",
+		"competitor": "Concurrent",
+		"partner": "Partenaire"
+	}
+}

@@ -1,0 +1,24 @@
+{
+	"fields": {
+		"account": "Account",
+		"amount": "Amount",
+		"opportunity": "Opportunity",
+		"relation": "Relation type",
+		"status": "Status"
+	},
+	"links": {
+		"account": "Account",
+		"opportunity": "Opportunity"
+	},
+	"options": {
+		"status": {
+			"Lose": "Lose",
+			"Win": "Win"
+		}
+	},
+	"presetFilters": {
+		"all": "All",
+		"competitor": "Competitor",
+		"partner": "Partner"
+	}
+}

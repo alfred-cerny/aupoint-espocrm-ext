@@ -2,10 +2,12 @@
 	"fields": {
 		"relation": "Relation type",
 		"sector": "Sector",
-		"subsectors": "Subsectors"
+		"subsectors": "Subsectors",
+		"opportunityBids": "Opportunity bids"
 	},
 	"links": {
-		"accountAddresses": "Organization addresses"
+		"accountAddresses": "Organization addresses",
+		"opportunityBids": "Opportunity bids"
 	},
 	"options": {
 		"relation": {

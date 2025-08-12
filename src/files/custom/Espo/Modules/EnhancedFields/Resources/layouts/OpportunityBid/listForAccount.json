@@ -1,0 +1,16 @@
+[
+	{
+		"name": "relation",
+		"link": true
+	},
+	{
+		"name": "opportunity",
+		"link": true
+	},
+	{
+		"name": "amount"
+	},
+	{
+		"name": "status"
+	}
+]

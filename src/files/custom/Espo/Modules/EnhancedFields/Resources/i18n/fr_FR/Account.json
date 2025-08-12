@@ -1,11 +1,13 @@
 {
 	"fields": {
+		"opportunityBids": "Offres d'opportunité",
 		"relation": "Type de relation",
 		"sector": "Secteur d’activité",
 		"subsectors": "Sous-secteurs d’activité"
 	},
 	"links": {
-		"accountAddresses": "Adresses de l'organisation"
+		"accountAddresses": "Adresses de l'organisation",
+		"opportunityBids": "Offres d'opportunité"
 	},
 	"options": {
 		"relation": {
