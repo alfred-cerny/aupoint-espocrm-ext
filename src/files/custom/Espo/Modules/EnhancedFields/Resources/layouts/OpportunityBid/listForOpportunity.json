@@ -1,11 +1,15 @@
 [
 	{
-		"name": "relation",
-		"link": true
+		"link": true,
+		"name": "relation"
 	},
 	{
-		"name": "account",
-		"link": true
+		"link": true,
+		"name": "account"
+	},
+	{
+		"link": true,
+		"name": "contact"
 	},
 	{
 		"name": "amount"

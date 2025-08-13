@@ -1,7 +1,15 @@
 {
 	"fields": {
 		"bids": {
-			"type": "linkMultiple"
+			"type": "linkMultiple",
+			"view": "enhanced-fields:views/fields/bids"
+		},
+		"bidsData": {
+			"customizationDisabled": true,
+			"notStorable": true,
+			"orderDisabled": true,
+			"type": "jsonObject",
+			"utility": true
 		}
 	},
 	"links": {

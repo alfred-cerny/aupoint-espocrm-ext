@@ -4,6 +4,10 @@
 			"required": true,
 			"type": "link"
 		},
+		"contact": {
+			"required": true,
+			"type": "link"
+		},
 		"amount": {
 			"type": "currency"
 		},
@@ -44,6 +48,11 @@
 		}
 	},
 	"links": {
+		"contact": {
+			"entity": "Contact",
+			"foreign": "opportunityBids",
+			"type": "belongsTo"
+		},
 		"account": {
 			"entity": "Account",
 			"foreign": "opportunityBids",

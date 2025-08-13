@@ -6,7 +6,7 @@
 
     <div class="opportunity-bids-content">
         {{#each bidsData}}
-        <div class="opportunity-bid-item" data-bid-id="{{id}}" style="margin-bottom: 3px; padding: 8px 12px; border: 1px solid #ddd; border-radius: 3px;">
+        <div class="opportunity-bid-item {{#if className}}{{className}}{{/if}}" data-bid-id="{{id}}" style="margin-bottom: 3px; padding: 8px 12px; border: 1px solid #ddd; border-radius: 3px;">
             <div class="row">
                 <div class="col-sm-7">
                     <strong>
@@ -18,15 +18,24 @@
                             {{opportunityName}}
                         {{/if}}
                     </strong>
-                    <span style="margin: 0 8px; color: #ccc;">•</span>
+                    <span style="margin: 0 8px;">•</span>
                     <span class="currency-amount">{{amount}}</span>
-                    <span style="margin-left: 8px; font-size: 0.9em; color: #777;">
+                    <span style="margin-left: 8px; font-size: 0.9em;">
                         {{translate relation category='options' field='relation'}}
                     </span>
                     {{#if partnershipNature}}
-                    <span style="margin: 0 8px; color: #ccc;">•</span>
-                    <span style="font-size: 0.9em; color: #777;">
+                    <span style="margin: 0 8px; ">•</span>
+                    <span style="font-size: 0.9em;">
                         {{translate partnershipNature category='options' field='partnershipNature'}}
+                    </span>
+                    {{/if}}
+                    {{#if contactId}}
+                    <span style="margin: 0 8px; ">•</span>
+                    <span style="font-size: 0.9em;">
+                        <i class="fas fa-user" style="margin-right: 4px;"></i>
+                        <a href="#Contact/view/{{contactId}}" title="{{translate 'View Contact'}}">
+                            {{contactName}}
+                        </a>
                     </span>
                     {{/if}}
                 </div>
@@ -34,9 +43,8 @@
                     <span class="label label-{{#ifEqual status 'Win'}}success{{/ifEqual}}{{#ifEqual status 'Lose'}}danger{{/ifEqual}}{{#ifEqual status 'Pending'}}warning{{/ifEqual}}{{#ifEqual status 'Qualified'}}info{{/ifEqual}}">
                         {{translate status category='options' scope='Opportunity' field='stage'}}
                     </span>
-                    {{!-- Add the Font Awesome icon with href here --}}
                     <a href="#OpportunityBid/view/{{id}}" title="{{translate 'View Bid Details'}}" style="margin-left: 8px;">
-                        <i class="fas fa-external-link-alt" aria-hidden="true"></i> {{!-- Example icon, you can choose another like fa-eye, fa-info-circle --}}
+                        <i class="fas fa-external-link-alt" aria-hidden="true"></i>
                     </a>
                     {{#if ../showBidDetails}}
                     <small class="text-muted" style="margin-left: 8px;">{{id}}</small>

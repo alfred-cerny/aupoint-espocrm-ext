@@ -1,8 +1,26 @@
 {
 	"fields": {
 		"accountAddress": {
-			"type": "accountAddress",
-			"tooltip": true
+			"tooltip": true,
+			"type": "accountAddress"
+		},
+		"opportunityBids": {
+			"type": "linkMultiple",
+			"view": "enhanced-fields:views/fields/bids"
+		},
+		"opportunityBidsData": {
+			"customizationDisabled": true,
+			"notStorable": true,
+			"orderDisabled": true,
+			"type": "jsonObject",
+			"utility": true
+		}
+	},
+	"links": {
+		"opportunityBids": {
+			"entity": "OpportunityBid",
+			"foreign": "contact",
+			"type": "hasMany"
 		}
 	}
 }

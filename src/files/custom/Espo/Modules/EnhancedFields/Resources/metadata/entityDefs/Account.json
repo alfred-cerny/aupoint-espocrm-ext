@@ -5,7 +5,7 @@
 		},
 		"opportunityBids": {
 			"type": "linkMultiple",
-			"view": "enhanced-fields:views/account/fields/bids"
+			"view": "enhanced-fields:views/fields/bids"
 		},
 		"opportunityBidsData": {
 			"customizationDisabled": true,

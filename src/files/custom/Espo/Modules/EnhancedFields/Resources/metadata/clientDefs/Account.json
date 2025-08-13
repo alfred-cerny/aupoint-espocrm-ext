@@ -5,7 +5,6 @@
 		},
 		"opportunityBids": {
 			"filterList": [
-				"all",
 				"competitor",
 				"partner"
 			],

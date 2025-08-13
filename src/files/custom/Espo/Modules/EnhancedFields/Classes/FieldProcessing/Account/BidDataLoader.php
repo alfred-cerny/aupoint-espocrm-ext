@@ -10,6 +10,8 @@ use Espo\ORM\Defs as OrmDefs;
 use Espo\ORM\Entity;
 
 class BidDataLoader implements LoaderInterface {
+	protected string $bidsFieldName = "opportunityBids";
+
 	public function __construct(
 		protected EntityManager $entityManager,
 		protected Metadata      $metadata,
@@ -17,7 +19,12 @@ class BidDataLoader implements LoaderInterface {
 	) {}
 
 	public function process(Entity $entity, Params $params): void {
-		$bidsIds = $entity->get('opportunityBidsIds');
+		if (
+			!$entity->has($this->bidsFieldName)
+		) {
+			$this->bidsFieldName = 'bids';
+		}
+		$bidsIds = $entity->get("{$this->bidsFieldName}Ids");
 
 		$bids = $this->entityManager
 			->getRDBRepository('OpportunityBid')
@@ -25,7 +32,7 @@ class BidDataLoader implements LoaderInterface {
 			->find();
 
 		$bidsData = array_column($bids->getValueMapList(), null, 'id');
-		$entity->set('opportunityBidsData', (object)$bidsData);
+		$entity->set("{$this->bidsFieldName}Data", (object)$bidsData);
 	}
 
 }
