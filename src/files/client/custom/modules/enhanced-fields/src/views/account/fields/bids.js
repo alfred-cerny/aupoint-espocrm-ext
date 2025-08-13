@@ -25,6 +25,8 @@ define(['views/fields/link-multiple'], (Dep) => {
 								const {amount, ...bidWithoutAmount} = bid;
 								return bidWithoutAmount;
 							}
+							bid.partnershipNature = null;
+							
 							return bid;
 						});
 					data.bidsDataCount = Object.keys(data.bidsData).length;

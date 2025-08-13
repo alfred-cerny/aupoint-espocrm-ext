@@ -10,10 +10,6 @@ define([], () => {
 		}
 
 		process() {
-			this.model.listenTo(this.model, 'changeRelationType', (v) => {
-				debugger;
-				this.onRelationChange(relationName);
-			});
 			this.view.listenTo(this.model, 'change:' + this.relationFieldName, () => {
 				this.reloadButtons();
 				this.reloadHeader();

@@ -3,6 +3,7 @@
 		"account": "Account",
 		"amount": "Amount",
 		"opportunity": "Opportunity",
+		"partnershipNature": "Partnership nature",
 		"relation": "Relation type",
 		"status": "Status"
 	},

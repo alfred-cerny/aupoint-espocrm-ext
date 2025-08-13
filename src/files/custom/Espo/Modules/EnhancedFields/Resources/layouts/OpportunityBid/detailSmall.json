@@ -6,7 +6,9 @@
 				{
 					"name": "relation"
 				},
-				false
+				{
+					"name": "partnershipNature"
+				}
 			],
 			[
 				{

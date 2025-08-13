@@ -29,6 +29,7 @@
 			"type": "multiEnum"
 		},
 		"relationType": {
+			"customizationDisabled": true,
 			"notStorable": true,
 			"options": [
 				"Client",

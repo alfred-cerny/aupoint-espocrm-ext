@@ -23,6 +23,12 @@
                     <span style="margin-left: 8px; font-size: 0.9em; color: #777;">
                         {{translate relation category='options' field='relation'}}
                     </span>
+                    {{#if partnershipNature}}
+                    <span style="margin: 0 8px; color: #ccc;">•</span>
+                    <span style="font-size: 0.9em; color: #777;">
+                        {{translate partnershipNature category='options' field='partnershipNature'}}
+                    </span>
+                    {{/if}}
                 </div>
                 <div class="col-sm-5 text-right">
                     <span class="label label-{{#ifEqual status 'Win'}}success{{/ifEqual}}{{#ifEqual status 'Lose'}}danger{{/ifEqual}}{{#ifEqual status 'Pending'}}warning{{/ifEqual}}{{#ifEqual status 'Qualified'}}info{{/ifEqual}}">

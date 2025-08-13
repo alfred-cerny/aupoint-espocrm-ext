@@ -11,6 +11,9 @@
 			"required": true,
 			"type": "link"
 		},
+		"partnershipNature": {
+			"type": "varchar"
+		},
 		"relation": {
 			"displayAsLabel": true,
 			"options": [
