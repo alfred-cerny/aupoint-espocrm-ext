@@ -1,0 +1,76 @@
+{
+	"fields": {
+		"language": {
+			"options": [
+				"English",
+				"French"
+			],
+			"type": "enum"
+		},
+		"leadOrigin": {
+			"type": "text"
+		},
+		"optinChannels": {
+			"options": [
+				"Email",
+				"SMS",
+				"Phone"
+			],
+			"type": "multiEnum"
+		},
+		"optinConsent": {
+			"type": "bool"
+		},
+		"optinDate": {
+			"type": "dateTime"
+		},
+		"optinQuote": {
+			"type": "varchar"
+		},
+		"optinSource": {
+			"type": "varchar"
+		},
+		"optinUnsubscribe": {
+			"type": "bool"
+		},
+		"referredByContact": {
+			"type": "link"
+		},
+		"referredByUser": {
+			"type": "link"
+		},
+		"utmCampaign": {
+			"type": "text"
+		},
+		"utmContent": {
+			"type": "text"
+		},
+		"utmMedium": {
+			"options": [
+				"Phone",
+				"Email",
+				"Organic Web",
+				"Organic Social",
+				"Online Form",
+				"Paid Social",
+				"Paid Web",
+				"Event App",
+				"Other"
+			],
+			"type": "enum"
+		},
+		"utmTerm": {
+			"type": "text"
+		}
+	},
+	"links": {
+		"referredByContact": {
+			"entity": "Contact",
+			"type": "belongsTo"
+		},
+		"referredByUser": {
+			"entity": "User",
+			"type": "belongsTo"
+		}
+	}
+}

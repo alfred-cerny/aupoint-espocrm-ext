@@ -1,5 +1,8 @@
 {
-    "readLoaderClassNameList": [
-        "Espo\\Modules\\EnhancedFields\\Classes\\FieldProcessing\\Account\\BidDataLoader"
-    ]
+	"readLoaderClassNameList": [
+		"Espo\\Modules\\EnhancedFields\\Classes\\FieldProcessing\\Account\\BidDataLoader"
+	],
+	"saverClassNameList": [
+		"Espo\\Modules\\EnhancedFields\\Classes\\FieldProcessing\\Account\\BidDataSaver"
+	]
 }

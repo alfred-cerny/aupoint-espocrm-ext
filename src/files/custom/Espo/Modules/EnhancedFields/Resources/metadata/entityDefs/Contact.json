@@ -12,7 +12,7 @@
 			"customizationDisabled": true,
 			"notStorable": true,
 			"orderDisabled": true,
-			"type": "jsonObject",
+			"type": "jsonArray",
 			"utility": true
 		}
 	},

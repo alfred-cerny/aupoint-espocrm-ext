@@ -31,8 +31,7 @@ class BidDataLoader implements LoaderInterface {
 			->where('id', $bidsIds)
 			->find();
 
-		$bidsData = array_column($bids->getValueMapList(), null, 'id');
-		$entity->set("{$this->bidsFieldName}Data", (object)$bidsData);
+		$entity->set("{$this->bidsFieldName}Data", (array)$bids->getValueMapList());
 	}
 
 }

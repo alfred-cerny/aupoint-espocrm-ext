@@ -1,0 +1,18 @@
+{
+	"fields": {
+		"language": "Preferred Language",
+		"leadOrigin": "Lead Origin (list)",
+		"optinChannels": "Accepted communication channel(s)",
+		"optinConsent": "Opt-in Consent",
+		"optinQuote": "Consent quote or text",
+		"optinSource": "OPT-IN consent source",
+		"optinDate": "Consent date and time",
+		"optinUnsubscribe": "Unsubscribe",
+		"referredByContact": "Reference - Contact (client, partner)",
+		"referredByUser": "Reference - Employee",
+		"utmCampaign": "Campaign (coded name of the initiative)",
+		"utmContent": "Interaction context",
+		"utmMedium": "Medium",
+		"utmTerm": "Utm Term"
+	}
+}

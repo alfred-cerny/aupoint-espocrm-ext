@@ -2,6 +2,7 @@
 	"fields": {
 		"account": "Account",
 		"amount": "Amount",
+		"contact": "Contact",
 		"opportunity": "Opportunity",
 		"partnershipNature": "Partnership nature",
 		"relation": "Relation type",
