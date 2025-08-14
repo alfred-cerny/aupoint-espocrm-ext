@@ -23,6 +23,9 @@ class BidDataLoader implements LoaderInterface {
 			!$entity->has($this->bidsFieldName)
 		) {
 			$this->bidsFieldName = 'bids';
+			if (!$entity->has($this->bidsFieldName)) {
+				return;
+			}
 		}
 		$bidsIds = $entity->get("{$this->bidsFieldName}Ids");
 

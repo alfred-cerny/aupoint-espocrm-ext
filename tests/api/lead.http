@@ -1,0 +1,34 @@
+### Test 3: Create lead with contact and account information
+POST {{url}}/api/v1/Lead/create
+Content-Type: application/json
+Authorization: Basic {{base64EncodedToken}}
+
+{
+	"attributes": {
+		"firstName": "Mike",
+		"lastName": "Johnson",
+		"emailAddress": "mike.johnson@innovate.co",
+		"phoneNumber": "+1555123456",
+		"title": "Product Manager",
+		"website": "https://innovate.co",
+		"description": "Enterprise lead with high potential",
+		"status": "In Process",
+		"source": "Cold Call",
+		"referredByContact": {
+			"firstName": "Mike",
+			"lastName": "Johnson",
+			"emailAddress": "mike.johnson@innovate.co",
+			"phoneNumber": "+1555123456",
+			"title": "Product Manager",
+			"account": {
+				"name": "Innovate Co",
+				"website": "https://innovate.co",
+				"type": "Customer",
+				"industry": "Technology"
+			}
+		},
+		"referredByUser": {
+			"emailAddress": "test@example.com"
+		}
+	}
+}

@@ -23,6 +23,9 @@ class BidDataSaver implements SaverInterface {
 			!$entity->has($this->bidsFieldName)
 		) {
 			$this->bidsFieldName = 'bids';
+			if (!$entity->has($this->bidsFieldName)) {
+				return;
+			}
 		}
 		$tm = $this->entityManager->getTransactionManager();
 		$tm->start();

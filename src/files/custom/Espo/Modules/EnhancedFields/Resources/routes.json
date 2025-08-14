@@ -1,1 +1,7 @@
-[]
+[
+	{
+		"route": "/Lead/create",
+		"method": "post",
+		"actionClassName": "Espo\\Modules\\EnhancedFields\\Api\\Lead\\Create"
+	}
+]
