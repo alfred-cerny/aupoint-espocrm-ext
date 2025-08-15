@@ -49,7 +49,6 @@ class AfterInstall {
 			"cOdsLeader" => "odsLeader",
 			"cCapacitProductionOds" => "odsProductionCapacity",
 			"cRisquesOperationnels" => "operationalRisks",
-			"cOpportunitiesOdsCollaborateur" => "opportunitiesOdsCollaborator",
 			"cPartnerAuthorizationStatus" => "partnerAuthorizationStatus",
 			"cPartners" => "partners",
 			"cProbabilite" => "probability",
@@ -76,8 +75,7 @@ class AfterInstall {
 			"cTenderSubmissionFormat" => "tenderSubmissionFormat",
 			"cTenderType" => "tenderType",
 			"cUtmcampaign" => "utmCampaign",
-			"cNbAnneesRelation" => "yearsOfRelationship",
-			"cODSCollaborators" => "odsCollaborators"
+			"cNbAnneesRelation" => "yearsOfRelationship"
 		],
 		Contact::ENTITY_TYPE => [
 			"cLanguage" => "preferredLanguage",
