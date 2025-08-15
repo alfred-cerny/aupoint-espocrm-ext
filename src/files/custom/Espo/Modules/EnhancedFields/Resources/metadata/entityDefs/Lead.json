@@ -66,6 +66,7 @@
 	"links": {
 		"referredByContact": {
 			"entity": "Contact",
+			"foreign": "referredLeads",
 			"type": "belongsTo"
 		},
 		"referredByUser": {

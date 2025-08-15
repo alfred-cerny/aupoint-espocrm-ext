@@ -1,5 +1,15 @@
 {
 	"fields": {
+		"accountProjectsCount": {
+			"default": 0,
+			"max": 200,
+			"min": 0,
+			"tooltip": true,
+			"type": "int"
+		},
+		"amount": {
+			"required": false
+		},
 		"bids": {
 			"type": "linkMultiple",
 			"view": "enhanced-fields:views/fields/bids"
@@ -10,12 +20,500 @@
 			"orderDisabled": true,
 			"type": "jsonArray",
 			"utility": true
+		},
+		"closeDate": {
+			"required": false
+		},
+		"complementaryProgram": {
+			"default": "",
+			"maxLength": 100,
+			"options": [
+				"Multipurpose Room",
+				"Locker Room Layout Or Remodeling",
+				"Cafeteria",
+				"Outdoor Playground Area Design",
+				"Not Applicable"
+			],
+			"style": {
+				"Cafeteria": "primary",
+				"Locker Room Layout Or Remodeling": "info",
+				"Multipurpose Room": "primary",
+				"Not Applicable": "secondary",
+				"Outdoor Playground Area Design": "success"
+			},
+			"type": "enum"
+		},
+		"constructionKickoffDate": {
+			"audited": true,
+			"notNull": false,
+			"tooltip": true,
+			"type": "date"
+		},
+		"disqualificationChecklist": {
+			"default": [
+			],
+			"options": [
+				"Brain Picking",
+				"Lack Of Clarity",
+				"Limited Construction Knowledge Or Low Dedication",
+				"Unethical Request",
+				"Irrelevant Segment",
+				"Statistical Risk Based On Client Background"
+			],
+			"storeArrayValues": true,
+			"tooltip": true,
+			"type": "checklist"
+		},
+		"ethicalValues": {
+			"audited": true,
+			"default": [
+			],
+			"displayAsList": true,
+			"options": [
+				"Project Aligns With Values",
+				"Project Aligns With Sustainable Development",
+				"Favorable History",
+				"Environmental Certification Achievement",
+				"Professional Skills Respected"
+			],
+			"storeArrayValues": true,
+			"style": {
+				"Environmental Certification Achievement": "info",
+				"Favorable History": "primary",
+				"Professional Skills Respected": "primary",
+				"Project Aligns With Sustainable Development": "success",
+				"Project Aligns With Values": "success"
+			},
+			"type": "multiEnum"
+		},
+		"initialAmount": {
+			"type": "currency"
+		},
+		"lostReason": {
+			"audited": true,
+			"default": "",
+			"maxLength": 100,
+			"options": [
+				"Price",
+				"Technical Quality",
+				"Conformity"
+			],
+			"style": {
+				"Conformity": "danger",
+				"Price": "warning",
+				"Technical Quality": "info"
+			},
+			"tooltip": true,
+			"type": "enum"
+		},
+		"odsLeader": {
+			"type": "link"
+		},
+		"odsProductionCapacity": {
+			"audited": true,
+			"maxLength": 100,
+			"options": [
+				"Go",
+				"No Go"
+			],
+			"style": {
+				"Go": "success",
+				"No Go": "danger"
+			},
+			"type": "enum"
+		},
+		"operationalRisks": {
+			"audited": true,
+			"default": [
+			],
+			"displayAsList": true,
+			"options": [
+				"Project Needs Clarity",
+				"Context Clarity",
+				"Technical Capacity Expertise",
+				"Realistic Schedule",
+				"Realistic Budget",
+				"Payment Capacity",
+				"Funding Available",
+				"Positive References",
+				"Site Control",
+				"Decision Making Capacity"
+			],
+			"storeArrayValues": true,
+			"style": {
+				"Context Clarity": "info",
+				"Decision Making Capacity": "primary",
+				"Funding Available": "success",
+				"Payment Capacity": "success",
+				"Positive References": "primary",
+				"Project Needs Clarity": "info",
+				"Realistic Budget": "warning",
+				"Realistic Schedule": "warning",
+				"Site Control": "info",
+				"Technical Capacity Expertise": "primary"
+			},
+			"type": "multiEnum"
+		},
+		"opportunitiesOdsCollaborator": {
+			"type": "linkMultiple"
+		},
+		"partnerAuthorizationStatus": {
+			"audited": true,
+			"default": "",
+			"maxLength": 100,
+			"options": [
+				"Authorized",
+				"Not Authorized",
+				"Not Applicable"
+			],
+			"style": {
+				"Authorized": "success",
+				"Not Applicable": "secondary",
+				"Not Authorized": "danger"
+			},
+			"tooltip": true,
+			"type": "enum"
+		},
+		"partners": {
+			"audited": true,
+			"isSorted": true,
+			"options": [
+				"GLCRM",
+				"LG4 Architecture Inc",
+				"J Alejandro Lopez Architecture",
+				"Patriarche",
+				"Onico",
+				"PAR Conseils"
+			],
+			"storeArrayValues": true,
+			"style": {
+				"GLCRM": "primary",
+				"J Alejandro Lopez Architecture": "primary",
+				"LG4 Architecture Inc": "primary",
+				"Onico": "primary",
+				"PAR Conseils": "primary",
+				"Patriarche": "primary"
+			},
+			"tooltip": true,
+			"type": "multiEnum"
+		},
+		"probability": {
+			"audited": true,
+			"maxLength": 100,
+			"options": [
+				"Go",
+				"No Go"
+			],
+			"style": {
+				"Go": "success",
+				"No Go": "danger"
+			},
+			"type": "enum"
+		},
+		"projectActivities": {
+			"cutHeight": 200,
+			"rows": 3,
+			"rowsMin": 2,
+			"tooltip": true,
+			"type": "text"
+		},
+		"projectGlobalValue": {
+			"type": "currency"
+		},
+		"projectInfantCount": {
+			"notNull": false,
+			"type": "float"
+		},
+		"projectLocation": {
+			"tooltip": true,
+			"type": "address",
+			"viewMap": true
+		},
+		"projectScope": {
+			"default": [
+			],
+			"displayAsList": true,
+			"options": [
+				"All Required",
+				"Feasibility Study",
+				"Site Development Analysis",
+				"Site Planning",
+				"Master Plan",
+				"Urban Design For New Development",
+				"New Construction",
+				"Expansion",
+				"Redevelopment",
+				"Space Planning",
+				"Space Optimization",
+				"Interior Design",
+				"Code Compliance",
+				"Renovation",
+				"Expert Consulting On Specific Issues"
+			],
+			"storeArrayValues": true,
+			"style": {
+				"All Required": "primary",
+				"Code Compliance": "warning",
+				"Expansion": "success",
+				"Expert Consulting On Specific Issues": "info",
+				"Feasibility Study": "info",
+				"Interior Design": "primary",
+				"Master Plan": "primary",
+				"New Construction": "success",
+				"Redevelopment": "warning",
+				"Renovation": "warning",
+				"Site Development Analysis": "info",
+				"Site Planning": "info",
+				"Space Optimization": "info",
+				"Space Planning": "info",
+				"Urban Design For New Development": "primary"
+			},
+			"tooltip": true,
+			"type": "multiEnum"
+		},
+		"projectSeatCount": {
+			"notNull": false,
+			"type": "float"
+		},
+		"projectSector": {
+			"default": "",
+			"maxLength": 100,
+			"options": [
+				"Public Institutional",
+				"Private"
+			],
+			"style": {
+				"Private": "primary",
+				"Public Institutional": "info"
+			},
+			"type": "enum"
+		},
+		"projectSurface": {
+			"notNull": false,
+			"type": "float"
+		},
+		"projectType": {
+			"default": "",
+			"maxLength": 100,
+			"options": [
+				"Multi Residential",
+				"Industrial",
+				"Commercial",
+				"Childcare Facilities"
+			],
+			"style": {
+				"Childcare Facilities": "success",
+				"Commercial": "info",
+				"Industrial": "warning",
+				"Multi Residential": "primary"
+			},
+			"type": "enum"
+		},
+		"projectUnitQuantity": {
+			"notNull": false,
+			"type": "float"
+		},
+		"qualificationChecklist": {
+			"default": [
+			],
+			"options": [
+				"Reference",
+				"Site Owner",
+				"Knowledge Of Construction Industry",
+				"Concrete Project Defined Need",
+				"Funding Budget Available",
+				"Decision Making Authority Of Contact"
+			],
+			"storeArrayValues": true,
+			"tooltip": true,
+			"type": "checklist"
+		},
+		"resultObservations": {
+			"cutHeight": 200,
+			"rows": 5,
+			"rowsMin": 2,
+			"type": "text"
+		},
+		"selfWithdrawReason": {
+			"audited": true,
+			"default": "",
+			"maxLength": 100,
+			"options": [
+				"Portfolio Fit",
+				"Too Complex"
+			],
+			"style": {
+				"Portfolio Fit": "warning",
+				"Too Complex": "danger"
+			},
+			"tooltip": true,
+			"type": "enum"
+		},
+		"stage": {
+			"options": [
+				"Prospecting",
+				"Qualification",
+				"Proposal",
+				"Negotiation",
+				"Closed Won",
+				"Closed Lost",
+				"Cancellation",
+				"Non-Participation"
+			],
+			"probabilityMap": {
+				"Cancellation": 0,
+				"Closed Lost": 0,
+				"Closed Won": 100,
+				"Negotiation": 80,
+				"Non-Participation": 0,
+				"Proposal": 50,
+				"Prospecting": 10,
+				"Qualification": 20
+			},
+			"style": {
+				"Cancellation": "secondary",
+				"Closed Lost": "danger",
+				"Closed Won": "success",
+				"Negotiation": "warning",
+				"Non-Participation": "secondary",
+				"Proposal": "primary",
+				"Prospecting": "info",
+				"Qualification": "info"
+			}
+		},
+		"strategicEvaluation": {
+			"audited": true,
+			"default": null,
+			"maxLength": 100,
+			"options": [
+				"Go",
+				"No Go"
+			],
+			"style": {
+				"Go": "success",
+				"No Go": "danger"
+			},
+			"type": "enum"
+		},
+		"strategicValues": {
+			"audited": true,
+			"default": [
+			],
+			"displayAsList": true,
+			"options": [
+				"Corresponding Portfolio",
+				"Objectives Alignment",
+				"Required Skills Mobilization Capacity",
+				"Creativity Valorization",
+				"Positive Integration"
+			],
+			"storeArrayValues": true,
+			"style": {
+				"Corresponding Portfolio": "primary",
+				"Creativity Valorization": "info",
+				"Objectives Alignment": "success",
+				"Positive Integration": "success",
+				"Required Skills Mobilization Capacity": "primary"
+			},
+			"type": "multiEnum"
+		},
+		"tenderQualificationMode": {
+			"audited": true,
+			"default": "",
+			"isSorted": true,
+			"maxLength": 100,
+			"options": [
+				"Quality",
+				"Quality And Price",
+				"Price"
+			],
+			"style": {
+				"Price": "warning",
+				"Quality": "primary",
+				"Quality And Price": "info"
+			},
+			"tooltip": true,
+			"type": "enum"
+		},
+		"tenderQuestionsDeadline": {
+			"minuteStep": 1,
+			"notNull": false,
+			"tooltip": true,
+			"type": "datetime"
+		},
+		"tenderSubmissionDeadline": {
+			"audited": true,
+			"minuteStep": 1,
+			"notNull": false,
+			"tooltip": true,
+			"type": "datetime"
+		},
+		"tenderSubmissionFormat": {
+			"audited": true,
+			"default": "",
+			"maxLength": 100,
+			"options": [
+				"Electronic",
+				"Paper"
+			],
+			"style": {
+				"Electronic": "primary",
+				"Paper": "secondary"
+			},
+			"tooltip": true,
+			"type": "enum"
+		},
+		"tenderType": {
+			"audited": true,
+			"default": "",
+			"maxLength": 100,
+			"options": [
+				"Public",
+				"Invitation Only",
+				"Direct Contract"
+			],
+			"style": {
+				"Direct Contract": "primary",
+				"Invitation Only": "warning",
+				"Public": "info"
+			},
+			"type": "enum"
+		},
+		"utmCampaign": {
+			"audited": true,
+			"cutHeight": 200,
+			"rowsMin": 2,
+			"tooltip": true,
+			"type": "text"
+		},
+		"yearsOfRelationship": {
+			"audited": true,
+			"default": 0,
+			"max": 50,
+			"min": 0,
+			"tooltip": true,
+			"type": "int"
+		},
+		"odsCollaborators": {
+			"type": "linkMultiple"
 		}
 	},
 	"links": {
 		"bids": {
 			"entity": "OpportunityBid",
 			"foreign": "opportunity",
+			"type": "hasMany"
+		},
+		"odsLeader": {
+			"audited": false,
+			"entity": "User",
+			"foreign": "opportunityOdsLeader",
+			"type": "belongsTo"
+		},
+		"odsCollaborators": {
+			"entity": "User",
+			"foreign": "opportunityOdsCollaborator",
+			"relationName": "odsCollaborationUser",
 			"type": "hasMany"
 		}
 	}

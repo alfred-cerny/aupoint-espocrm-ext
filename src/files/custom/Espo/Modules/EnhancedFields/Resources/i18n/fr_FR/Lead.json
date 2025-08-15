@@ -4,9 +4,9 @@
 		"leadOrigin": "Lead Origin (list)",
 		"optinChannels": "Accepted communication channel(s)",
 		"optinConsent": "Opt-in Consent",
+		"optinDate": "Consent date and time",
 		"optinQuote": "Consent quote or text",
 		"optinSource": "OPT-IN consent source",
-		"optinDate": "Consent date and time",
 		"optinUnsubscribe": "Unsubscribe",
 		"referredByContact": "Reference - Contact (client, partner)",
 		"referredByUser": "Reference - Employee",
@@ -14,5 +14,20 @@
 		"utmContent": "Interaction context",
 		"utmMedium": "Medium",
 		"utmTerm": "Utm Term"
+	},
+	"links": {
+		"referredByContact": "Référence - Contact (client, partenaire)",
+		"referredByUser": "Référence - Employé"
+	},
+	"tooltips": {
+		"leadOrigin": "Déterminer ici si les coordonnées de ce lead provient d'une liste spécifique",
+		"optinConsent": "Est-ce que prospect à donné son consentement pour être sur notre liste d'envoie",
+		"optinQuote": "Citation ou texte de consentement que le prospect à approuvé",
+		"optinSource": "D’où vient le consentement (formulaire, landing, etc)",
+		"optinUnsubscribe": "Le prospect a demandé d'être retiré de la liste d'envoie",
+		"source": "D’où vient le prospect ?\nCe champ identifie la plateforme ou l’origine exacte du contact.\n\n✅ Rempli automatiquement si le contact a utilisé un lien avec balises UTM (ex. : google, facebook, brevo)\n✏️ Si vous devez le saisir manuellement, indiquez la source la plus précise possible",
+		"utmCampaign": "Ce champ identifie la campagne marketing ou commerciale à laquelle le contact est associé.\nIl peut être automatiquement rempli si le contact provient d’un lien avec des paramètres UTM, ou saisi manuellement si le contact provient d’un appel, d’un courriel, d’un événement ou d’une activité sans tracking automatisé.\n\n🛠️ Si vous devez entrer manuellement la valeur de la campagne, suivez les règles de nommage ci-dessous pour assurer une attribution cohérente et exploitable dans vos rapports.\n\n📋 Règles de codification utm_campaign \nUtiliser uniquement des minuscules\n✅ Exemple : petite_enfance_hiver2024\n❌ Éviter : Petite_Enfance_Hiver2024\n\nUtiliser des tirets bas (_) pour séparer les mots\n✅ Exemple : ontario_hamilton_affichage\n❌ Éviter : ontario-hamilton-affichage si les segments ne sont pas distincts\n\nUtiliser des tirets (-) pour séparer des segments distincts de la campagne\n(ex. : date - région - objectif)\n✅ Exemple : ontario_hiver2024-leadgen\nCela aide à mieux lire les différentes composantes si nécessaire.\n\nNe jamais utiliser d'espaces ou de caractères spéciaux\n❌ Éviter : été 2024, campagne&promo, questionnaire/?\n\nRester cohérent dans la structure\nUne fois l’ordre des segments défini (ex. : région_date_objectif), utilisez-le dans toutes vos campagnes.\n\nSoyez descriptif mais concis\n✅ Bien : ottawa_print-ete2024-nursery\n❌ Trop long : campagne_ontario_petite_enfance_version_brochure_pour_centres_de_garde",
+		"utmContent": "Ce champ permet de préciser le contenu ou la version exacte de l’élément qui a déclenché l’intérêt ou la conversion du contact.\nIl est souvent utilisé pour distinguer différentes variantes de messages, supports ou points de contact dans une même campagne.\n\n✅ Ce champ est généralement rempli automatiquement lorsqu’un lien UTM est cliqué (ex. : cta_footer, qr_affiche_v1, email_versionB).\n✏️ Si vous devez le saisir manuellement (ex. : appel téléphonique, retour de courriel, contact en personne), vous pouvez l’utiliser pour indiquer la nature du point de contact précis :\n\nappel_entrant, reponse_courriel, scan_qr, formulaire_web, rencontre_salon, etc.\n\nCela permet de garder une trace granulaire de ce qui a déclenché l'engagement, même dans un contexte non digital.",
+		"utmMedium": "Quel canal a été utilisé pour nous joindre ?\nCe champ décrit le moyen de communication par lequel le prospect est arrivé ou a été contacté (ex. : courriel, appel, imprimé, recherche organique).\n\n✅ Si le prospect a utilisé un lien ou formulaire avec des paramètres UTM, ce champ sera rempli automatiquement.\n✏️ S’il faut le saisir manuellement (ex. : appel entrant, réponse à un courriel, rencontre), veuillez choisir le canal le plus précis"
 	}
 }

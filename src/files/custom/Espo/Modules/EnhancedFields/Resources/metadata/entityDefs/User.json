@@ -1,0 +1,26 @@
+{
+	"fields": {
+		"accountsPointContact": {
+			"type": "linkMultiple"
+		}
+	},
+	"links": {
+		"accountsPointContact": {
+			"type": "hasMany",
+			"relationName": "accountUserPointContact",
+			"foreign": "accountsPointContact",
+			"entity": "Account"
+		},
+		"opportunityOdsLeader": {
+			"entity": "User",
+			"foreign": "odsLeader",
+			"type": "belongsTo"
+		},
+		"opportunityOdsCollaborator": {
+			"entity": "User",
+			"foreign": "odsCollaborator",
+			"relationName": "odsCollaborationUser",
+			"type": "belongsTo"
+		}
+	}
+}

@@ -1,8 +1,207 @@
 {
 	"fields": {
-		"bids": "Offres"
+		"accountProjectsCount": "Nombre de projets du compte",
+		"amount": "Montant",
+		"bids": "Soumissions",
+		"bidsData": "Données des soumissions",
+		"closeDate": "Date de clôture",
+		"complementaryProgram": "Programme complémentaire",
+		"constructionKickoffDate": "Date de début des travaux",
+		"disqualificationChecklist": "Liste de vérification pour la disqualification",
+		"ethicalValues": "Valeurs éthiques",
+		"initialAmount": "Montant initial",
+		"lostReason": "Raison de non-obtention",
+		"odsCollaborators": "Collaborateurs ODS",
+		"odsLeader": "ODS Leader",
+		"odsProductionCapacity": "Capacité de production ODS",
+		"operationalRisks": "Risques opérationnels",
+		"opportunitiesOdsCollaborator": "Collaborateurs ODS Opportunités",
+		"partnerAuthorizationStatus": "Statut d'autorisation du partenaire",
+		"partners": "Partenaires",
+		"probability": "Probabilité",
+		"projectActivities": "Activités du projet",
+		"projectGlobalValue": "Valeur globale du projet",
+		"projectInfantCount": "Nombre de poupons (pour CPE seulement)",
+		"projectLocation": "Lieu du projet",
+		"projectScope": "Portée du projet",
+		"projectSeatCount": "Nombre de places prévues (pour CPE seulement)",
+		"projectSector": "Secteur du projet",
+		"projectSurface": "Superficie du projet",
+		"projectType": "Type de projet",
+		"projectUnitQuantity": "Quantité d'unités du projet",
+		"qualificationChecklist": "Liste de vérification pour la qualification",
+		"resultObservations": "Observations sur les résultats",
+		"selfWithdrawReason": "Raison du retrait",
+		"stage": "Étape",
+		"strategicEvaluation": "Évaluation stratégique",
+		"strategicValues": "Valeurs stratégiques",
+		"tenderQualificationMode": "Mode de qualification de l'appel d'offres",
+		"tenderQuestionsDeadline": "Date limite des questions de l'appel d'offres",
+		"tenderSubmissionDeadline": "Date limite de soumission de l'appel d'offres",
+		"tenderSubmissionFormat": "Format de soumission de l'appel d'offres",
+		"tenderType": "Type d'appel d'offres",
+		"utmCampaign": "Campagne UTM",
+		"yearsOfRelationship": "Années de relation"
 	},
 	"links": {
-		"bids": "Offres"
+		"bids": "Soumissions",
+		"odsCollaborators": "Collaborateurs ODS",
+		"odsLeader": "ODS Leader"
+	},
+	"options": {
+		"complementaryProgram": {
+			"Cafeteria": "Cafétéria",
+			"Locker Room Layout Or Remodeling": "Aménagement ou réaménagement d’un vestiaire",
+			"Multipurpose Room": "Salle multifonctionnelle",
+			"Not Applicable": "Non applicable",
+			"Outdoor Playground Area Design": "Aménagement d’une cour extérieure avec jeux"
+		},
+		"disqualificationChecklist": {
+			"Brain Picking": "Demande de l'expertise gratuite",
+			"Irrelevant Segment": "Segment non pertinent",
+			"Lack Of Clarity": "Manque de clarté",
+			"Limited Construction Knowledge Or Low Dedication": "Faible connaissance de la construction ou peu de dévouement",
+			"Statistical Risk Based On Client Background": "Risque statistique : basé sur l'historique du client",
+			"Unethical Request": "Demande contraire à l'éthique"
+		},
+		"ethicalValues": {
+			"Environmental Certification Achievement": "Obtention de certifications environnementales",
+			"Favorable History": "Historique favorable",
+			"Professional Skills Respected": "Compétences professionnelles respectées",
+			"Project Aligns With Sustainable Development": "Projet et client en accord avec les principes du développement durable",
+			"Project Aligns With Values": "Projet conforme à nos valeurs"
+		},
+		"lostReason": {
+			"Conformity": "Non-conformité",
+			"Price": "Prix",
+			"Technical Quality": "Qualité technique"
+		},
+		"odsProductionCapacity": {
+			"Go": "GO",
+			"No Go": "NO-GO"
+		},
+		"operationalRisks": {
+			"Context Clarity": "Clarté du contexte d'intervention",
+			"Decision Making Capacity": "Capacité décisionnelle",
+			"Funding Available": "Financement disponible",
+			"Payment Capacity": "Capacité de paiement",
+			"Positive References": "Références positives",
+			"Project Needs Clarity": "Clarté des besoins du projet",
+			"Realistic Budget": "Budget réaliste",
+			"Realistic Schedule": "Calendrier réaliste",
+			"Site Control": "Contrôle du site",
+			"Technical Capacity Expertise": "Capacité technique / expertise requise"
+		},
+		"partnerAuthorizationStatus": {
+			"Authorized": "Autorisé",
+			"Not Applicable": "Non applicable",
+			"Not Authorized": "Non-autorisé"
+		},
+		"partners": {
+			"GLCRM": "GLCRM",
+			"J Alejandro Lopez Architecture": "J Alejandro Lopez Architecture",
+			"LG4 Architecture Inc": "LG4 Architecture Inc",
+			"Onico": "Onico",
+			"PAR Conseils": "PAR Conseils",
+			"Patriarche": "Patriarche"
+		},
+		"probability": {
+			"Go": "GO",
+			"No Go": "NO-GO"
+		},
+		"projectScope": {
+			"All Required": "Tous requis",
+			"Code Compliance": "Conformité aux codes",
+			"Expansion": "Agrandissement",
+			"Expert Consulting On Specific Issues": "Consultation experte sur des problèmes spécifiques",
+			"Feasibility Study": "Étude de faisabilité",
+			"Interior Design": "Design d'intérieur",
+			"Master Plan": "Plan directeur",
+			"New Construction": "Nouvelle(s) construction(s)",
+			"Redevelopment": "Réaménagement",
+			"Renovation": "Rénovation",
+			"Site Development Analysis": "Analyse de développement de site",
+			"Site Planning": "Planification du site",
+			"Space Optimization": "Optimisation des espaces",
+			"Space Planning": "Aménagement des espaces",
+			"Urban Design For New Development": "Design urbain pour nouveau développement"
+		},
+		"projectSector": {
+			"Private": "Privé",
+			"Public Institutional": "Public institutionnel"
+		},
+		"projectType": {
+			"Childcare Facilities": "Services de garde (CPE)",
+			"Commercial": "Commercial",
+			"Industrial": "Industriel",
+			"Multi Residential": "Multi-résidentiel"
+		},
+		"qualificationChecklist": {
+			"Concrete Project Defined Need": "Projet concret, besoin défini",
+			"Decision Making Authority Of Contact": "Autorité décisionnelle du contact",
+			"Funding Budget Available": "Financement / budget disponible",
+			"Knowledge Of Construction Industry": "Connaissance de l'industrie de la construction",
+			"Reference": "Référence",
+			"Site Owner": "Propriétaire du site"
+		},
+		"selfWithdrawReason": {
+			"Portfolio Fit": "Adéquation avec le portfolio",
+			"Too Complex": "Trop complexe"
+		},
+		"stage": {
+			"Cancellation": "Annulation",
+			"Closed Lost": "Perdu - ODS refusée",
+			"Closed Won": "Gagné - Projet Créé",
+			"Negotiation": "Déposée - en attente (client)",
+			"Non-Participation": "Non-Participation",
+			"Proposal": "ODS",
+			"Prospecting": "Analyse AO",
+			"Qualification": "Acquisition et Analyse (TDR-projet)"
+		},
+		"strategicEvaluation": {
+			"Go": "GO",
+			"No Go": "NO GO"
+		},
+		"strategicValues": {
+			"Corresponding Portfolio": "Portfolio correspondant",
+			"Creativity Valorization": "Valorisation de la créativité",
+			"Objectives Alignment": "Alignement des objectifs",
+			"Positive Integration": "Intégration positive",
+			"Required Skills Mobilization Capacity": "Capacité de mobilisation des compétences requises"
+		},
+		"tenderQualificationMode": {
+			"Price": "Prix",
+			"Quality": "Qualité",
+			"Quality And Price": "Qualité et prix"
+		},
+		"tenderSubmissionFormat": {
+			"Electronic": "Électronique",
+			"Paper": "Papier"
+		},
+		"tenderType": {
+			"Direct Contract": "Contrat direct",
+			"Invitation Only": "Sur invitation",
+			"Public": "Public"
+		}
+	},
+	"tooltips": {
+		"accountProjectsCount": "Nombre total de projets réalisés ou en cours avec AUPoint.",
+		"complementaryProgram": "Programme complémentaire souhaité (pour CPE seulement)",
+		"constructionKickoffDate": "Date prévue pour le début des travaux de construction",
+		"disqualificationChecklist": "Liste de vérification pour identifier les éléments clés qui peuvent contraindre la probabilité de conversion de l'opportunité.",
+		"lostReason": "La raison pour laquelle nous n'avons pas été sélectionné",
+		"partnerAuthorizationStatus": "Déterminer si cette opportunité est ouverte pour une approche de type consortium soit avec la collaboration de partenaires.",
+		"partners": "Énumérer tous les partenaires faisant partie de notre consortium",
+		"projectActivities": "Type d'activité(s) ou fonction(s) réalisé(s) ou à réaliser dans le bâtiment existant ou à construire.",
+		"projectLocation": "Le lieu où le projet doit être accompli",
+		"projectScope": "Type de besoins et expertise requise pour ce projet.",
+		"qualificationChecklist": "Liste de vérification à cocher pour déterminer la probabilité de conversion de l'opportunité en projet et revenus concrets pour AUpoint.",
+		"selfWithdrawReason": "La raison pour laquelle nous nous sommes retiré de cette opportunité",
+		"tenderQualificationMode": "Le mode de qualification et sélection.",
+		"tenderQuestionsDeadline": "Date limite fixée pour soumettre des questions concernant l’appel d’offres.",
+		"tenderSubmissionDeadline": "Date et heure limites pour déposer la soumission finale au client.",
+		"tenderSubmissionFormat": "Le format dans lequel l'ODS doit être déposé",
+		"utmCampaign": "Nom ou code de la campagne, de l'événement ou du média",
+		"yearsOfRelationship": "Indiquer le nombre d’années d’activité commerciale entre ce client et AUPoint."
 	}
 }

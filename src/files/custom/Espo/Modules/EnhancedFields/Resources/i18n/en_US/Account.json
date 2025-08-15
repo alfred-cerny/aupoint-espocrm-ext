@@ -1,21 +1,194 @@
 {
 	"fields": {
-		"opportunityBids": "Opportunity bids",
-		"relation": "Relation type",
-		"sector": "Sector",
-		"subsectors": "Subsectors"
+		"accountAddress": "Organization Address",
+		"accountProjectsTotal": "Total number of projects completed or in progress",
+		"accountProjectsTotalValue": "Total value of projects completed or in progress",
+		"accountProjectsTypical": "Type(s) of projects carried out for this client",
+		"accountStatus": "Inactive",
+		"applicableTaxes": "Applicable Taxes",
+		"assignedUser": "Account Manager",
+		"currency": "Main Currency",
+		"currentMarket": "Current Business Market",
+		"growthPerspective": "Company Growth Perspective",
+		"opportunityBids": "Opportunity Bids",
+		"organizationSize": "Organization Size",
+		"paymentTerms": "Payment Terms",
+		"potentialLevel": "Potential Level",
+		"potentialTargets": "Business Targets",
+		"preferredLanguage": "Language Preference",
+		"registrationNumber": "Registration Number",
+		"relation": "Relationship Type",
+		"relationType": "Relationship Type",
+		"relationshipAppreciation": "Business Relationship Appreciation Scale",
+		"relationshipDescription": "Description of the business relationship with AUpoint",
+		"riskLevel": "Account Risk Level",
+		"sector": "Sector of Activity",
+		"statusDetail": "Detailed Status",
+		"statusNotes": "Additional information about the status of this account",
+		"subsectors": "Sub-sectors of Activity",
+		"yearsOfRelationship": "Number of years of business relationship with AU Point"
 	},
 	"links": {
-		"accountAddresses": "Organization addresses",
-		"opportunityBids": "Opportunity bids"
+		"accountAddresses": "Organization Addresses",
+		"opportunityBids": "Opportunity Bids"
 	},
 	"options": {
+		"applicableTaxes": {
+			"AtlanticTaxes": "Atlantic Taxes (HST)",
+			"BcTaxes": "British Columbia Taxes",
+			"ManitobaTaxes": "Manitoba Taxes",
+			"OntarioTaxes": "Ontario Taxes (HST)",
+			"OtherCases": "Other cases to define",
+			"OutsideCanada": "Outside Canada (exempt)",
+			"QuebecTaxes": "Quebec Taxes",
+			"SaskatchewanTaxes": "Saskatchewan Taxes"
+		},
+		"currency": {
+			"CAD": "CAD",
+			"EUR": "EUR",
+			"USD": "USD"
+		},
+		"currentMarket": {
+			"International": "International",
+			"Local": "Local",
+			"National": "National",
+			"Provincial": "Provincial",
+			"Regional": "Regional"
+		},
+		"growthPerspective": {
+			"Average": "Average",
+			"High": "High",
+			"Limited": "Limited"
+		},
+		"organizationSize": {
+			"Large": "Large enterprise (500+ employees)",
+			"Medium": "Medium enterprise (Between 100 and 499 employees)",
+			"Micro": "Micro-enterprise (Between 1 to 4 employees)",
+			"Small": "Small enterprise (Between 5 to 99 employees)"
+		},
+		"paymentTerms": {
+			"Fifteen Days": "Within 15 days",
+			"FortyFive Days": "Within 45 days",
+			"Ninety Days": "Within 90 days",
+			"On Receipt": "Upon Receipt",
+			"Sixty Days": "Within 60 days",
+			"Thirty Days": "Within 30 days"
+		},
+		"potentialLevel": {
+			"Average": "Average",
+			"High": "High",
+			"Limited": "Limited"
+		},
+		"preferredLanguage": {
+			"English": "English",
+			"French": "French"
+		},
 		"relation": {
 			"Client": "Client",
 			"Competitor": "Competitor",
 			"Other": "Other",
 			"Partner": "Partner",
 			"Prospect": "Prospect"
+		},
+		"relationshipAppreciation": {
+			"Average": "Average",
+			"Bad": "Bad",
+			"Excellent": "Excellent",
+			"Good": "Good",
+			"Terrible": "Terrible"
+		},
+		"riskLevel": {
+			"Five": "5 - Very High",
+			"Four": "4 - High",
+			"One": "1 - Very Low",
+			"Three": "3 - Medium",
+			"Two": "2 - Rather Low"
+		},
+		"sector": {
+			"Commerce and Services": "Commerce and Services",
+			"Culture and Heritage": "Culture and Heritage",
+			"Early Childhood": "Early Childhood",
+			"Educational and Research Institution": "Educational and Research Institution",
+			"Health and Social Services": "Health and Social Services",
+			"Industrial": "Industrial",
+			"Infrastructure": "Infrastructure",
+			"Municipal Institution": "Municipal Institution",
+			"Primary and Secondary Education": "Primary and Secondary Education",
+			"Real Estate (management and development)": "Real Estate (management and development)",
+			"Religious and Spiritual": "Religious and Spiritual",
+			"Territory Management": "Territory Management",
+			"Tourism": "Tourism"
+		},
+		"statusDetail": {
+			"Closed": "Company Closed",
+			"Former Client": "Former Client",
+			"Former Partner": "Former Partner",
+			"Lost": "Lost Prospect",
+			"Merged": "Company Merged",
+			"Not Converted": "Unconverted Prospect",
+			"Planned Exit": "Owners close to retirement",
+			"Sold": "Company Sold"
+		},
+		"subsectors": {
+			"Aeronautics": "Aeronautics",
+			"Aerospace": "Aerospace",
+			"Agriculture, livestock and fishing": "Agriculture, livestock and fishing",
+			"CISSS / CIUSSS": "CISSS / CIUSSS",
+			"Camping": "Camping",
+			"Chemical": "Chemical",
+			"City / Municipality": "City / Municipality",
+			"Clinic / medical center": "Clinic / medical center",
+			"Commercial": "Commercial",
+			"Construction materials": "Construction materials",
+			"Convention and exhibition center": "Convention and exhibition center",
+			"Cégep": "Cégep",
+			"Data center": "Data center",
+			"Daycare": "Daycare",
+			"Diocese / Fabrique (church, presbytery, etc.)": "Diocese / Fabrique (church, presbytery, etc.)",
+			"Drainage": "Drainage",
+			"Drinking water and sanitation": "Drinking water and sanitation",
+			"Early childhood center (CPE)": "Early childhood center (CPE)",
+			"Energy": "Energy",
+			"Garages and mechanical workshop": "Garages and mechanical workshop",
+			"Hotel industry": "Hotel industry",
+			"INRS": "INRS",
+			"Industrial – manufacturing": "Industrial – manufacturing",
+			"Interpretation center": "Interpretation center",
+			"Kindergarten": "Kindergarten",
+			"Local development center": "Local development center",
+			"MRC": "MRC",
+			"Medical laboratory": "Medical laboratory",
+			"Metallurgy": "Metallurgy",
+			"Mining and quarrying": "Mining and quarrying",
+			"Museum": "Museum",
+			"National security": "National security",
+			"Outdoor establishment": "Outdoor establishment",
+			"Outfitter": "Outfitter",
+			"Pre-school": "Pre-school",
+			"Private schools": "Private schools",
+			"Production establishment (studio, etc.)": "Production establishment (studio, etc.)",
+			"Professional and technical training school": "Professional and technical training school",
+			"Regional park": "Regional park",
+			"Regional tourist association": "Regional tourist association",
+			"Residence for seniors (RPA)": "Residence for seniors (RPA)",
+			"Residential – Multiplex": "Residential – Multiplex",
+			"Residential – Single-family": "Residential – Single-family",
+			"Restaurant": "Restaurant",
+			"Retail trade": "Retail trade",
+			"SQI and other real estate managers": "SQI and other real estate managers",
+			"School board (anglophone)": "School board (anglophone)",
+			"School service centers (CSS)": "School service centers (CSS)",
+			"Specialized support establishment": "Specialized support establishment",
+			"Spiritual retreat center": "Spiritual retreat center",
+			"Summer or thematic camps": "Summer or thematic camps",
+			"Sépaq": "Sépaq",
+			"Telecommunications": "Telecommunications",
+			"Theaters and performance hall": "Theaters and performance hall",
+			"Transport": "Transport",
+			"University": "University",
+			"Warehousing and logistics": "Warehousing and logistics",
+			"ZEC": "ZEC",
+			"ZIP (Watersheds)": "ZIP (Watersheds)"
 		}
 	}
 }

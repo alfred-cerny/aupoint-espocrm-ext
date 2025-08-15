@@ -1,5 +1,60 @@
 {
+	"fields": {
+		"academicBackground": "Formation académique",
+		"accountRole": "Titre pro",
+		"assignedUser": "Directeur de compte",
+		"cTitle": "Titre Professionel",
+		"expertise": "Expertise professionnelle",
+		"individualRelationshipAppreciation": "Échelle d'appreciation de la relation d'affaire",
+		"individualRelationshipDescription": "Description de la relation d'affaires avec AUpoint",
+		"optinChannels": "Canal(ux) de communication accepté(s)",
+		"optinConsent": "Consentement \"Opt-in\"",
+		"optinQuote": "Citation ou texte de consentement",
+		"optinSource": "La source du consentement \"OPT-IN\"",
+		"optinTimestamp": "Date et heure du consentement",
+		"optinUnsubscribe": "Désabonner",
+		"preferredLanguage": "Langue préféré",
+		"referredLeads": "Prospects référés",
+		"title": "Fonction",
+		"yearsOfIndividualRelationship": "NbAnneesRelationindividuel",
+		"yearsOfRelationshipWithCompany": "Nombre d’années de relation d’affaires avec AUPoint"
+	},
+	"links": {
+		"referredLeads": "Prospects référés"
+	},
+	"options": {
+		"individualRelationshipAppreciation": {
+			"bonne": "Bonne",
+			"excellente": "Excellente",
+			"mauvaise": "Mauvaise",
+			"mediocre": "Médiocre",
+			"moyenne": "Moyenne"
+		},
+		"optinChannels": {
+			"email": "Courriel",
+			"phone": "Téléphone",
+			"sms": "SMS"
+		},
+		"preferredLanguage": {
+			"English": "Anglais",
+			"French": "Français"
+		},
+		"salutationName": {
+			"": "",
+			"Dr.": "Dr",
+			"Mr.": "M.",
+			"Mrs.": "Mme",
+			"Ms.": "Mlle"
+		}
+	},
 	"tooltips": {
-		"accountAddress": "Par défaut, utilise l'adresse personnelle si aucun compte n'est sélectionné"
+		"accountAddress": "Par défaut, utilise l'adresse personnelle si aucun compte n'est sélectionné",
+		"individualRelationshipDescription": "Ajouter les informations contextuelles ou événements marquants permettant de mieux comprendre la relation avec AUpoint.",
+		"optinConsent": "Est-ce que contact à donné son consentement pour être sur notre liste d'envoie",
+		"optinQuote": "Citation ou texte de consentement que le prospect à approuvé",
+		"optinSource": "D’où vient le consentement (formulaire, landing, etc)",
+		"preferredLanguage": "La langue de préférence de ce contact",
+		"yearsOfIndividualRelationship": "Indiquer le nombre d’années d’activité commerciale avec AU Point.",
+		"yearsOfRelationshipWithCompany": "Durée de la relation d'affaires depuis le premier contact avec AUPoint."
 	}
 }

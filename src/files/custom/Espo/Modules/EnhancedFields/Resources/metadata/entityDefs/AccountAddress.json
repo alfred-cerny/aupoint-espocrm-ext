@@ -26,6 +26,22 @@
 		"invalid": {
 			"type": "bool"
 		},
+		"labels": {
+			"allowCustomOptions": true,
+			"displayAsLabel": true,
+			"maxCount": 1,
+			"options": [
+				"",
+				"Head Office",
+				"Satellite Office",
+				"Regional Office",
+				"Factory",
+				"Distribution Center",
+				"Construction Site",
+				"Billing Address"
+			],
+			"type": "multiEnum"
+		},
 		"modifiedAt": {
 			"readOnly": true,
 			"type": "datetime"
@@ -54,22 +70,6 @@
 			"dbType": "varchar",
 			"maxLength": 255,
 			"type": "text"
-		},
-		"labels": {
-			"allowCustomOptions": true,
-			"displayAsLabel": true,
-			"maxCount": 1,
-			"options": [
-				"",
-				"Head Office",
-				"Satellite Office",
-				"Regional Office",
-				"Factory",
-				"Distribution Center",
-				"Construction Site",
-				"Billing Address"
-			],
-			"type": "multiEnum"
 		}
 	},
 	"indexes": {

@@ -1,21 +1,108 @@
 {
 	"fields": {
+		"accountAddress": "Adresse de l'organisation",
+		"accountProjectsTotal": "Nombre total de projets réalisé ou en cours",
+		"accountProjectsTotalValue": "Valeur totale des projets réalisés ou en cours",
+		"accountProjectsTypical": "Type(s) de projets effectué(s) pour ce client",
+		"accountStatus": "Inactif",
+		"applicableTaxes": "Taxes Applicables",
+		"assignedUser": "Directeur de compte",
+		"currency": "Devise principale",
+		"currentMarket": "Marche d'affaires actuel",
+		"growthPerspective": "Perspective de croissance de l'entreprise",
 		"opportunityBids": "Offres d'opportunité",
+		"organizationSize": "Taille de l'organisation",
+		"paymentTerms": "Termes de paiement",
+		"potentialLevel": "Niveau de potentiel",
+		"potentialTargets": "Cibles d'affaires",
+		"preferredLanguage": "Préférence de Langue",
+		"registrationNumber": "Numéro d'enregistrement",
 		"relation": "Type de relation",
+		"relationType": "Type de relation",
+		"relationshipAppreciation": "Échelle d'appreciation de la relation d'affaire",
+		"relationshipDescription": "Description de la relation d'affaires avec AUpoint",
+		"riskLevel": "Niveau de risque du compte",
 		"sector": "Secteur d’activité",
-		"subsectors": "Sous-secteurs d’activité"
+		"statusDetail": "Statut Detaillé",
+		"statusNotes": "Information additionnels à propos du statut de ce compte",
+		"subsectors": "Sous-secteurs d’activité",
+		"yearsOfRelationship": "Nombre d'années de relation d'affaires avec AU Point"
 	},
 	"links": {
 		"accountAddresses": "Adresses de l'organisation",
 		"opportunityBids": "Offres d'opportunité"
 	},
 	"options": {
+		"applicableTaxes": {
+			"AtlanticTaxes": "Taxes Atlantique (TVH)",
+			"BcTaxes": "Taxes Colombie-Britannique",
+			"ManitobaTaxes": "TaxesManitoba",
+			"OntarioTaxes": "Taxes Ontario (TVH)",
+			"OtherCases": "Autres cas à définir",
+			"OutsideCanada": "Hors Canada (exonéré)",
+			"QuebecTaxes": "Taxes Quebec",
+			"SaskatchewanTaxes": "Taxes Saskatchewan"
+		},
+		"currency": {
+			"CAD": "CDN",
+			"EUR": "EUR",
+			"USD": "USD"
+		},
+		"currentMarket": {
+			"International": "International",
+			"Local": "Local",
+			"National": "National",
+			"Provincial": "Provincial",
+			"Regional": "Régional"
+		},
+		"growthPerspective": {
+			"Average": "Moyenne",
+			"High": "Elevée",
+			"Limited": "Limitée"
+		},
+		"organizationSize": {
+			"Large": "Grande entreprise (+ de 500 employés)",
+			"Medium": "Moyenne entreprise (Entre 100 et 499 employés)",
+			"Micro": "Micro-entreprise (Entre 1 à 4 employés)",
+			"Small": "Petite entreprise (Entre 5 à 99 employés)"
+		},
+		"paymentTerms": {
+			"Fifteen Days": "En deça de 15 jours",
+			"FortyFive Days": "En deça de 45 jours",
+			"Ninety Days": "En deça de 90 jours",
+			"On Receipt": "Sur Réception",
+			"Sixty Days": "En deça de 60 jours",
+			"Thirty Days": "En deça de 30 jours"
+		},
+		"potentialLevel": {
+			"Average": "Moyenne",
+			"High": "Élevée",
+			"Limited": "Limitée"
+		},
+		"preferredLanguage": {
+			"English": "Anglais",
+			"French": "Français"
+		},
 		"relation": {
 			"Client": "Client",
 			"Competitor": "Concurrent",
 			"Other": "Autre",
 			"Partner": "Partenaire",
 			"Prospect": "Prospect"
+		},
+		"relationshipAppreciation": {
+			"Average": "Moyenne",
+			"Bad": "Mauvaise",
+			"Excellent": "Excellente",
+			"Good": "Bonne",
+			"Terrible": "Exécrable"
+		},
+		"riskLevel": {
+			"Five": "5 - Très élevé",
+			"Four": "4 - Élevé",
+			"One": "1 - Très faible",
+			"Three": "3 - Moyen",
+			"Two": "2 - Plutôt faible"
 		},
 		"sector": {
 			"Commerce and Services": "Commerces et services",
@@ -31,6 +118,16 @@
 			"Religious and Spiritual": "Religieux et spirituel",
 			"Territory Management": "Gestion de territoire",
 			"Tourism": "Tourisme"
+		},
+		"statusDetail": {
+			"Closed": "Entreprise fermé",
+			"Former Client": "Ancien Client",
+			"Former Partner": "Ancien Partenaire",
+			"Lost": "Prospect perdu",
+			"Merged": "Entreprise fusionné",
+			"Not Converted": "Prospect non-converti",
+			"Planned Exit": "Propriétaires près de la retraite",
+			"Sold": "Entreprise vendue"
 		},
 		"subsectors": {
 			"Aeronautics": "Aéronautique",
@@ -93,5 +190,30 @@
 			"ZEC": "ZEC",
 			"ZIP (Watersheds)": "ZIP (Bassins Versants)"
 		}
+	},
+	"tooltips": {
+		"accountProjectsTotal": "Nombre total de projets réalisés ou en cours avec AUPoint.",
+		"accountProjectsTotalValue": "Estimation du montant total des projets réalisés ou en cours avec AUPoint.",
+		"accountProjectsTypical": "Indiquer le ou les type de projets typiquement effectué pour ce client",
+		"accountStatus": "Cocher si ce compte est inactif ",
+		"applicableTaxes": "Choisissez le groupe de taxes applicable selon la province ou le pays du client. Ce champ doit correspondre aux groupes de taxes définis dans Nutcache",
+		"assignedUser": "Personne en autorité de prendre des décisions concernant ce compte chez AU Point.",
+		"currency": "Indique la devise principale utilisée pour les transactions avec ce compte (ex. CAD, USD, EUR).",
+		"currentMarket": "Indiquez la portée géographique principale du marché actuel de cette organisation.",
+		"growthPerspective": "Estimation de la croissance future de l’entreprise selon votre évaluation actuelle.",
+		"organizationSize": "Sélectionnez la taille approximative de l’organisation en fonction du nombre d’employés.",
+		"paymentTerms": "Spécifie les modalités de paiement convenues avec ce compte ",
+		"potentialLevel": "Estimation du potentiel de développement d’affaires pour AUPoint avec ce compte.",
+		"potentialTargets": "Décrire les objectifs, cibles ou pistes de développement d’affaires à envisager pour ce compte.",
+		"preferredLanguage": "La langue de préférence qu'on doit utilisé dans les communications avec cette organisation ",
+		"registrationNumber": "Le numéro d'enregistrement de l'entreprise (NEQ ou autre)",
+		"relation": "Sélectionnez un ou plusieurs types de relation supplémentaires que ce compte entretient avec l’organisation (ex. : Partenaire et Compétiteur).",
+		"relationshipAppreciation": "Évaluer globalement la qualité de la relation d’affaires avec ce compte.",
+		"relationshipDescription": "Ajouter les informations contextuelles ou événements marquants permettant de mieux comprendre la relation avec AUpoint.",
+		"riskLevel": "Évalue le risque financier associé à ce compte sur une échelle de 1 (très faible) à 5 (très élevé), basé sur l’expérience passée, le comportement de paiement ou la cote de crédit.",
+		"sector": "Choisissez le secteur d’activité principal du client",
+		"statusDetail": "Sélectioner les statuts spécifiques qui s'appliquent à ce compte",
+		"statusNotes": "Information additionnels à propos du statut de ce compte",
+		"yearsOfRelationship": "Indiquer le nombre d’années d’activité commerciale avec AU Point."
 	}
 }

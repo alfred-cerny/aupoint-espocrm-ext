@@ -1,8 +1,48 @@
 {
 	"fields": {
+		"academicBackground": {
+			"cutHeight": 200,
+			"rowsMin": 2,
+			"type": "text"
+		},
 		"accountAddress": {
 			"tooltip": true,
 			"type": "accountAddress"
+		},
+		"accounts": {
+			"audited": true
+		},
+		"expertise": {
+			"cutHeight": 200,
+			"rowsMin": 2,
+			"type": "text"
+		},
+		"individualRelationshipAppreciation": {
+			"audited": true,
+			"maxLength": 100,
+			"options": [
+				"Excellent",
+				"Good",
+				"Average",
+				"Bad",
+				"Mediocre"
+			],
+			"style": {
+				"bonne": "primary",
+				"excellente": "success",
+				"mauvaise": "warning",
+				"mediocre": "danger",
+				"moyenne": "info"
+			},
+			"type": "enum"
+		},
+		"individualRelationshipDescription": {
+			"audited": true,
+			"cutHeight": 200,
+			"maxLength": 200,
+			"rowsMin": 2,
+			"tooltip": true,
+			"type": "text"
 		},
 		"opportunityBids": {
 			"type": "linkMultiple",
@@ -14,12 +54,70 @@
 			"orderDisabled": true,
 			"type": "jsonArray",
 			"utility": true
+		},
+		"optinChannels": {
+			"options": [
+				"Email",
+				"SMS",
+				"Phone"
+			],
+			"type": "multiEnum"
+		},
+		"optinConsent": {
+			"notNull": true,
+			"tooltip": true,
+			"type": "bool"
+		},
+		"optinQuote": {
+			"maxLength": 100,
+			"tooltip": true,
+			"type": "varchar"
+		},
+		"optinSource": {
+			"maxLength": 100,
+			"tooltip": true,
+			"type": "varchar"
+		},
+		"optinTimestamp": {
+			"minuteStep": 30,
+			"notNull": false,
+			"type": "datetime"
+		},
+		"optinUnsubscribe": {
+			"notNull": true,
+			"type": "bool"
+		},
+		"preferredLanguage": {
+			"default": "",
+			"maxLength": 100,
+			"options": [
+				"French",
+				"English"
+			],
+			"tooltip": true,
+			"type": "enum"
+		},
+		"yearsOfIndividualRelationship": {
+			"max": 30,
+			"tooltip": true,
+			"type": "int"
+		},
+		"yearsOfRelationshipWithCompany": {
+			"audited": true,
+			"max": 50,
+			"tooltip": true,
+			"type": "int"
 		}
 	},
 	"links": {
 		"opportunityBids": {
 			"entity": "OpportunityBid",
 			"foreign": "contact",
+			"type": "hasMany"
+		},
+		"referredLeads": {
+			"entity": "Lead",
+			"foreign": "referredByContact",
 			"type": "hasMany"
 		}
 	}

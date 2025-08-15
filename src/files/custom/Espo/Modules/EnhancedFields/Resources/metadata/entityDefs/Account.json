@@ -3,6 +3,100 @@
 		"accountAddress": {
 			"type": "accountAddress"
 		},
+		"accountProjectsTotal": {
+			"audited": true,
+			"default": 0,
+			"max": 200,
+			"min": 0,
+			"tooltip": true,
+			"type": "int"
+		},
+		"accountProjectsTotalValue": {
+			"audited": true,
+			"tooltip": true,
+			"type": "currency"
+		},
+		"accountProjectsTypical": {
+			"cutHeight": 200,
+			"rows": 3,
+			"rowsMin": 2,
+			"tooltip": true,
+			"type": "text"
+		},
+		"accountStatus": {
+			"audited": true,
+			"notNull": true,
+			"tooltip": true,
+			"type": "bool"
+		},
+		"applicableTaxes": {
+			"default": "",
+			"maxLength": 100,
+			"options": [
+				"QuebecTaxes",
+				"OntarioTaxes",
+				"BcTaxes",
+				"AtlanticTaxes",
+				"ManitobaTaxes",
+				"SaskatchewanTaxes",
+				"OutsideCanada",
+				"OtherCases"
+			],
+			"tooltip": true,
+			"type": "enum"
+		},
+		"assignedUser": {
+			"tooltip": true
+		},
+		"currency": {
+			"audited": true,
+			"default": "",
+			"maxLength": 100,
+			"options": [
+				"CAD",
+				"USD",
+				"EUR"
+			],
+			"tooltip": true,
+			"type": "enum"
+		},
+		"currentMarket": {
+			"audited": true,
+			"maxLength": 100,
+			"options": [
+				"Local",
+				"Regional",
+				"Provincial",
+				"National",
+				"International"
+			],
+			"style": {
+				"International": "primary",
+				"Local": "primary",
+				"National": "primary",
+				"Provincial": "primary",
+				"Regional": "primary"
+			},
+			"tooltip": true,
+			"type": "enum"
+		},
+		"growthPerspective": {
+			"audited": true,
+			"default": "",
+			"maxLength": 100,
+			"options": [
+				"Limited",
+				"Average",
+				"High"
+			],
+			"style": {
+				"Average": "info",
+				"High": "success",
+				"Limited": "warning"
+			},
+			"tooltip": true,
+			"type": "enum"
+		},
 		"opportunityBids": {
 			"type": "linkMultiple",
 			"view": "enhanced-fields:views/fields/bids"
@@ -13,6 +107,86 @@
 			"orderDisabled": true,
 			"type": "jsonArray",
 			"utility": true
+		},
+		"organizationSize": {
+			"audited": true,
+			"maxLength": 100,
+			"options": [
+				"Micro",
+				"Small",
+				"Medium",
+				"Large"
+			],
+			"style": {
+				"Large": "primary",
+				"Medium": "primary",
+				"Micro": "primary",
+				"Small": "primary"
+			},
+			"tooltip": true,
+			"type": "enum"
+		},
+		"paymentTerms": {
+			"audited": true,
+			"default": "",
+			"maxLength": 100,
+			"options": [
+				"On Receipt",
+				"Fifteen Days",
+				"Thirty Days",
+				"FortyFive Days",
+				"Sixty Days",
+				"Ninety Days"
+			],
+			"style": {
+				"FifteenDays": "primary",
+				"FortyFiveDays": "primary",
+				"NinetyDays": "primary",
+				"OnReceipt": "primary",
+				"SixtyDays": "primary",
+				"ThirtyDays": "primary"
+			},
+			"tooltip": true,
+			"type": "enum"
+		},
+		"potentialLevel": {
+			"audited": true,
+			"default": "",
+			"maxLength": 100,
+			"options": [
+				"Limited",
+				"Average",
+				"High"
+			],
+			"style": {
+				"Average": "info",
+				"High": "success",
+				"Limited": "warning"
+			},
+			"tooltip": true,
+			"type": "enum"
+		},
+		"potentialTargets": {
+			"cutHeight": 200,
+			"rowsMin": 2,
+			"tooltip": true,
+			"type": "text"
+		},
+		"preferredLanguage": {
+			"default": null,
+			"maxLength": 100,
+			"options": [
+				"",
+				"French",
+				"English"
+			],
+			"tooltip": true,
+			"type": "enum"
+		},
+		"registrationNumber": {
+			"maxLength": 100,
+			"tooltip": true,
+			"type": "varchar"
 		},
 		"relation": {
 			"default": [
@@ -40,6 +214,55 @@
 			],
 			"type": "enum"
 		},
+		"relationshipAppreciation": {
+			"audited": true,
+			"default": "",
+			"maxLength": 100,
+			"options": [
+				"Excellent",
+				"Good",
+				"Average",
+				"Bad",
+				"Terrible"
+			],
+			"style": {
+				"Average": "info",
+				"Bad": "warning",
+				"Excellent": "success",
+				"Good": "primary",
+				"Terrible": "danger"
+			},
+			"tooltip": true,
+			"type": "enum"
+		},
+		"relationshipDescription": {
+			"audited": true,
+			"cutHeight": 200,
+			"rowsMin": 2,
+			"tooltip": true,
+			"type": "text"
+		},
+		"riskLevel": {
+			"audited": true,
+			"default": "",
+			"maxLength": 100,
+			"options": [
+				"One",
+				"Two",
+				"Three",
+				"Four",
+				"Five"
+			],
+			"style": {
+				"Five": "danger",
+				"Four": "warning",
+				"One": "success",
+				"Three": "info",
+				"Two": "success"
+			},
+			"tooltip": true,
+			"type": "enum"
+		},
 		"sector": {
 			"options": [
 				"",
@@ -58,6 +281,38 @@
 				"Religious and Spiritual"
 			],
 			"type": "enum"
+		},
+		"statusDetail": {
+			"audited": true,
+			"options": [
+				"Not Converted",
+				"Lost",
+				"Former Client",
+				"Former Partner",
+				"Sold",
+				"Merged",
+				"Closed",
+				"Planned Exit"
+			],
+			"storeArrayValues": true,
+			"style": {
+				"Closed": "danger",
+				"FormerClient": "secondary",
+				"FormerPartner": "secondary",
+				"Lost": "danger",
+				"Merged": "info",
+				"NotConverted": "warning",
+				"PlannedExit": "warning",
+				"Sold": "info"
+			},
+			"tooltip": true,
+			"type": "multiEnum"
+		},
+		"statusNotes": {
+			"audited": true,
+			"cutHeight": 200,
+			"rowsMin": 2,
+			"type": "text"
 		},
 		"subsectors": {
 			"options": [
@@ -123,9 +378,26 @@
 			],
 			"type": "multiEnum",
 			"view": "enhanced-fields:views/account/fields/subsectors"
+		},
+		"yearsOfRelationship": {
+			"default": 0,
+			"max": 30,
+			"min": 0,
+			"tooltip": true,
+			"type": "int"
+		},
+		"accountsPointContact": {
+			"type": "linkMultiple"
 		}
 	},
 	"links": {
+		"accountsPointContact": {
+			"type": "hasMany",
+			"relationName": "accountUserPointContact",
+			"foreign": "accountsPointContact",
+			"entity": "User",
+			"audited": false
+		},
 		"accountAddresses": {
 			"entity": "AccountAddress",
 			"foreign": "account",
