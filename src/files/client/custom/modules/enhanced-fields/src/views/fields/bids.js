@@ -3,14 +3,12 @@ define(['views/fields/link-multiple'], (Dep) => {
 			detailTemplate = 'enhanced-fields:fields/bids/detail';
 			editTemplate = 'enhanced-fields:fields/bids/edit';
 			relationTypeFieldName = 'relationType';
-			relationClassNameMapping = {
-				Partner: "label-info",
-				Competitor: "label-warning"
-			};
+			relationClassNameMapping = {};
 			listSmall = null;
 
 			setup() {
 				super.setup();
+				this.relationClassNameMapping = this.getMetadata().get("entityDefs.Account.fields.relation.style") || {};
 				const promiseToLoadAvailableBidFields = this.loadAvailableBidFields();
 				this.listenTo(this.model, 'change:' + this.relationTypeFieldName, () => {
 					this.reRender();
@@ -220,12 +218,15 @@ define(['views/fields/link-multiple'], (Dep) => {
 
 					data.bidsData = data.bidsData.map((bid, index) => {
 						bid.index = index;
+						const relationClass = this.relationClassNameMapping[bid.relation || ''];
+						if (relationClass) {
+							bid.className = 'label-' + relationClass.toLowerCase();
+						}
 						if (bid.relation === 'Partner') {
 							const {amount, ...bidWithoutAmount} = bid;
 							return bidWithoutAmount;
 						}
 						bid.partnershipNature = null;
-						bid.className = this.relationClassNameMapping[bid.relation || ''] || null;
 
 						return bid;
 					});

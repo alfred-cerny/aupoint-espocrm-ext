@@ -2,7 +2,7 @@ define([], () => {
 	class RelationHandler {
 		buttons = [];
 		relationFieldName = 'relation';
-		relationType = null;
+		relationClassNameMapping = {};
 
 		constructor(view) {
 			this.view = view;
@@ -10,6 +10,7 @@ define([], () => {
 		}
 
 		process() {
+			this.relationClassNameMapping = this.view.getMetadata().get("entityDefs.Account.fields.relation.style") || {};
 			this.view.listenTo(this.model, 'change:' + this.relationFieldName, () => {
 				this.reloadButtons();
 				this.reloadHeader();
@@ -58,6 +59,19 @@ define([], () => {
 		onRelationChange(relationName) {
 			this.model.set(this.relationFieldName + 'Type', relationName);
 			this.model.trigger('change:' + this.relationFieldName + 'Type');
+
+			this.view.menu.buttons.forEach((button) => {
+				const relationsNames = this.getRelationsNames();
+				if (button.name && !relationsNames.includes(button.name)) {
+					return;
+				}
+				if (relationName && button.name === relationName) {
+					button.style = this.relationClassNameMapping[relationName] || 'default';
+				} else {
+					button.style = 'default';
+				}
+			});
+			this.reloadHeader();
 		}
 
 		getRelationsNames() {

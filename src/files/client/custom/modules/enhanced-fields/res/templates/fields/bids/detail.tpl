@@ -9,71 +9,46 @@
         <div class="opportunity-bid-item {{#if className}}{{className}}{{/if}}" data-bid-id="{{id}}" style="margin-bottom: 3px; padding: 8px 12px; border: 1px solid #ddd; border-radius: 3px;">
             <div class="row">
                 <div class="col-sm-7">
+                    {{#if opportunityId}}
                     <strong>
-                        {{#if opportunityId}}
-                            <a href="#Opportunity/view/{{opportunityId}}" title="{{translate 'View Opportunity'}}">
-                                {{opportunityName}}
-                            </a>
-                        {{else}}
-                            {{opportunityName}}
-                        {{/if}}
+                        <a href="#Opportunity/view/{{opportunityId}}" title="{{translate 'View Opportunity'}}" style="color:#000">
+                            {{#if opportunityName}}{{opportunityName}}{{else}}{{opportunityId}}{{/if}}
+                        </a>
+                        <span style="margin: 0 8px;">•</span>
                     </strong>
-                    <span style="margin: 0 8px;">•</span>
-                    <span class="currency-amount">{{amount}}</span>
+                    {{/if}}
                     <span style="margin-left: 8px; font-size: 0.9em;">
                         {{translate relation category='options' field='relation'}}
                     </span>
                     {{#if partnershipNature}}
-                    <span style="margin: 0 8px; ">•</span>
+                    <span style="margin: 0 8px;">•</span>
                     <span style="font-size: 0.9em;">
                         {{translate partnershipNature category='options' field='partnershipNature'}}
                     </span>
                     {{/if}}
                     {{#if contactId}}
-                    <span style="margin: 0 8px; ">•</span>
+                    <span style="margin: 0 8px;">•</span>
                     <span style="font-size: 0.9em;">
-                        <i class="fas fa-user" style="margin-right: 4px;"></i>
-                        <a href="#Contact/view/{{contactId}}" title="{{translate 'View Contact'}}">
-                            {{contactName}}
+                        <a href="#Contact/view/{{contactId}}" title="{{translate 'View Contact'}}" style="color:#000">
+                            <i class="fas fa-user" style="margin-right: 4px;"></i>
+                            {{#if contactName}}{{contactName}}{{else}}{{contactId}}{{/if}}
                         </a>
                     </span>
                     {{/if}}
                 </div>
                 <div class="col-sm-5 text-right">
+                     {{#if amount}}<span class="currency-amount" style="margin-right: 8px;">{{amount}} {{amountCurrency}}</span>{{/if}}
                     <span class="label label-{{#ifEqual status 'Win'}}success{{/ifEqual}}{{#ifEqual status 'Lose'}}danger{{/ifEqual}}{{#ifEqual status 'Pending'}}warning{{/ifEqual}}{{#ifEqual status 'Qualified'}}info{{/ifEqual}}">
                         {{translate status category='options' scope='Opportunity' field='stage'}}
                     </span>
-                    <a href="#OpportunityBid/view/{{id}}" title="{{translate 'View Bid Details'}}" style="margin-left: 8px;">
+                    <a href="#OpportunityBid/view/{{id}}" title="{{translate 'View Bid Details'}}" style="margin-left: 8px; color:#000">
                         <i class="fas fa-external-link-alt" aria-hidden="true"></i>
                     </a>
-                    {{#if ../showBidDetails}}
-                    <small class="text-muted" style="margin-left: 8px;">{{id}}</small>
-                    {{/if}}
                 </div>
             </div>
         </div>
         {{/each}}
     </div>
-
-    <!-- Summary Section -->
-    {{#if showSummary}}
-    <div class="opportunity-bids-summary" style="margin-top: 10px; padding: 10px; background-color: #f5f5f5; border-radius: 3px;">
-        <div class="row">
-            <div class="col-sm-3 text-center">
-                <strong>{{totalBids}}</strong> {{translate 'Total Bids'}}
-            </div>
-            <div class="col-sm-3 text-center">
-                <strong class="text-success">{{winBids}}</strong> {{translate 'Wins'}}
-            </div>
-            <div class="col-sm-3 text-center">
-                <strong class="text-danger">{{loseBids}}</strong> {{translate 'Losses'}}
-            </div>
-            <div class="col-sm-3 text-center">
-                <strong>{{totalAmount}}</strong> {{translate 'Total Amount'}}
-            </div>
-        </div>
-    </div>
-    {{/if}}
 </div>
 
 {{else}}

@@ -195,6 +195,7 @@
 			"default": [
 				"Client"
 			],
+			"displayAsLabel": true,
 			"options": [
 				"Client",
 				"Prospect",
@@ -203,18 +204,19 @@
 				"Other"
 			],
 			"required": true,
+			"style": {
+				"Client": "success",
+				"Competitor": "warning",
+				"Other": "default",
+				"Partner": "primary",
+				"Prospect": "info"
+			},
 			"type": "multiEnum"
 		},
 		"relationType": {
 			"customizationDisabled": true,
 			"notStorable": true,
-			"options": [
-				"Client",
-				"Prospect",
-				"Partner",
-				"Competitor",
-				"Other"
-			],
+			"optionsReference": "Account.relation",
 			"type": "enum"
 		},
 		"relationshipAppreciation": {
@@ -381,6 +383,24 @@
 			],
 			"type": "multiEnum",
 			"view": "enhanced-fields:views/account/fields/subsectors"
+		},
+		"type": {
+			"displayAsLabel": true,
+			"options": [
+				"__APPEND__",
+				"Client",
+				"Prospect",
+				"Partner",
+				"Competitor",
+				"Other"
+			],
+			"style": {
+				"Client": "success",
+				"Competitor": "warning",
+				"Other": "default",
+				"Partner": "primary",
+				"Prospect": "info"
+			}
 		},
 		"yearsOfRelationship": {
 			"default": 0,
