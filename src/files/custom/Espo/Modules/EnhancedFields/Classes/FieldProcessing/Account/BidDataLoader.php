@@ -20,10 +20,10 @@ class BidDataLoader implements LoaderInterface {
 
 	public function process(Entity $entity, Params $params): void {
 		if (
-			!$entity->has($this->bidsFieldName)
+			!$entity->hasRelation($this->bidsFieldName)
 		) {
 			$this->bidsFieldName = 'bids';
-			if (!$entity->has($this->bidsFieldName)) {
+			if (!$entity->hasRelation($this->bidsFieldName)) {
 				return;
 			}
 		}

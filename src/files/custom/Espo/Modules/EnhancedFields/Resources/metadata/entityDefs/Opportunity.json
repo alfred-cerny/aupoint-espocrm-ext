@@ -106,6 +106,9 @@
 			"tooltip": true,
 			"type": "enum"
 		},
+		"odsCollaborators": {
+			"type": "linkMultiple"
+		},
 		"odsLeader": {
 			"type": "link"
 		},
@@ -493,9 +496,6 @@
 			"min": 0,
 			"tooltip": true,
 			"type": "int"
-		},
-		"odsCollaborators": {
-			"type": "linkMultiple"
 		}
 	},
 	"links": {
@@ -504,17 +504,15 @@
 			"foreign": "opportunity",
 			"type": "hasMany"
 		},
-		"odsLeader": {
-			"audited": false,
-			"entity": "User",
-			"foreign": "opportunityOdsLeader",
-			"type": "belongsTo"
-		},
 		"odsCollaborators": {
 			"entity": "User",
 			"foreign": "opportunityOdsCollaborator",
-			"relationName": "odsCollaborationUser",
 			"type": "hasMany"
+		},
+		"odsLeader": {
+			"entity": "User",
+			"foreign": "opportunityOdsLeader",
+			"type": "belongsTo"
 		}
 	}
 }

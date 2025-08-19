@@ -29,6 +29,9 @@
 			"tooltip": true,
 			"type": "bool"
 		},
+		"accountsPointContact": {
+			"type": "linkMultiple"
+		},
 		"applicableTaxes": {
 			"default": "",
 			"maxLength": 100,
@@ -385,23 +388,20 @@
 			"min": 0,
 			"tooltip": true,
 			"type": "int"
-		},
-		"accountsPointContact": {
-			"type": "linkMultiple"
 		}
 	},
 	"links": {
-		"accountsPointContact": {
-			"type": "hasMany",
-			"relationName": "accountUserPointContact",
-			"foreign": "accountsPointContact",
-			"entity": "User",
-			"audited": false
-		},
 		"accountAddresses": {
 			"entity": "AccountAddress",
 			"foreign": "account",
 			"relationName": "entityAccountAddress",
+			"type": "hasMany"
+		},
+		"accountsPointContact": {
+			"audited": false,
+			"entity": "User",
+			"foreign": "accountsPointContact",
+			"relationName": "accountUserPointContact",
 			"type": "hasMany"
 		},
 		"opportunityBids": {

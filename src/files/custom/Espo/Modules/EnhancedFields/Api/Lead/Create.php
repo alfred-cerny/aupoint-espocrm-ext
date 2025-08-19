@@ -44,7 +44,10 @@ readonly class Create implements Action {
 		/** @var Lead $lead */
 		$lead = $this->entityManager->createEntity(Lead::ENTITY_TYPE, $attributes);
 
-		if ($referredByContactData = $attributes->referredByContact) {
+		if (
+			(isset($attributes->referredByContact)) &&
+			($referredByContactData = $attributes->referredByContact)
+		) {
 			$contact = $this->createOrFindEntity(
 				'Contact',
 				$referredByContactData,
@@ -59,6 +62,7 @@ readonly class Create implements Action {
 				->relate($contact);
 
 			if (
+				(isset($referredByContactData->account)) &&
 				($accountData = $referredByContactData->account) &&
 				empty($contact->get('accountsIds'))
 			) {
@@ -78,7 +82,10 @@ readonly class Create implements Action {
 					->relate($account);
 			}
 		}
-		if ($referredByUserData = $attributes->referredByUser) {
+		if (
+			(isset($attributes->referredByUser)) &&
+			($referredByUserData = $attributes->referredByUser)
+		) {
 			$user = $this->findEntity(
 				'User',
 				$referredByUserData,

@@ -1,7 +1,8 @@
 ### Test 3: Create lead with contact and account information
 POST {{url}}/api/v1/Lead/create
 Content-Type: application/json
-Authorization: Basic {{base64EncodedToken}}
+Authorization: Basic {{base64EncodedCredentials}}
+X-Api-Key: {{apiUserToken}}
 
 {
 	"attributes": {

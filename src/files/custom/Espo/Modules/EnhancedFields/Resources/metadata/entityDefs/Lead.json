@@ -22,10 +22,10 @@
 			"type": "bool"
 		},
 		"optinDate": {
-			"type": "dateTime"
+			"type": "datetime"
 		},
 		"optinQuote": {
-			"type": "varchar"
+			"type": "text"
 		},
 		"optinSource": {
 			"type": "varchar"

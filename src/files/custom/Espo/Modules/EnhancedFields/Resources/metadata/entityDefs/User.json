@@ -6,20 +6,19 @@
 	},
 	"links": {
 		"accountsPointContact": {
-			"type": "hasMany",
-			"relationName": "accountUserPointContact",
+			"entity": "Account",
 			"foreign": "accountsPointContact",
-			"entity": "Account"
-		},
-		"opportunityOdsLeader": {
-			"entity": "User",
-			"foreign": "odsLeader",
-			"type": "belongsTo"
+			"relationName": "accountUserPointContact",
+			"type": "hasMany"
 		},
 		"opportunityOdsCollaborator": {
-			"entity": "User",
+			"entity": "Opportunity",
 			"foreign": "odsCollaborator",
-			"relationName": "odsCollaborationUser",
+			"type": "belongsTo"
+		},
+		"opportunityOdsLeader": {
+			"entity": "Opportunity",
+			"foreign": "odsLeader",
 			"type": "belongsTo"
 		}
 	}
