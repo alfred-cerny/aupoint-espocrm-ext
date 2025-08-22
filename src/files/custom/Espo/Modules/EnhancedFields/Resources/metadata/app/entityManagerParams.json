@@ -1,0 +1,48 @@
+{
+	"Lead": {
+		"defaultInformationalEmailTemplate": {
+			"fieldDefs": {
+				"entity": "EmailTemplate",
+				"tooltip": true,
+				"type": "link"
+			},
+			"location": "clientDefs"
+		},
+		"defaultInformationalEmailTemplateId": {
+			"fieldDefs": {
+				"tooltip": true,
+				"type": "varchar"
+			},
+			"location": "clientDefs"
+		},
+		"defaultInformationalEmailTemplateName": {
+			"fieldDefs": {
+				"tooltip": true,
+				"type": "varchar"
+			},
+			"location": "clientDefs"
+		},
+		"informationalEmailTemplateFrench": {
+			"fieldDefs": {
+				"entity": "EmailTemplate",
+				"tooltip": true,
+				"type": "link"
+			},
+			"location": "clientDefs"
+		},
+		"informationalEmailTemplateFrenchId": {
+			"fieldDefs": {
+				"tooltip": true,
+				"type": "varchar"
+			},
+			"location": "clientDefs"
+		},
+		"informationalEmailTemplateFrenchName": {
+			"fieldDefs": {
+				"tooltip": true,
+				"type": "varchar"
+			},
+			"location": "clientDefs"
+		}
+	}
+}

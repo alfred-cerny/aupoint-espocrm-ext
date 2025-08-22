@@ -1,0 +1,18 @@
+{
+	"fields": {
+		"defaultInformationalEmailTemplate": "Modèle d'e-mail informatif par défaut",
+		"defaultInformationalEmailTemplateId": "ID du modèle d'e-mail informatif par défaut",
+		"defaultInformationalEmailTemplateName": "Nom du modèle d'e-mail informatif par défaut",
+		"informationalEmailTemplateFrench": "Modèle d'e-mail informatif - Français",
+		"informationalEmailTemplateFrenchId": "ID du modèle d'e-mail informatif - Français",
+		"informationalEmailTemplateFrenchName": "Nom du modèle d'e-mail informatif - Français"
+	},
+	"tooltips": {
+		"defaultInformationalEmailTemplate": "Le modèle d'e-mail principal utilisé pour envoyer des messages informatifs aux utilisateurs. Ce modèle contient la mise en page standard, le style et le contenu de remplacement pour les communications générales.",
+		"defaultInformationalEmailTemplateId": "**Ne pas modifier directement**\n Identifiant unique pour le modèle d'e-mail informatif par défaut. Utilisé en interne par le système pour référencer et récupérer le modèle correct.",
+		"defaultInformationalEmailTemplateName": "**Ne pas modifier directement**\n Nom d'affichage pour le modèle d'e-mail informatif par défaut. Ce nom lisible par l'homme apparaît dans les interfaces d'administration et les listes de sélection de modèles.",
+		"informationalEmailTemplateFrench": "Version française du modèle d'e-mail informatif. Contient le contenu traduit et la mise en forme appropriée pour les destinataires francophones.",
+		"informationalEmailTemplateFrenchId": "**Ne pas modifier directement**\n Identifiant unique pour le modèle d'e-mail informatif français. Utilisé par le système pour sélectionner le modèle localisé correct pour les communications en langue française.",
+		"informationalEmailTemplateFrenchName": "**Ne pas modifier directement**\n Nom d'affichage pour le modèle d'e-mail informatif français. Affiche le nom du modèle en français ou indique qu'il s'agit de la version française dans les interfaces d'administration."
+	}
+}

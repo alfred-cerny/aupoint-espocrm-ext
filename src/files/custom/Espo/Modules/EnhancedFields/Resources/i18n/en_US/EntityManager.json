@@ -1,0 +1,18 @@
+{
+	"fields": {
+		"defaultInformationalEmailTemplate": "Default informational email template",
+		"defaultInformationalEmailTemplateId": "Default informational email template ID",
+		"defaultInformationalEmailTemplateName": "Default informational email template name",
+		"informationalEmailTemplateFrench": "Informational email template - French",
+		"informationalEmailTemplateFrenchId": "Informational email template id - French",
+		"informationalEmailTemplateFrenchName": "Informational email template name - French"
+	},
+	"tooltips": {
+		"defaultInformationalEmailTemplate": "The primary email template used for sending informational messages to users. This template contains the standard layout, styling, and placeholder content for general communications.",
+		"defaultInformationalEmailTemplateId": "**Do not edit directly**\n Unique identifier for the default informational email template. Used internally by the system to reference and retrieve the correct template.",
+		"defaultInformationalEmailTemplateName": "**Do not edit directly**\n Display name for the default informational email template. This human-readable name appears in admin interfaces and template selection lists.",
+		"informationalEmailTemplateFrench": "French language version of the informational email template. Contains translated content and formatting appropriate for French-speaking recipients.",
+		"informationalEmailTemplateFrenchId": "**Do not edit directly**\n Unique identifier for the French informational email template. Used by the system to select the correct localized template for French language communications.",
+		"informationalEmailTemplateFrenchName": "**Do not edit directly**\n Display name for the French informational email template. Shows the template name in French or indicates it's the French version in admin interfaces."
+	}
+}
