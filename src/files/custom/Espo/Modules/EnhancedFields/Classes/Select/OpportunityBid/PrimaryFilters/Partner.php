@@ -8,7 +8,7 @@ use Espo\ORM\Query\SelectBuilder;
 class Partner implements Filter {
 	public function apply(SelectBuilder $queryBuilder): void {
 		$queryBuilder->where([
-			'relation' => [
+			'type' => [
 				'Partner',
 			],
 		]);

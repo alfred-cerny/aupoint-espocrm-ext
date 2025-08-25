@@ -17,7 +17,6 @@
 		"potentialTargets": "Cibles d'affaires",
 		"preferredLanguage": "Préférence de Langue",
 		"registrationNumber": "Numéro d'enregistrement",
-		"relation": "Type de relation",
 		"relationType": "Type de relation",
 		"relationshipAppreciation": "Échelle d'appreciation de la relation d'affaire",
 		"relationshipDescription": "Description de la relation d'affaires avec AUpoint",
@@ -26,6 +25,7 @@
 		"statusDetail": "Statut Detaillé",
 		"statusNotes": "Information additionnels à propos du statut de ce compte",
 		"subsectors": "Sous-secteurs d’activité",
+		"type": "Type de relation",
 		"yearsOfRelationship": "Nombre d'années de relation d'affaires avec AU Point"
 	},
 	"links": {
@@ -82,13 +82,6 @@
 		"preferredLanguage": {
 			"English": "Anglais",
 			"French": "Français"
-		},
-		"relation": {
-			"Client": "Client",
-			"Competitor": "Concurrent",
-			"Other": "Autre",
-			"Partner": "Partenaire",
-			"Prospect": "Prospect"
 		},
 		"relationshipAppreciation": {
 			"Average": "Moyenne",
@@ -189,6 +182,13 @@
 			"Warehousing and logistics": "Entreposage et logistique",
 			"ZEC": "ZEC",
 			"ZIP (Watersheds)": "ZIP (Bassins Versants)"
+		},
+		"type": {
+			"Client": "Client",
+			"Competitor": "Concurrent",
+			"Other": "Autre",
+			"Partner": "Partenaire",
+			"Prospect": "Prospect"
 		}
 	},
 	"tooltips": {
@@ -207,13 +207,13 @@
 		"potentialTargets": "Décrire les objectifs, cibles ou pistes de développement d’affaires à envisager pour ce compte.",
 		"preferredLanguage": "La langue de préférence qu'on doit utilisé dans les communications avec cette organisation ",
 		"registrationNumber": "Le numéro d'enregistrement de l'entreprise (NEQ ou autre)",
-		"relation": "Sélectionnez un ou plusieurs types de relation supplémentaires que ce compte entretient avec l’organisation (ex. : Partenaire et Compétiteur).",
 		"relationshipAppreciation": "Évaluer globalement la qualité de la relation d’affaires avec ce compte.",
 		"relationshipDescription": "Ajouter les informations contextuelles ou événements marquants permettant de mieux comprendre la relation avec AUpoint.",
 		"riskLevel": "Évalue le risque financier associé à ce compte sur une échelle de 1 (très faible) à 5 (très élevé), basé sur l’expérience passée, le comportement de paiement ou la cote de crédit.",
 		"sector": "Choisissez le secteur d’activité principal du client",
 		"statusDetail": "Sélectioner les statuts spécifiques qui s'appliquent à ce compte",
 		"statusNotes": "Information additionnels à propos du statut de ce compte",
+		"type": "Sélectionnez un ou plusieurs types de relation supplémentaires que ce compte entretient avec l’organisation (ex. : Partenaire et Compétiteur).",
 		"yearsOfRelationship": "Indiquer le nombre d’années d’activité commerciale avec AU Point."
 	}
 }

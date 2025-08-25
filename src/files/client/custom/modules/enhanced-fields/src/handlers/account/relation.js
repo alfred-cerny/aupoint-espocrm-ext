@@ -1,7 +1,6 @@
 define([], () => {
 	class RelationHandler {
 		buttons = [];
-		relationFieldName = 'relation';
 		relationClassNameMapping = {};
 
 		constructor(view) {
@@ -10,8 +9,8 @@ define([], () => {
 		}
 
 		process() {
-			this.relationClassNameMapping = this.view.getMetadata().get("entityDefs.Account.fields.relation.style") || {};
-			this.view.listenTo(this.model, 'change:' + this.relationFieldName, () => {
+			this.relationClassNameMapping = this.view.getMetadata().get("entityDefs.Account.fields.type.style") || {};
+			this.view.listenTo(this.model, 'change:type', () => {
 				this.reloadButtons();
 				this.reloadHeader();
 			});
@@ -46,7 +45,7 @@ define([], () => {
 					this.buttons.push(relationName);
 					this.view.addMenuItem('buttons', {
 						name: relationName,
-						text: this.view.getLanguage().translateOption(relationName, this.relationFieldName, 'Account'),
+						text: this.view.getLanguage().translateOption(relationName, 'type', 'Account'),
 						iconClass: 'fas fa-tools fa-sm',
 						onClick: () => {
 							this.onRelationChange(relationName);
@@ -57,8 +56,8 @@ define([], () => {
 		}
 
 		onRelationChange(relationName) {
-			this.model.set(this.relationFieldName + 'Type', relationName);
-			this.model.trigger('change:' + this.relationFieldName + 'Type');
+			this.model.set('relationType', relationName);
+			this.model.trigger('change:relationType');
 
 			this.view.menu.buttons.forEach((button) => {
 				const relationsNames = this.getRelationsNames();
@@ -75,7 +74,7 @@ define([], () => {
 		}
 
 		getRelationsNames() {
-			const relationsNames = this.model.get(this.relationFieldName);
+			const relationsNames = this.model.get('type');
 			if (!Array.isArray(relationsNames)) {
 				return [];
 			}

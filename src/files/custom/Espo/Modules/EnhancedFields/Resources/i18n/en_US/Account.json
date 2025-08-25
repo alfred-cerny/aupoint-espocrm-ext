@@ -17,7 +17,6 @@
 		"potentialTargets": "Business Targets",
 		"preferredLanguage": "Language Preference",
 		"registrationNumber": "Registration Number",
-		"relation": "Relationship Type",
 		"relationType": "Relationship Type",
 		"relationshipAppreciation": "Business Relationship Appreciation Scale",
 		"relationshipDescription": "Description of the business relationship with AUpoint",
@@ -26,6 +25,7 @@
 		"statusDetail": "Detailed Status",
 		"statusNotes": "Additional information about the status of this account",
 		"subsectors": "Sub-sectors of Activity",
+		"type": "Relationship Type",
 		"yearsOfRelationship": "Number of years of business relationship with AU Point"
 	},
 	"links": {
@@ -82,13 +82,6 @@
 		"preferredLanguage": {
 			"English": "English",
 			"French": "French"
-		},
-		"relation": {
-			"Client": "Client",
-			"Competitor": "Competitor",
-			"Other": "Other",
-			"Partner": "Partner",
-			"Prospect": "Prospect"
 		},
 		"relationshipAppreciation": {
 			"Average": "Average",
@@ -189,6 +182,13 @@
 			"Warehousing and logistics": "Warehousing and logistics",
 			"ZEC": "ZEC",
 			"ZIP (Watersheds)": "ZIP (Watersheds)"
+		},
+		"type": {
+			"Client": "Client",
+			"Competitor": "Competitor",
+			"Other": "Other",
+			"Partner": "Partner",
+			"Prospect": "Prospect"
 		}
 	}
 }

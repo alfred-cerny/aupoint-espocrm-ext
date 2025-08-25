@@ -191,32 +191,11 @@
 			"tooltip": true,
 			"type": "varchar"
 		},
-		"relation": {
-			"default": [
-				"Client"
-			],
-			"displayAsLabel": true,
-			"options": [
-				"Client",
-				"Prospect",
-				"Partner",
-				"Competitor",
-				"Other"
-			],
-			"required": true,
-			"style": {
-				"Client": "success",
-				"Competitor": "warning",
-				"Other": "default",
-				"Partner": "primary",
-				"Prospect": "info"
-			},
-			"type": "multiEnum"
-		},
 		"relationType": {
 			"customizationDisabled": true,
 			"notStorable": true,
-			"optionsReference": "Account.relation",
+			"optionsReference": "Account.type",
+			"readOnly": true,
 			"type": "enum"
 		},
 		"relationshipAppreciation": {
@@ -386,8 +365,8 @@
 		},
 		"type": {
 			"displayAsLabel": true,
+			"isSorted": true,
 			"options": [
-				"__APPEND__",
 				"Client",
 				"Prospect",
 				"Partner",
@@ -400,7 +379,9 @@
 				"Other": "default",
 				"Partner": "primary",
 				"Prospect": "info"
-			}
+			},
+			"tooltip": true,
+			"type": "multiEnum"
 		},
 		"yearsOfRelationship": {
 			"default": 0,
