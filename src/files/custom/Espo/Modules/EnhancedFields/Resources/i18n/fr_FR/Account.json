@@ -79,6 +79,11 @@
 			"High": "Élevée",
 			"Limited": "Limitée"
 		},
+		"potentialTargets": {
+			"": "Aucun",
+			"Association Agreement": "Entente d'association",
+			"Repurchase": "Rachat"
+		},
 		"preferredLanguage": {
 			"English": "Anglais",
 			"French": "Français"

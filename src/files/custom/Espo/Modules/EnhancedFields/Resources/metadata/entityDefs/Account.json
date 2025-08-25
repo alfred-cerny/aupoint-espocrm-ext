@@ -170,10 +170,13 @@
 			"type": "enum"
 		},
 		"potentialTargets": {
-			"cutHeight": 200,
-			"rowsMin": 2,
 			"tooltip": true,
-			"type": "text"
+			"type": "multiEnum",
+			"options": [
+				"",
+				"Association Agreement",
+				"Repurchase"
+			]
 		},
 		"preferredLanguage": {
 			"default": null,

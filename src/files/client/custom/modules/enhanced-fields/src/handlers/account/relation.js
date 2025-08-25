@@ -12,7 +12,7 @@ define([], () => {
 			this.relationClassNameMapping = this.view.getMetadata().get("entityDefs.Account.fields.type.style") || {};
 			this.view.listenTo(this.model, 'change:type', () => {
 				this.reloadButtons();
-				this.reloadHeader();
+				this.reRenderHeader();
 			});
 			this.reloadButtons();
 
@@ -20,10 +20,10 @@ define([], () => {
 				this.onRelationChange(this.buttons[0]);
 			}
 
-			this.reloadHeader();
+			this.reRenderHeader();
 		}
 
-		reloadHeader() {
+		reRenderHeader() {
 			this.view?.getHeaderView()?.reRender();
 		}
 
@@ -70,7 +70,7 @@ define([], () => {
 					button.style = 'default';
 				}
 			});
-			this.reloadHeader();
+			this.reRenderHeader();
 		}
 
 		getRelationsNames() {

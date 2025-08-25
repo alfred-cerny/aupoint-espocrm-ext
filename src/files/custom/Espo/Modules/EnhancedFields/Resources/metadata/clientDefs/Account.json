@@ -1,4 +1,98 @@
 {
+	"dynamicLogic": {
+		"fields": {
+			"accountProjectsTotal": {
+				"visible": {
+					"conditionGroup": [
+						{
+							"attribute": "relationType",
+							"type": "notEquals",
+							"value": "Competitor"
+						}
+					]
+				}
+			},
+			"accountProjectsTotalValue": {
+				"visible": {
+					"conditionGroup": [
+						{
+							"attribute": "relationType",
+							"type": "notEquals",
+							"value": "Competitor"
+						}
+					]
+				}
+			},
+			"accountProjectsTypical": {
+				"visible": {
+					"conditionGroup": [
+						{
+							"attribute": "relationType",
+							"type": "notEquals",
+							"value": "Competitor"
+						}
+					]
+				}
+			},
+			"assignedUser": {
+				"visible": {
+					"conditionGroup": [
+						{
+							"attribute": "relationType",
+							"type": "notEquals",
+							"value": "Competitor"
+						}
+					]
+				}
+			},
+			"relationshipAppreciation": {
+				"visible": {
+					"conditionGroup": [
+						{
+							"attribute": "relationType",
+							"type": "notEquals",
+							"value": "Competitor"
+						}
+					]
+				}
+			},
+			"relationshipDescription": {
+				"visible": {
+					"conditionGroup": [
+						{
+							"attribute": "relationType",
+							"type": "notEquals",
+							"value": "Competitor"
+						}
+					]
+				}
+			},
+			"yearsOfRelationship": {
+				"visible": {
+					"conditionGroup": [
+						{
+							"attribute": "relationType",
+							"type": "notEquals",
+							"value": "Competitor"
+						}
+					]
+				}
+			}
+		},
+		"panels": {
+			"panel-2": {
+				"visible": {
+					"conditionGroup": [
+						{
+							"attribute": "relationType",
+							"type": "notEquals",
+							"value": "Competitor"
+						}
+					]
+				}
+			}
+		}
+	},
 	"relationshipPanels": {
 		"accountAddresses": {
 			"layout": "listForAccount"
