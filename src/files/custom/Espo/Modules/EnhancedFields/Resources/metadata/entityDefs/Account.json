@@ -170,13 +170,13 @@
 			"type": "enum"
 		},
 		"potentialTargets": {
-			"tooltip": true,
-			"type": "multiEnum",
 			"options": [
 				"",
 				"Association Agreement",
 				"Repurchase"
-			]
+			],
+			"tooltip": true,
+			"type": "multiEnum"
 		},
 		"preferredLanguage": {
 			"default": null,
@@ -196,6 +196,7 @@
 		},
 		"relationType": {
 			"customizationDisabled": true,
+			"displayAsLabel": true,
 			"notStorable": true,
 			"optionsReference": "Account.type",
 			"readOnly": true,

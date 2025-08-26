@@ -90,6 +90,17 @@
 						}
 					]
 				}
+			},
+			"panel-4": {
+				"visible": {
+					"conditionGroup": [
+						{
+							"attribute": "relationType",
+							"type": "notEquals",
+							"value": "Competitor"
+						}
+					]
+				}
 			}
 		}
 	},
