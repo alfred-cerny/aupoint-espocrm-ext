@@ -14,7 +14,33 @@
 			"type": "linkMultiple",
 			"view": "enhanced-fields:views/fields/bids"
 		},
+		"bidsCompetitor": {
+			"customizationDisabled": true,
+			"notStorable": true,
+			"type": "base",
+			"view": "enhanced-fields:views/fields/bids"
+		},
+		"bidsCompetitorData": {
+			"customizationDisabled": true,
+			"notStorable": true,
+			"orderDisabled": true,
+			"type": "jsonArray",
+			"utility": true
+		},
 		"bidsData": {
+			"customizationDisabled": true,
+			"notStorable": true,
+			"orderDisabled": true,
+			"type": "jsonArray",
+			"utility": true
+		},
+		"bidsPartner": {
+			"customizationDisabled": true,
+			"notStorable": true,
+			"type": "base",
+			"view": "enhanced-fields:views/fields/bids"
+		},
+		"bidsPartnerData": {
 			"customizationDisabled": true,
 			"notStorable": true,
 			"orderDisabled": true,

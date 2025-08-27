@@ -4,12 +4,12 @@
 			"required": true,
 			"type": "link"
 		},
+		"amount": {
+			"type": "currency"
+		},
 		"contact": {
 			"required": true,
 			"type": "link"
-		},
-		"amount": {
-			"type": "currency"
 		},
 		"opportunity": {
 			"required": true,
@@ -17,20 +17,6 @@
 		},
 		"partnershipNature": {
 			"type": "varchar"
-		},
-		"relation": {
-			"displayAsLabel": true,
-			"options": [
-				"Partner",
-				"Competitor",
-				""
-			],
-			"style": {
-				"": "primary",
-				"Competitor": "warning",
-				"Partner": "info"
-			},
-			"type": "enum"
 		},
 		"status": {
 			"displayAsLabel": true,
@@ -45,16 +31,30 @@
 				"Win": "success"
 			},
 			"type": "enum"
+		},
+		"type": {
+			"displayAsLabel": true,
+			"options": [
+				"Partner",
+				"Competitor",
+				""
+			],
+			"style": {
+				"": "primary",
+				"Competitor": "warning",
+				"Partner": "info"
+			},
+			"type": "enum"
 		}
 	},
 	"links": {
-		"contact": {
-			"entity": "Contact",
+		"account": {
+			"entity": "Account",
 			"foreign": "opportunityBids",
 			"type": "belongsTo"
 		},
-		"account": {
-			"entity": "Account",
+		"contact": {
+			"entity": "Contact",
 			"foreign": "opportunityBids",
 			"type": "belongsTo"
 		},

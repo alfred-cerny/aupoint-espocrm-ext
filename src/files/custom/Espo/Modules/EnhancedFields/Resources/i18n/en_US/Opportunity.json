@@ -1,8 +1,12 @@
 {
 	"fields": {
-		"bids": "Bids"
+		"bids": "Bids",
+		"bidsCompetitor": "Bids - Competitors",
+		"bidsPartner": "Bids - Partners"
 	},
 	"links": {
-		"bids": "Bids"
+		"bids": "Bids",
+		"bidsCompetitor": "Bids - Competitors",
+		"bidsPartner": "Bids - Partners"
 	}
 }

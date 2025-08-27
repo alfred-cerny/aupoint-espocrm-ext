@@ -11,6 +11,7 @@ use Espo\ORM\Entity;
 
 class BidDataSaver implements SaverInterface {
 	protected string $bidsFieldName = "opportunityBids";
+	protected const BID_TYPES = ['Competitor', 'Partner'];
 
 	public function __construct(
 		protected EntityManager $entityManager,
@@ -33,11 +34,35 @@ class BidDataSaver implements SaverInterface {
 			->getRDBRepository($entity->getEntityType())
 			->getRelation($entity, $this->bidsFieldName);
 
-		$bidsData = $entity->get("{$this->bidsFieldName}Data");
-		if (!is_array($bidsData)) {
-			$bidsData = [];
+		$uniqueBidsById = [];
+		/*
+		$bidsData = $entity->get("{$this->bidsFieldName}Data"); @todo: decide whether we want to support this
+		if (is_array($bidsData)) {
+			foreach ($bidsData as $bid) {
+				if (isset($bid->id)) {
+					$uniqueBidsById[$bid->id] = $bid;
+				} else {
+					$uniqueBidsById[] = $bid;
+				}
+			}
+		}
+		*/
+		foreach (self::BID_TYPES as $type) {
+			$typedBidData = $entity->get("{$this->bidsFieldName}{$type}Data");
+			if (!is_array($typedBidData)) {
+				continue;
+			}
+			foreach ($typedBidData as $bid) {
+				$bid->type = $type;
+				if (isset($bid->id)) {
+					$uniqueBidsById[$bid->id] = $bid;
+				} else {
+					$uniqueBidsById[] = $bid;
+				}
+			}
 		}
 
+		$bidsData = array_values($uniqueBidsById);
 		$bidsIdsToUnrelate = array_diff(
 			$entity->getFetched("{$this->bidsFieldName}Ids"),
 			array_column($bidsData, 'id')

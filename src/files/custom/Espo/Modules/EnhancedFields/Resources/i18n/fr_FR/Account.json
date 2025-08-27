@@ -11,6 +11,8 @@
 		"currentMarket": "Marche d'affaires actuel",
 		"growthPerspective": "Perspective de croissance de l'entreprise",
 		"opportunityBids": "Offres d'opportunité",
+		"opportunityBidsCompetitor": "Offres d'opportunité - Competitor",
+		"opportunityBidsPartner": "Offres d'opportunité - Partner",
 		"organizationSize": "Taille de l'organisation",
 		"paymentTerms": "Termes de paiement",
 		"potentialLevel": "Niveau de potentiel",
@@ -30,7 +32,9 @@
 	},
 	"links": {
 		"accountAddresses": "Adresses de l'organisation",
-		"opportunityBids": "Offres d'opportunité"
+		"opportunityBids": "Offres d'opportunité",
+		"opportunityBidsCompetitor": "Offres d'opportunité - Competitor",
+		"opportunityBidsPartner": "Offres d'opportunité - Partner"
 	},
 	"options": {
 		"applicableTaxes": {

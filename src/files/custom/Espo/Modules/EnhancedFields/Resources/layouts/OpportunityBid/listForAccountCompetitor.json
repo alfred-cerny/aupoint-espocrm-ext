@@ -1,11 +1,7 @@
 [
 	{
 		"link": true,
-		"name": "type"
-	},
-	{
-		"link": true,
-		"name": "account"
+		"name": "opportunity"
 	},
 	{
 		"link": true,

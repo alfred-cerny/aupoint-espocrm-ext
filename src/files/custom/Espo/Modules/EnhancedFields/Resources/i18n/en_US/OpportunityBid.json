@@ -5,8 +5,8 @@
 		"contact": "Contact",
 		"opportunity": "Opportunity",
 		"partnershipNature": "Partnership nature",
-		"relation": "Relation type",
-		"status": "Status"
+		"status": "Status",
+		"type": "Relation type"
 	},
 	"links": {
 		"account": "Account",

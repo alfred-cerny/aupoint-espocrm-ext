@@ -1,18 +1,11 @@
 [
 	{
 		"link": true,
-		"name": "type"
-	},
-	{
-		"link": true,
-		"name": "account"
+		"name": "opportunity"
 	},
 	{
 		"link": true,
 		"name": "contact"
-	},
-	{
-		"name": "amount"
 	},
 	{
 		"name": "status"

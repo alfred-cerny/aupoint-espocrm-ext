@@ -10,6 +10,7 @@ define([], () => {
 
 		process() {
 			this.relationClassNameMapping = this.view.getMetadata().get("entityDefs.Account.fields.type.style") || {};
+
 			this.view.listenTo(this.model, 'change:type', () => {
 				this.reloadButtons();
 				this.reRenderHeader();

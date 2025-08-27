@@ -11,6 +11,8 @@
 		"currentMarket": "Current Business Market",
 		"growthPerspective": "Company Growth Perspective",
 		"opportunityBids": "Opportunity Bids",
+		"opportunityBidsCompetitor": "Opportunity bids - Competitor",
+		"opportunityBidsPartner": "Opportunity bids - Partner",
 		"organizationSize": "Organization Size",
 		"paymentTerms": "Payment Terms",
 		"potentialLevel": "Potential Level",

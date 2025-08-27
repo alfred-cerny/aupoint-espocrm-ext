@@ -20,7 +20,7 @@
                     <tr class="opportunity-bid-item {{#if className}}{{className}}{{/if}}" data-bid-id="{{id}}" data-index="{{@index}}">
                         {{#each ../availableFields}}
                         <td>
-                            <div data-name="{{this}}-{{../index}}"></div>
+                            <div data-name="{{this}}-{{@../index}}"></div>
                         </td>
                         {{/each}}
                         <td class="text-center width-auto">

@@ -1,18 +1,11 @@
 [
 	{
 		"link": true,
-		"name": "type"
-	},
-	{
-		"link": true,
 		"name": "account"
 	},
 	{
 		"link": true,
 		"name": "contact"
-	},
-	{
-		"name": "amount"
 	},
 	{
 		"name": "status"

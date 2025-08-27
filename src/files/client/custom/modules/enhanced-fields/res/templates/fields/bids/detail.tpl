@@ -14,12 +14,14 @@
                         <a href="#Opportunity/view/{{opportunityId}}" title="{{translate 'View Opportunity'}}" style="color:#000">
                             {{#if opportunityName}}{{opportunityName}}{{else}}{{opportunityId}}{{/if}}
                         </a>
-                        <span style="margin: 0 8px;">•</span>
                     </strong>
                     {{/if}}
+                    {{#if showBidType}}
+                    <span style="margin: 0 8px;">•</span>
                     <span style="margin-left: 8px; font-size: 0.9em;">
-                        {{translate relation category='options' field='relation'}}
+                        {{translate type category='options' field='type'}}
                     </span>
+                    {{/if}}
                     {{#if partnershipNature}}
                     <span style="margin: 0 8px;">•</span>
                     <span style="font-size: 0.9em;">

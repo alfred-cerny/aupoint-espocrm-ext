@@ -5,24 +5,24 @@
 		"contact": "Contact",
 		"opportunity": "Opportunité",
 		"partnershipNature": "Nature du partenariat",
-		"relation": "Type de relation",
-		"status": "Statut"
+		"status": "Statut",
+		"type": "Type de relation"
 	},
 	"links": {
 		"account": "Compte",
 		"opportunity": "opportunité"
 	},
 	"options": {
-		"relation": {
+		"status": {
+			"Lose": "Perdre",
+			"Win": "Gagner"
+		},
+		"type": {
 			"Client": "Client",
 			"Competitor": "Concurrent",
 			"Other": "Autre",
 			"Partner": "Partenaire",
 			"Prospect": "Prospect"
-		},
-		"status": {
-			"Lose": "Perdre",
-			"Win": "Gagner"
 		}
 	},
 	"presetFilters": {

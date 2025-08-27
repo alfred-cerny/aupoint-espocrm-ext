@@ -28,11 +28,23 @@ class BidDataLoader implements LoaderInterface {
 			}
 		}
 		$bidsIds = $entity->get("{$this->bidsFieldName}Ids");
-
 		$bids = $this->entityManager
 			->getRDBRepository('OpportunityBid')
 			->where('id', $bidsIds)
 			->find();
+
+		$bidsMapping = [];
+		foreach ($bids as $bid) {
+			$type = $bid->get('type');
+			if (empty($type)) {
+				continue;
+			}
+			$bidsMapping[$type] ??= [];
+			$bidsMapping[$type][] = $bid->getValueMap();
+		}
+		foreach ($bidsMapping as $type => $bidsData) {
+			$entity->set("{$this->bidsFieldName}{$type}Data", $bidsData);
+		}
 
 		$entity->set("{$this->bidsFieldName}Data", (array)$bids->getValueMapList());
 	}

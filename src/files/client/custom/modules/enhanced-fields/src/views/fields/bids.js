@@ -2,13 +2,13 @@ define(['views/fields/link-multiple'], (Dep) => {
 		class BidsField extends Dep {
 			detailTemplate = 'enhanced-fields:fields/bids/detail';
 			editTemplate = 'enhanced-fields:fields/bids/edit';
-			relationTypeFieldName = 'relationType';
+			relationTypeFieldName = 'type';
 			relationClassNameMapping = {};
 			listSmall = null;
 
 			setup() {
 				super.setup();
-				this.relationClassNameMapping = this.getMetadata().get("entityDefs.Account.fields.relation.style") || {};
+				this.relationClassNameMapping = this.getMetadata().get("entityDefs.Account.fields.type.style") || {};
 				const promiseToLoadAvailableBidFields = this.loadAvailableBidFields();
 				this.listenTo(this.model, 'change:' + this.relationTypeFieldName, () => {
 					this.reRender();
@@ -61,7 +61,7 @@ define(['views/fields/link-multiple'], (Dep) => {
 			addBid(bidData = {}) {
 				const data = this.fetchFieldData();
 
-				if (!bidData.id) {
+				if (!bidData?.id) {
 					this.listSmall.forEach(field => {
 						const fieldName = field.name;
 						bidData[fieldName] ??= null;
@@ -182,7 +182,7 @@ define(['views/fields/link-multiple'], (Dep) => {
 
 			fetch() {
 				const data = super.fetch();
-				data[this.getBidsFieldName() + 'Data'] = this.fetchFieldData();
+				data[this.name + 'Data'] = this.fetchFieldData();
 				return data;
 			}
 
@@ -198,6 +198,10 @@ define(['views/fields/link-multiple'], (Dep) => {
 					} else if (this.model.name === 'Account') {
 						listName = 'listForAccount';
 					}
+					const fieldRelationType = this.getFieldRelationType();
+					if (fieldRelationType) {
+						listName += fieldRelationType;
+					}
 					this.getHelper().layoutManager.get('OpportunityBid', listName, (list) => {
 						this.listSmall = list;
 						resolve(list);
@@ -208,33 +212,42 @@ define(['views/fields/link-multiple'], (Dep) => {
 			data() {
 				const data = super.data();
 				const bidsData = this.getBidsData();
+				data.availableFields = this.listSmall.map((field) => field.name);
+				if (!bidsData) {
+					return data;
+				}
+				data.bidsData = Array.isArray(bidsData) ? bidsData : Object.values(bidsData);
 
-				if (bidsData) {
-					const relationType = this.getRelationType();
-					data.bidsData = Array.isArray(bidsData) ? bidsData : Object.values(bidsData);
-					if (relationType) {
-						data.bidsData = data.bidsData.filter(bid => bid.relation === relationType);
-					}
-
-					data.bidsData = data.bidsData.map((bid, index) => {
-						bid.index = index;
-						const relationClass = this.relationClassNameMapping[bid.relation || ''];
-						if (relationClass) {
-							bid.className = 'label-' + relationClass.toLowerCase();
-						}
-						if (bid.relation === 'Partner') {
-							const {amount, ...bidWithoutAmount} = bid;
-							return bidWithoutAmount;
-						}
-						bid.partnershipNature = null;
-
-						return bid;
-					});
-					data.bidsDataCount = data.bidsData.length;
+				const relationType = this.getRelationType();
+				if (!this.getFieldRelationType() && relationType) {
+					data.bidsData = data.bidsData.filter(bid => bid.type === relationType);
 				}
 
-				data.availableFields = this.listSmall.map((field) => field.name);
+				data.bidsData = data.bidsData.map((bid, index) => {
+					bid.index = index;
+					const relationClass = this.relationClassNameMapping[bid.type || ''];
+					if (relationClass) {
+						bid.className = 'label-' + relationClass.toLowerCase();
+					}
+					if (bid.type === 'Partner') {
+						const {amount, ...bidWithoutAmount} = bid;
+						return bidWithoutAmount;
+					}
+					bid.partnershipNature = null;
+
+					return bid;
+				});
+				data.bidsDataCount = data.bidsData.length;
+
 				return data;
+			}
+
+			getFieldRelationType() {
+				const fieldRelationship = this.name.replaceAll(this.getBidsFieldName(), '');
+				if (fieldRelationship !== this.name) {
+					return fieldRelationship;
+				}
+				return null;
 			}
 
 			getBidsFieldName() {
@@ -245,7 +258,7 @@ define(['views/fields/link-multiple'], (Dep) => {
 			}
 
 			getBidsData() {
-				return this.model.get(this.getBidsFieldName() + 'Data');
+				return this.model.get(this.name + 'Data');
 			}
 
 			getRelationType() {
