@@ -22,6 +22,13 @@
 			},
 			"location": "clientDefs"
 		},
+		"informationalEmailCampaigns": {
+			"fieldDefs": {
+				"allowCustomOptions": true,
+				"type": "multiEnum"
+			},
+			"location": "clientDefs"
+		},
 		"informationalEmailTemplateFrench": {
 			"fieldDefs": {
 				"entity": "EmailTemplate",

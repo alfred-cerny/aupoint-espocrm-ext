@@ -38,7 +38,7 @@ readonly class SendEmailAfterCreation implements AfterSave {
 	 * @throws SendingError
 	 */
 	public function afterSave(Entity $entity, SaveOptions $options): void {
-		if (!$entity->isNew()) {
+		if (!$entity->isNew() || !$this->isCampaignAllowed($entity)) {
 			return;
 		}
 		$entityId = $entity->get('id');
@@ -85,6 +85,17 @@ readonly class SendEmailAfterCreation implements AfterSave {
 		$emailId = $email->getId();
 		$this->log->info("Lead(id:$entityId) has been sent an informational email(id:$emailId).");
 		$this->streamService->noteEmailSent($entity, $email);
+	}
+
+	protected function isCampaignAllowed(Entity $entity): bool {
+		$informationalEmailCampaigns = $this->metadata->get(['clientDefs', Lead::ENTITY_TYPE, 'informationalEmailCampaigns']);
+		if (empty($informationalEmailCampaigns) || !is_array($informationalEmailCampaigns)) {
+			return false;
+		}
+
+		$campaign = $entity->get('utmCampaign');
+
+		return !empty($campaign) && in_array($campaign, $informationalEmailCampaigns, true);
 	}
 
 }

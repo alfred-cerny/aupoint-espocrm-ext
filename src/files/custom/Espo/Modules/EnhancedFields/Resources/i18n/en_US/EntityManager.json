@@ -3,6 +3,7 @@
 		"defaultInformationalEmailTemplate": "Default informational email template",
 		"defaultInformationalEmailTemplateId": "Default informational email template ID",
 		"defaultInformationalEmailTemplateName": "Default informational email template name",
+		"informationalEmailCampaigns": "Allowed informational email campaigns",
 		"informationalEmailTemplateFrench": "Informational email template - French",
 		"informationalEmailTemplateFrenchId": "Informational email template id - French",
 		"informationalEmailTemplateFrenchName": "Informational email template name - French"
