@@ -64,8 +64,8 @@ class BidDataSaver implements SaverInterface {
 
 		$bidsData = array_values($uniqueBidsById);
 		$bidsIdsToUnrelate = array_diff(
-			$entity->getFetched("{$this->bidsFieldName}Ids"),
-			array_column($bidsData, 'id')
+			$entity->getFetched("{$this->bidsFieldName}Ids") ?? [],
+			array_column($bidsData, 'id') ?? []
 		);
 		if (!empty($bidsIdsToUnrelate)) {
 			foreach ($bidsIdsToUnrelate as $bidId) {

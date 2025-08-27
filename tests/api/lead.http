@@ -15,6 +15,7 @@ X-Api-Key: {{apiUserToken}}
 		"description": "Enterprise lead with high potential",
 		"status": "In Process",
 		"source": "Cold Call",
+		"optinDate": "2025-08-27 12:33:05",
 		"referredByContact": {
 			"firstName": "Mike",
 			"lastName": "Johnson",
