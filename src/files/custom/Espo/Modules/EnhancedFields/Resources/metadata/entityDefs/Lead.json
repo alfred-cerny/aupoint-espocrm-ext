@@ -71,6 +71,7 @@
 		},
 		"referredByUser": {
 			"entity": "User",
+			"foreign": "referredLeads",
 			"type": "belongsTo"
 		}
 	}

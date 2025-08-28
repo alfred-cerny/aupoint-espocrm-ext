@@ -1,7 +1,7 @@
 {
 	"fields": {
-		"account": "Compte",
-		"amount": "Le quantité",
+		"account": "Entreprise concurrente",
+		"amount": "Montant déposé",
 		"contact": "Contact",
 		"opportunity": "Opportunité",
 		"partnershipNature": "Nature du partenariat",
@@ -14,8 +14,9 @@
 	},
 	"options": {
 		"status": {
-			"Lose": "Perdre",
-			"Win": "Gagner"
+			"Lose": "Perdant",
+			"Win": "Gagnant",
+			"Disqualified": "Disqualitfié"
 		},
 		"type": {
 			"Client": "Client",

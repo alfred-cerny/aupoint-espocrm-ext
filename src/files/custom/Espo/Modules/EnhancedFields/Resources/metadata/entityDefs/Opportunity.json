@@ -10,6 +10,9 @@
 		"amount": {
 			"required": false
 		},
+		"amountInitial": {
+			"type": "currency"
+		},
 		"bids": {
 			"type": "linkMultiple",
 			"view": "enhanced-fields:views/fields/bids"
@@ -111,9 +114,6 @@
 				"Project Aligns With Values": "success"
 			},
 			"type": "multiEnum"
-		},
-		"initialAmount": {
-			"type": "currency"
 		},
 		"lostReason": {
 			"audited": true,
@@ -357,6 +357,16 @@
 			"tooltip": true,
 			"type": "checklist"
 		},
+		"qualificationProcess": {
+			"customizationDisabled": true,
+			"displayAsLabel": false,
+			"options": [
+				"Public",
+				"By Invitation",
+				"OTC"
+			],
+			"type": "enum"
+		},
 		"resultObservations": {
 			"cutHeight": 200,
 			"rows": 5,
@@ -532,13 +542,13 @@
 		},
 		"odsCollaborators": {
 			"entity": "User",
-			"foreign": "opportunityOdsCollaborator",
+			"foreign": "opportunitiesOdsCollaborator",
 			"type": "hasMany"
 		},
 		"odsLeader": {
 			"entity": "User",
-			"foreign": "opportunityOdsLeader",
-			"type": "belongsTo"
+			"foreign": "opportunitiesOdsLeader",
+			"type": "hasMany"
 		}
 	}
 }

@@ -1,0 +1,14 @@
+{
+	"fields": {
+		"accountsPointContact": "Related Accounts (Point of Contact)",
+		"opportunitiesOdsCollaborator": "Opportunities ODS Collaborators",
+		"opportunitiesOdsLeader": "Opportunities ODS Leader",
+		"referredLeads": "Referred leads"
+	},
+	"links": {
+		"referredLeads": "Referred leads",
+		"accountsPointContact": "Related Accounts (Point of Contact)",
+		"opportunitiesOdsCollaborator": "Opportunities ODS Collaborators",
+		"opportunitiesOdsLeader": "Opportunities ODS Leader"
+	}
+}

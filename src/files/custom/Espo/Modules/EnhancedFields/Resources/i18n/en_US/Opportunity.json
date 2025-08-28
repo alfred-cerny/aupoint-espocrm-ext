@@ -1,12 +1,212 @@
 {
 	"fields": {
+		"accountProjectsCount": "Account Projects Count",
+		"amount": "Amount",
+		"amountInitial": "Initial Amount",
 		"bids": "Bids",
 		"bidsCompetitor": "Bids - Competitors",
-		"bidsPartner": "Bids - Partners"
+		"bidsData": "Bids Data",
+		"bidsPartner": "Bids - Partners",
+		"closeDate": "Close Date",
+		"complementaryProgram": "Complementary Program",
+		"constructionKickoffDate": "Construction Kickoff Date",
+		"disqualificationChecklist": "Disqualification Checklist",
+		"ethicalValues": "Ethical Values",
+		"lostReason": "Lost Reason",
+		"odsCollaborators": "ODS Collaborators",
+		"odsLeader": "ODS Leader",
+		"odsProductionCapacity": "ODS Production Capacity",
+		"operationalRisks": "Operational Risks",
+		"opportunitiesOdsCollaborator": "Opportunities ODS Collaborator",
+		"partnerAuthorizationStatus": "Partner Authorization Status",
+		"partners": "Partners",
+		"probability": "Probability",
+		"projectActivities": "Project Activities",
+		"projectGlobalValue": "Project Global Value",
+		"projectInfantCount": "Project Infant Count (for Childcare Centers only)",
+		"projectLocation": "Project Location",
+		"projectScope": "Project Scope",
+		"projectSeatCount": "Project Seat Count (for Childcare Centers only)",
+		"projectSector": "Project Sector",
+		"projectSurface": "Project Surface",
+		"projectType": "Project Type",
+		"projectUnitQuantity": "Project Unit Quantity",
+		"qualificationChecklist": "Qualification Checklist",
+		"qualificationProcess": "Qualification Process",
+		"resultObservations": "Result Observations",
+		"selfWithdrawReason": "Self Withdraw Reason",
+		"stage": "Stage",
+		"strategicEvaluation": "Strategic Evaluation",
+		"strategicValues": "Strategic Values",
+		"tenderQualificationMode": "Tender Qualification Mode",
+		"tenderQuestionsDeadline": "Tender Questions Deadline",
+		"tenderSubmissionDeadline": "Tender Submission Deadline",
+		"tenderSubmissionFormat": "Tender Submission Format",
+		"tenderType": "Tender Type",
+		"utmCampaign": "UTM Campaign",
+		"yearsOfRelationship": "Years of Relationship"
 	},
 	"links": {
 		"bids": "Bids",
 		"bidsCompetitor": "Bids - Competitors",
-		"bidsPartner": "Bids - Partners"
+		"bidsPartner": "Bids - Partners",
+		"odsCollaborators": "ODS Collaborators",
+		"odsLeader": "ODS Leader"
+	},
+	"options": {
+		"complementaryProgram": {
+			"Cafeteria": "Cafeteria",
+			"Locker Room Layout Or Remodeling": "Locker Room Layout or Remodeling",
+			"Multipurpose Room": "Multipurpose Room",
+			"Not Applicable": "Not Applicable",
+			"Outdoor Playground Area Design": "Outdoor Playground Area Design"
+		},
+		"disqualificationChecklist": {
+			"Brain Picking": "Brain Picking",
+			"Irrelevant Segment": "Irrelevant Segment",
+			"Lack Of Clarity": "Lack of Clarity",
+			"Limited Construction Knowledge Or Low Dedication": "Limited Construction Knowledge or Low Dedication",
+			"Statistical Risk Based On Client Background": "Statistical Risk Based on Client Background",
+			"Unethical Request": "Unethical Request"
+		},
+		"ethicalValues": {
+			"Environmental Certification Achievement": "Environmental Certification Achievement",
+			"Favorable History": "Favorable History",
+			"Professional Skills Respected": "Professional Skills Respected",
+			"Project Aligns With Sustainable Development": "Project Aligns with Sustainable Development",
+			"Project Aligns With Values": "Project Aligns with Values"
+		},
+		"lostReason": {
+			"Conformity": "Non-Conformity",
+			"Price": "Price",
+			"Technical Quality": "Technical Quality"
+		},
+		"odsProductionCapacity": {
+			"Go": "GO",
+			"No Go": "NO-GO"
+		},
+		"operationalRisks": {
+			"Context Clarity": "Context Clarity",
+			"Decision Making Capacity": "Decision Making Capacity",
+			"Funding Available": "Funding Available",
+			"Payment Capacity": "Payment Capacity",
+			"Positive References": "Positive References",
+			"Project Needs Clarity": "Project Needs Clarity",
+			"Realistic Budget": "Realistic Budget",
+			"Realistic Schedule": "Realistic Schedule",
+			"Site Control": "Site Control",
+			"Technical Capacity Expertise": "Technical Capacity Expertise"
+		},
+		"partnerAuthorizationStatus": {
+			"Authorized": "Authorized",
+			"Not Applicable": "Not Applicable",
+			"Not Authorized": "Not Authorized"
+		},
+		"partners": {
+			"GLCRM": "GLCRM",
+			"J Alejandro Lopez Architecture": "J Alejandro Lopez Architecture",
+			"LG4 Architecture Inc": "LG4 Architecture Inc",
+			"Onico": "Onico",
+			"PAR Conseils": "PAR Conseils",
+			"Patriarche": "Patriarche"
+		},
+		"probability": {
+			"Go": "GO",
+			"No Go": "NO-GO"
+		},
+		"projectScope": {
+			"All Required": "All Required",
+			"Code Compliance": "Code Compliance",
+			"Expansion": "Expansion",
+			"Expert Consulting On Specific Issues": "Expert Consulting on Specific Issues",
+			"Feasibility Study": "Feasibility Study",
+			"Interior Design": "Interior Design",
+			"Master Plan": "Master Plan",
+			"New Construction": "New Construction",
+			"Redevelopment": "Redevelopment",
+			"Renovation": "Renovation",
+			"Site Development Analysis": "Site Development Analysis",
+			"Site Planning": "Site Planning",
+			"Space Optimization": "Space Optimization",
+			"Space Planning": "Space Planning",
+			"Urban Design For New Development": "Urban Design for New Development"
+		},
+		"projectSector": {
+			"Private": "Private",
+			"Public Institutional": "Public Institutional"
+		},
+		"projectType": {
+			"Childcare Facilities": "Childcare Facilities",
+			"Commercial": "Commercial",
+			"Industrial": "Industrial",
+			"Multi Residential": "Multi-Residential"
+		},
+		"qualificationChecklist": {
+			"Concrete Project Defined Need": "Concrete Project Defined Need",
+			"Decision Making Authority Of Contact": "Decision Making Authority of Contact",
+			"Funding Budget Available": "Funding Budget Available",
+			"Knowledge Of Construction Industry": "Knowledge of Construction Industry",
+			"Reference": "Reference",
+			"Site Owner": "Site Owner"
+		},
+		"selfWithdrawReason": {
+			"Portfolio Fit": "Portfolio Fit",
+			"Too Complex": "Too Complex"
+		},
+		"stage": {
+			"Cancellation": "Cancellation",
+			"Closed Lost": "Closed Lost",
+			"Closed Won": "Closed Won",
+			"Negotiation": "Negotiation",
+			"Non-Participation": "Non-Participation",
+			"Proposal": "Proposal",
+			"Prospecting": "Prospecting",
+			"Qualification": "Qualification"
+		},
+		"strategicEvaluation": {
+			"Go": "GO",
+			"No Go": "NO-GO"
+		},
+		"strategicValues": {
+			"Corresponding Portfolio": "Corresponding Portfolio",
+			"Creativity Valorization": "Creativity Valorization",
+			"Objectives Alignment": "Objectives Alignment",
+			"Positive Integration": "Positive Integration",
+			"Required Skills Mobilization Capacity": "Required Skills Mobilization Capacity"
+		},
+		"tenderQualificationMode": {
+			"Price": "Price",
+			"Quality": "Quality",
+			"Quality And Price": "Quality and Price"
+		},
+		"tenderSubmissionFormat": {
+			"Electronic": "Electronic",
+			"Paper": "Paper"
+		},
+		"tenderType": {
+			"Direct Contract": "Direct Contract",
+			"Invitation Only": "Invitation Only",
+			"Public": "Public"
+		}
+	},
+	"tooltips": {
+		"accountProjectsCount": "Total number of projects completed or ongoing with AUPoint.",
+		"complementaryProgram": "Desired complementary program (for Childcare Centers only)",
+		"constructionKickoffDate": "Scheduled date for construction work to begin",
+		"disqualificationChecklist": "Checklist to identify key elements that may constrain the probability of opportunity conversion.",
+		"lostReason": "The reason why we were not selected",
+		"partnerAuthorizationStatus": "Determine if this opportunity is open for a consortium approach with partner collaboration.",
+		"partners": "List all partners that are part of our consortium",
+		"projectActivities": "Type of activity(ies) or function(s) performed or to be performed in the existing building or to be constructed.",
+		"projectLocation": "The location where the project must be accomplished",
+		"projectScope": "Type of needs and expertise required for this project.",
+		"qualificationChecklist": "Checklist to determine the probability of converting the opportunity into a concrete project and revenue for AUpoint.",
+		"selfWithdrawReason": "The reason why we withdrew from this opportunity",
+		"tenderQualificationMode": "The qualification and selection mode.",
+		"tenderQuestionsDeadline": "Deadline set for submitting questions regarding the tender.",
+		"tenderSubmissionDeadline": "Deadline and time limit for submitting the final bid to the client.",
+		"tenderSubmissionFormat": "The format in which the bid must be submitted",
+		"utmCampaign": "Name or code of the campaign, event, or media",
+		"yearsOfRelationship": "Indicate the number of years of business activity between this client and AUPoint."
 	}
 }

@@ -23,10 +23,12 @@
 			"options": [
 				"",
 				"Win",
-				"Lose"
+				"Lose",
+				"Disqualified"
 			],
 			"style": {
 				"": "info",
+				"Disqualified": "warning",
 				"Lose": "danger",
 				"Win": "success"
 			},

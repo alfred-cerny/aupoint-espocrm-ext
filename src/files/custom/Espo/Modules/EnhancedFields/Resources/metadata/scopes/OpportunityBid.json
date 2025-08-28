@@ -1,11 +1,12 @@
-
 {
-	"entity": true,
-	"acl": false,
+	"acl": true,
 	"aclPortal": false,
 	"customizable": false,
 	"disabled": false,
-	"type": "Base",
+	"entity": true,
+	"importable": true,
 	"module": "EnhancedFields",
-	"object": true
+	"object": true,
+	"tab": true,
+	"type": "Base"
 }

@@ -2,8 +2,9 @@
 	"fields": {
 		"accountProjectsCount": "Nombre de projets du compte",
 		"amount": "Montant",
+		"amountInitial": "Montant initial",
 		"bids": "Soumissions",
-		"bidsCompetitor": "Soumissions - Competitor",
+		"bidsCompetitor": "Liste des soumissions concurrentes",
 		"bidsData": "Données des soumissions",
 		"bidsPartner": "Soumissions - Partner",
 		"closeDate": "Date de clôture",
@@ -11,7 +12,6 @@
 		"constructionKickoffDate": "Date de début des travaux",
 		"disqualificationChecklist": "Liste de vérification pour la disqualification",
 		"ethicalValues": "Valeurs éthiques",
-		"initialAmount": "Montant initial",
 		"lostReason": "Raison de non-obtention",
 		"odsCollaborators": "Collaborateurs ODS",
 		"odsLeader": "ODS Leader",
@@ -32,6 +32,7 @@
 		"projectType": "Type de projet",
 		"projectUnitQuantity": "Quantité d'unités du projet",
 		"qualificationChecklist": "Liste de vérification pour la qualification",
+		"qualificationProcess": "Processus de qualification / d'attribution",
 		"resultObservations": "Observations sur les résultats",
 		"selfWithdrawReason": "Raison du retrait",
 		"stage": "Étape",
@@ -145,6 +146,10 @@
 			"Knowledge Of Construction Industry": "Connaissance de l'industrie de la construction",
 			"Reference": "Référence",
 			"Site Owner": "Propriétaire du site"
+		},
+		"qualificationProcess": {
+			"By Invitation": "Sur invitation",
+			"OTC": "Gré à gré"
 		},
 		"selfWithdrawReason": {
 			"Portfolio Fit": "Adéquation avec le portfolio",

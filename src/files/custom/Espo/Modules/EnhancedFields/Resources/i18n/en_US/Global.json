@@ -8,11 +8,11 @@
 	"scopeNamesPlural": {
 		"AccountAddress": "Address",
 		"LeadCampaign": "Lead Campaigns",
-		"OpportunityBid": "Opportunity Bid"
+		"OpportunityBid": "Opportunity Bids"
 	},
 	"scopeNamesSingular": {
 		"AccountAddress": "Address",
 		"LeadCampaign": "Lead Campaign",
-		"OpportunityBid": "Opportunity Bids"
+		"OpportunityBid": "Opportunity Bid"
 	}
 }

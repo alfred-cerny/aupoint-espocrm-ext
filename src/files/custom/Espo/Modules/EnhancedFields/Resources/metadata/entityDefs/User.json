@@ -2,6 +2,15 @@
 	"fields": {
 		"accountsPointContact": {
 			"type": "linkMultiple"
+		},
+		"opportunitiesOdsCollaborator": {
+			"type": "linkMultiple"
+		},
+		"opportunitiesOdsLeader": {
+			"type": "linkMultiple"
+		},
+		"referredLeads": {
+			"type": "linkMultiple"
 		}
 	},
 	"links": {
@@ -11,15 +20,20 @@
 			"relationName": "accountUserPointContact",
 			"type": "hasMany"
 		},
-		"opportunityOdsCollaborator": {
+		"opportunitiesOdsCollaborator": {
 			"entity": "Opportunity",
-			"foreign": "odsCollaborator",
-			"type": "belongsTo"
+			"foreign": "odsCollaborators",
+			"type": "hasMany"
 		},
-		"opportunityOdsLeader": {
+		"opportunitiesOdsLeader": {
 			"entity": "Opportunity",
 			"foreign": "odsLeader",
-			"type": "belongsTo"
+			"type": "hasMany"
+		},
+		"referredLeads": {
+			"entity": "Lead",
+			"foreign": "referredByUser",
+			"type": "hasMany"
 		}
 	}
 }
