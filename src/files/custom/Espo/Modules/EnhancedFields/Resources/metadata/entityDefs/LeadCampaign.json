@@ -1,0 +1,70 @@
+{
+	"fields": {
+		"createdAt": {
+			"readOnly": true,
+			"type": "datetime"
+		},
+		"createdBy": {
+			"readOnly": true,
+			"type": "link"
+		},
+		"emailTemplate": {
+			"entity": "EmailTemplate",
+			"tooltip": true,
+			"type": "link"
+		},
+		"emailTemplateFrench": {
+			"entity": "EmailTemplate",
+			"tooltip": true,
+			"type": "link"
+		},
+		"modifiedAt": {
+			"readOnly": true,
+			"type": "datetime"
+		},
+		"modifiedBy": {
+			"readOnly": true,
+			"type": "link"
+		},
+		"name": {
+			"type": "varchar"
+		},
+		"sources": {
+			"allowCustomOptions": true,
+			"displayAsList": true,
+			"storeArrayValues": true,
+			"type": "multiEnum"
+		},
+		"status": {
+			"customizationDisabled": true,
+			"displayAsLabel": true,
+			"options": [
+				"Active",
+				"Inactive"
+			],
+			"style": {
+				"Active": "success",
+				"Inactive": "danger"
+			},
+			"type": "enum"
+		},
+		"type": {
+			"default": "Email Campaign",
+			"options": [
+				"",
+				"Email Campaign"
+			],
+			"type": "enum"
+		}
+	},
+	"links": {
+		"createdBy": {
+			"entity": "User",
+			"type": "belongsTo"
+		},
+		"modifiedBy": {
+			"entity": "User",
+			"type": "belongsTo"
+		}
+	}
+}

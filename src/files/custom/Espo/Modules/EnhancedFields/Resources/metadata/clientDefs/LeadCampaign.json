@@ -1,0 +1,5 @@
+{
+	"color": "#edc755",
+	"controller": "controllers/record",
+	"iconClass": "fas fa-chalkboard-user"
+}

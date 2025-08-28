@@ -1,0 +1,40 @@
+[
+	{
+		"rows": [
+			[
+				{
+					"name": "name"
+				},
+				{
+					"name": "status"
+				},
+				{
+					"name": "type"
+				}
+			]
+		]
+	},
+	{
+		"customLabel": "Email Templates",
+		"rows": [
+			[
+				{
+					"name": "emailTemplate"
+				},
+				{
+					"name": "emailTemplateFrench"
+				}
+			]
+		],
+		"style": "warning"
+	},
+	{
+		"rows": [
+			[
+				{
+					"name": "sources"
+				}
+			]
+		]
+	}
+]

@@ -1,0 +1,23 @@
+{
+	"fields": {
+		"emailTemplate": "Modèle d'email - par défaut",
+		"emailTemplateFrench": "Modèle d'email - français",
+		"sources": "Sources",
+		"status": "Statut",
+		"type": "Type"
+	},
+	"options": {
+		"type": {
+			"": "Aucun",
+			"Campaign Email": "E-mail de campagne"
+		}
+	},
+	"panelCustomLabels": {
+		"Email templates": "Modèles d'e-mails"
+	},
+	"tooltips": {
+		"emailTemplate": "Modèle d'email par défaut utilisé pour cette campagne.",
+		"emailTemplateFrench": "Modèle d'email en français utilisé pour cette campagne.",
+		"sources": "Sources UTM qui déterminent si cette campagne est sélectionnée lors de la création d'un lead."
+	}
+}

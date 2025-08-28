@@ -10,11 +10,15 @@ use Espo\Core\Mail\Exceptions\SendingError;
 use Espo\Core\Utils\Config;
 use Espo\Core\Utils\Log;
 use Espo\Core\Utils\Metadata;
+use Espo\Entities\ArrayValue;
 use Espo\Entities\Email;
 use Espo\Entities\User;
-use Espo\Modules\Crm\Entities\Lead;
+use Espo\Modules\EnhancedFields\Entities\LeadCampaign;
 use Espo\ORM\Entity;
 use Espo\ORM\EntityManager;
+use Espo\ORM\Query\Part\Condition as Cond;
+use Espo\ORM\Query\Part\Expression as Expr;
+use Espo\ORM\Query\Part\Join;
 use Espo\ORM\Repository\Option\SaveOptions;
 use Espo\Services\Stream as StreamService;
 use Espo\Tools\EmailTemplate\Service as EmailTemplateService;
@@ -38,30 +42,29 @@ readonly class SendEmailAfterCreation implements AfterSave {
 	 * @throws SendingError
 	 */
 	public function afterSave(Entity $entity, SaveOptions $options): void {
-		if (!$entity->isNew() || !$this->isCampaignAllowed($entity)) {
+		if (!$entity->isNew()) {
 			return;
 		}
-		$entityId = $entity->get('id');
 
-		$preferredLanguage = $entity->get('language') ?? 'English';
+		$entityId = $entity->get('id');
 		$emailAddress = $entity->get('emailAddress');
 		if (empty($emailAddress)) {
 			$this->log->debug("Lead(id:$entityId) does not have emailAddress set, not sending informational email.");
 			return;
 		}
-
-		$templateFieldName = $preferredLanguage === 'English' ?
-			'defaultInformationalEmailTemplate' :
-			('informationalEmailTemplate' . ucfirst($preferredLanguage));
-		$templateId = $this->metadata->get(['clientDefs', Lead::ENTITY_TYPE, ($templateFieldName . 'Id')]);
-		if (empty($templateId)) {
-			$this->log->alert("Informational template is not set, expected '$templateFieldName', found none.");
-			return;
-		}
-
 		$outboundEmailAddress = $this->config->get('outboundEmailFromAddress');
 		if (empty($outboundEmailAddress)) {
 			$this->log->alert('Outbound email address is not configured, not sending information email to Lead after creation.');
+			return;
+		}
+		$leadCampaign = $this->getLeadCampaign($entity);
+		if (is_null($leadCampaign)) {
+			return;
+		}
+		$templateId = $leadCampaign->getEmailTemplateId($entity->get('language'));
+		if (empty($templateId)) {
+			$preferredLanguage = $entity->get('language');
+			$this->log->alert("Email template is not set, expected one for language '$preferredLanguage', found none.");
 			return;
 		}
 
@@ -85,17 +88,33 @@ readonly class SendEmailAfterCreation implements AfterSave {
 		$emailId = $email->getId();
 		$this->log->info("Lead(id:$entityId) has been sent an informational email(id:$emailId).");
 		$this->streamService->noteEmailSent($entity, $email);
+		$this->streamService->noteEmailSent($leadCampaign, $email);
 	}
 
-	protected function isCampaignAllowed(Entity $entity): bool {
-		$informationalEmailCampaigns = $this->metadata->get(['clientDefs', Lead::ENTITY_TYPE, 'informationalEmailCampaigns']);
-		if (empty($informationalEmailCampaigns) || !is_array($informationalEmailCampaigns)) {
-			return false;
-		}
-
+	protected function getLeadCampaign(Entity $entity): ?LeadCampaign {
 		$campaign = $entity->get('utmCampaign');
+		if (empty($campaign)) {
+			return null;
+		}
+		/** @var LeadCampaign|null $leadCampaign */
+		$leadCampaign = $this->entityManager
+			->getRDBRepository(LeadCampaign::ENTITY_TYPE)
+			->where(Cond::and(
+				Cond::equal(Expr::column('status'), Expr::value('Active')),
+				Cond::equal(Expr::column('type'), Expr::value(LeadCampaign::TYPE_EMAIL_CAMPAIGN)),
+			))
+			->join(
+				Join::createWithTableTarget(ArrayValue::ENTITY_TYPE, 'av')
+					->withConditions(Cond::and(
+						Cond::equal(Expr::column('av.deleted'), Expr::value(false)),
+						Cond::equal(Expr::column('av.entityId'), Expr::column('id')),
+						Cond::equal(Expr::column('av.entityType'), Expr::value(LeadCampaign::ENTITY_TYPE)),
+						Cond::equal(Expr::column('av.value'), Expr::value((string)$campaign)),
+					))
+			)
+			->findOne();
 
-		return !empty($campaign) && in_array($campaign, $informationalEmailCampaigns, true);
+		return $leadCampaign;
 	}
 
 }

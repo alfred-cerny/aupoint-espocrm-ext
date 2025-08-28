@@ -1,0 +1,14 @@
+{
+	"fields": {
+		"emailTemplate": "Email template - default",
+		"emailTemplateFrench": "Email template - French",
+		"sources": "Sources",
+		"status": "Status",
+		"type": "Type"
+	},
+	"tooltips": {
+		"emailTemplate": "Default email template used for this campaign.",
+		"emailTemplateFrench": "Email template in french used for this campaign.",
+		"sources": "UTM sources which triggers whether this campaign is selected on lead creation."
+	}
+}

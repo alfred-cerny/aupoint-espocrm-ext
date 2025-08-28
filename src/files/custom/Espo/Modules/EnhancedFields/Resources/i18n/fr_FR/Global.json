@@ -4,10 +4,12 @@
 	},
 	"scopeNamesPlural": {
 		"AccountAddress": "Adresses de l'organisation",
+		"LeadCampaign": "Mener des campagnes",
 		"OpportunityBid": "Offres d'opportunité"
 	},
 	"scopeNamesSingular": {
 		"AccountAddress": "Adresse de l'organisation",
+		"LeadCampaign": "Mener une campagne",
 		"OpportunityBid": "Offre d'opportunité"
 	}
 }
