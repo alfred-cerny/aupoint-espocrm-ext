@@ -1,0 +1,21 @@
+[
+	{
+		"customLabel": "Outcome reason is missing",
+		"rows": [
+			[
+				{
+					"fullWidth": true,
+					"name": "name",
+					"readOnly": true
+				}
+			],
+			[
+				{
+					"fullWidth": true,
+					"name": "outcomeReason"
+				}
+			]
+		],
+		"style": "danger"
+	}
+]

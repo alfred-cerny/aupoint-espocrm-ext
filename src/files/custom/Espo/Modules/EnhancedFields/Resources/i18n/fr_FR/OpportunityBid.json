@@ -1,9 +1,10 @@
 {
 	"fields": {
-		"account": "Entreprise concurrente",
+		"account": "Compte",
 		"amount": "Montant déposé",
 		"contact": "Contact",
 		"opportunity": "Opportunité",
+		"outcomeReason": "Raison du résultat",
 		"partnershipNature": "Nature du partenariat",
 		"status": "Statut",
 		"type": "Type de relation"
@@ -14,9 +15,9 @@
 	},
 	"options": {
 		"status": {
+			"Disqualified": "Disqualitfié",
 			"Lose": "Perdant",
-			"Win": "Gagnant",
-			"Disqualified": "Disqualitfié"
+			"Win": "Gagnant"
 		},
 		"type": {
 			"Client": "Client",
@@ -25,6 +26,9 @@
 			"Partner": "Partenaire",
 			"Prospect": "Prospect"
 		}
+	},
+	"panelCustomLabels": {
+		"Outcome reason is missing": "La raison du résultat est manquante"
 	},
 	"presetFilters": {
 		"all": "Toute",

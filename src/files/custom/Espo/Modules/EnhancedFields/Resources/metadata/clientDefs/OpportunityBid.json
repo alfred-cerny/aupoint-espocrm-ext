@@ -3,11 +3,21 @@
 	"controller": "controllers/record",
 	"dynamicLogic": {
 		"fields": {
+			"outcomeReason": {
+				"required": {
+					"conditionGroup": [
+						{
+							"attribute": "status",
+							"type": "isNotEmpty"
+						}
+					]
+				}
+			},
 			"partnershipNature": {
 				"visible": {
 					"conditionGroup": [
 						{
-							"attribute": "relation",
+							"attribute": "type",
 							"type": "equals",
 							"value": "Partner"
 						}

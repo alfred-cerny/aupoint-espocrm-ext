@@ -393,6 +393,9 @@
 			"type": "multiEnum",
 			"view": "enhanced-fields:views/account/fields/subsectors"
 		},
+		"teams": {
+			"view": "enhanced-fields:views/account/fields/teams"
+		},
 		"type": {
 			"displayAsLabel": true,
 			"isSorted": true,

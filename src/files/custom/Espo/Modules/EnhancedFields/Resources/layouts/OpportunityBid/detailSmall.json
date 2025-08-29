@@ -7,7 +7,19 @@
 					"name": "type"
 				},
 				{
+					"name": "amount"
+				},
+				{
 					"name": "partnershipNature"
+				},
+				{
+					"name": "status"
+				}
+			],
+			[
+				{
+					"fullWidth": true,
+					"name": "outcomeReason"
 				}
 			],
 			[
@@ -16,15 +28,11 @@
 				},
 				{
 					"name": "account"
-				}
-			],
-			[
-				{
-					"name": "amount"
 				},
 				{
-					"name": "status"
-				}
+					"name": "contact"
+				},
+				false
 			]
 		],
 		"style": "info"

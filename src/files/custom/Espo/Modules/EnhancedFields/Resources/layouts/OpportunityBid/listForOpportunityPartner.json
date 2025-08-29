@@ -6,5 +6,8 @@
 	{
 		"link": true,
 		"name": "contact"
+	},
+	{
+		"name": "outcomeReason"
 	}
 ]

@@ -7,22 +7,32 @@
 					"name": "type"
 				},
 				{
-					"name": "opportunity"
+					"name": "amount"
 				},
 				{
-					"name": "account"
+					"name": "partnershipNature"
+				},
+				{
+					"name": "status"
 				}
 			],
 			[
 				{
-					"name": "amount"
-				},
-				{
-					"name": "status"
-				},
-				{
-					"name": "partnershipNature"
+					"fullWidth": true,
+					"name": "outcomeReason"
 				}
+			],
+			[
+				{
+					"name": "opportunity"
+				},
+				{
+					"name": "account"
+				},
+				{
+					"name": "contact"
+				},
+				false
 			]
 		],
 		"style": "info"

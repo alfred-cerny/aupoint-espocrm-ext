@@ -16,5 +16,8 @@
 	},
 	{
 		"name": "status"
+	},
+	{
+		"name": "outcomeReason"
 	}
 ]

@@ -4,6 +4,7 @@
 		"amount": "Amount",
 		"contact": "Contact",
 		"opportunity": "Opportunity",
+		"outcomeReason": "Outcome reason",
 		"partnershipNature": "Partnership nature",
 		"status": "Status",
 		"type": "Relation type"

@@ -39,7 +39,13 @@
                     {{/if}}
                 </div>
                 <div class="col-sm-5 text-right">
-                     {{#if amount}}<span class="currency-amount" style="margin-right: 8px;">{{amount}} {{amountCurrency}}</span>{{/if}}
+                    {{#if amount}}<span class="currency-amount" style="margin-right: 8px;">{{amount}} {{amountCurrency}}</span>{{/if}}
+                    {{#if outcomeReason}}
+                    <span style="margin-left: 8px; font-size: 0.9em;">
+                        {{outcomeReason}}
+                    </span>
+                    <span style="margin: 0 8px;">•</span>
+                    {{/if}}
                     <span class="label label-{{#ifEqual status 'Win'}}success{{/ifEqual}}{{#ifEqual status 'Lose'}}danger{{/ifEqual}}{{#ifEqual status 'Pending'}}warning{{/ifEqual}}{{#ifEqual status 'Qualified'}}info{{/ifEqual}}">
                         {{translate status category='options' scope='Opportunity' field='stage'}}
                     </span>

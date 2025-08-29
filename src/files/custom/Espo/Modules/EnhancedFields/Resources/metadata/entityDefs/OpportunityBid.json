@@ -9,11 +9,16 @@
 		},
 		"contact": {
 			"required": true,
-			"type": "link"
+			"type": "link",
+			"view": "enhanced-fields:views/opportunity-bid/fields/contact"
 		},
 		"opportunity": {
 			"required": true,
 			"type": "link"
+		},
+		"outcomeReason": {
+			"type": "text",
+			"view": "enhanced-fields:views/opportunity-bid/fields/outcome-reason"
 		},
 		"partnershipNature": {
 			"type": "varchar"

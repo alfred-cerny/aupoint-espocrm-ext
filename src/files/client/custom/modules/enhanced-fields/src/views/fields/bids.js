@@ -4,6 +4,8 @@ define(['views/fields/link-multiple'], (Dep) => {
 			editTemplate = 'enhanced-fields:fields/bids/edit';
 			relationTypeFieldName = 'type';
 			relationClassNameMapping = {};
+			models = [];
+			validations = ['models'];
 			listSmall = null;
 
 			setup() {
@@ -108,33 +110,44 @@ define(['views/fields/link-multiple'], (Dep) => {
 				if (!bidsData) {
 					return;
 				}
-				this.getModelFactory().create('OpportunityBid', model => {
-					bidsData.forEach((bidData, index) => {
+				this.models = [];
+				bidsData.forEach((bidData, index) => {
+					this.getModelFactory().create('OpportunityBid', model => {
+						this.models.push(model);
+						/*
+						* @todo: think harder about this
+						*/
+						if (this.model.name === 'Account') {
+							model.set('accountId', this.model.get('id'));
+							model.set('accountName', this.model.get('name'));
+						} else if (this.model.name === 'Opportunity') {
+							model.set('opportunityId', this.model.get('id'));
+							model.set('opportunityName', this.model.get('name'));
+						}
+
 						this.listSmall.forEach((field) => {
 							const fieldName = field.name;
 							const fieldValue = bidData[fieldName] || null;
 							const fieldType = model.getFieldType(fieldName);
-							const composedFieldName = this.getComposedFieldName(fieldName, index);
 							const additionalFields = fieldType === 'link'
 								? ['Id', 'Name']
 								: fieldType === 'linkMultiple'
 									? ['Ids', 'Names']
 									: [];
-							model.set(composedFieldName, fieldValue);
+							model.set(fieldName, fieldValue);
 							additionalFields.forEach(additionalFieldSuffix => {
-								const composedFieldNameWithSuffix = composedFieldName + additionalFieldSuffix;
 								const fieldNameWithSuffix = fieldName + additionalFieldSuffix;
-								model.set(composedFieldNameWithSuffix, bidData[fieldNameWithSuffix] || null);
+								model.set(fieldNameWithSuffix, bidData[fieldNameWithSuffix] || null);
 							});
 
 							const type = model.getFieldType(fieldName) || 'base';
 							const viewName = model.getFieldParam(fieldName, 'view') ||
 								this.getFieldManager().getViewName(type);
-							this.createView(composedFieldName, viewName, {
+							this.createView(this.getComposedFieldName(fieldName, index), viewName, {
 								model,
 								mode: this.MODE_EDIT,
-								name: composedFieldName,
-								selector: `div[data-name="${composedFieldName}"]`,
+								name: fieldName,
+								selector: `.opportunity-bid-item[data-index="${index}"] div[data-name="${fieldName}"]`,
 								foreignScope: model?.defs?.links[fieldName]?.entity || null,
 								defs: {
 									params: {
@@ -145,46 +158,31 @@ define(['views/fields/link-multiple'], (Dep) => {
 								view.render();
 							});
 						});
+
+						if (this.getFieldRelationType()) {
+							model.set('type', this.getFieldRelationType());
+						}
 					});
 				});
 			}
 
 			fetchFieldData() {
-				const results = [];
-
-				this.$el.find('.opportunity-bids-content .opportunity-bid-item').each((index, itemEl) => {
+				return this.$el.find('.opportunity-bids-content .opportunity-bid-item').map((index, itemEl) => {
+					const model = this.models[index];
+					if (!model) {
+						console.error("Model not found.");
+						debugger;
+						return null;
+					}
 					const $item = $(itemEl);
 					const bidId = $item.attr('data-bid-id');
 
-					const itemData = {
+					return {
 						...(bidId && {id: bidId}),
 						index,
-						...Object.fromEntries(
-							this.listSmall.flatMap(field => {
-								const {name: fieldName} = field;
-								const fieldType = this.getMetadata().data.entityDefs.OpportunityBid.fields[fieldName].type;
-								const additionalFields = fieldType === 'link'
-									? ['Id', 'Name']
-									: fieldType === 'linkMultiple'
-										? ['Ids', 'Names']
-										: [];
-								const composedFieldName = this.getComposedFieldName(fieldName, index);
-								const fieldFetchedData = this.getView(composedFieldName)?.fetch();
-								const data = additionalFields.map(additionalFieldSuffix => {
-									const composedFieldNameWithSuffix = composedFieldName + additionalFieldSuffix;
-									const fieldNameWithSuffix = fieldName + additionalFieldSuffix;
-									return [fieldNameWithSuffix, fieldFetchedData?.[composedFieldNameWithSuffix] ?? null];
-								});
-								data.push([fieldName, fieldFetchedData?.[composedFieldName] ?? null]);
-								return data;
-							})
-						)
+						...model.attributes
 					};
-
-					results.push(itemData);
-				});
-
-				return results;
+				}).get();
 			}
 
 			fetch() {
@@ -212,6 +210,16 @@ define(['views/fields/link-multiple'], (Dep) => {
 					this.getHelper().layoutManager.get('OpportunityBid', listName, (list) => {
 						this.listSmall = list;
 						resolve(list);
+					});
+				});
+			}
+
+			validateModels() {
+				return this.listSmall.some(field => {
+					const fieldName = field.name;
+					return this.models.some((model, index) => {
+						const fieldView = this.getView(this.getComposedFieldName(fieldName, index));
+						return /* is not valid */ fieldView?.validate();
 					});
 				});
 			}
