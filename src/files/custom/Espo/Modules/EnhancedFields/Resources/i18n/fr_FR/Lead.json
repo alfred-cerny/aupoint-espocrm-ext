@@ -10,6 +10,10 @@
 		"optinUnsubscribe": "Unsubscribe",
 		"referredByContact": "Reference - Contact (client, partner)",
 		"referredByUser": "Reference - Employee",
+		"urlFacebook": "Profil Facebook",
+		"urlInstagram": "Profil Instagram",
+		"urlLinkedIn": "Profil LinkedIn",
+		"urlTwitter": "Profil X (ex-Twitter)",
 		"utmCampaign": "Campaign (coded name of the initiative)",
 		"utmContent": "Interaction context",
 		"utmMedium": "Medium",
@@ -18,6 +22,9 @@
 	"links": {
 		"referredByContact": "Référence - Contact (client, partenaire)",
 		"referredByUser": "Référence - Employé"
+	},
+	"panelCustomLabels": {
+		"Social Media": "Réseaux sociaux"
 	},
 	"tooltips": {
 		"leadOrigin": "Déterminer ici si les coordonnées de ce lead provient d'une liste spécifique",

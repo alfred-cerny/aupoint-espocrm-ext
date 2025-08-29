@@ -6,7 +6,6 @@ use Espo\Core\ORM\Entity;
 
 class LeadCampaign extends Entity {
 	public const ENTITY_TYPE = 'LeadCampaign';
-	public const TYPE_EMAIL_CAMPAIGN = 'Email Campaign';
 	public const DEFAULT_LANGUAGE = 'English';
 
 	public function getEmailTemplateId(?string $language): ?string {
@@ -15,6 +14,14 @@ class LeadCampaign extends Entity {
 		}
 
 		return $this->get('emailTemplateId');
+	}
+
+	public function getFromAddress(?string $language): ?string {
+		return $this->get('fromAddress'); //@todo: maybe implement language-based from addresses?
+	}
+
+	public function getFromName(): ?string {
+		return $this->get('fromName');
 	}
 
 }

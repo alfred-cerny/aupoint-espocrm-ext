@@ -2,6 +2,9 @@
 	"fields": {
 		"emailTemplate": "Modèle d'email - par défaut",
 		"emailTemplateFrench": "Modèle d'email - français",
+		"fromAddress": "De l'adresse",
+		"fromName": "Du nom",
+		"smtpAccount": "SMTP compte",
 		"sources": "Sources",
 		"status": "Statut",
 		"type": "Type"
@@ -13,7 +16,8 @@
 		}
 	},
 	"panelCustomLabels": {
-		"Email templates": "Modèles d'e-mails"
+		"Email templates": "Modèles d'e-mails",
+		"Outbound configuration": "Configuration sortante"
 	},
 	"tooltips": {
 		"emailTemplate": "Modèle d'email par défaut utilisé pour cette campagne.",

@@ -1,5 +1,5 @@
 {
-	"color": "#edc755",
+	"color": "#80C77D",
 	"controller": "controllers/record",
 	"dynamicLogic": {
 		"fields": {

@@ -39,8 +39,33 @@
 		"referredByUser": {
 			"type": "link"
 		},
+		"urlFacebook": {
+			"iconClassName": "fa-brands fa-facebook",
+			"iconColor": "#1877f2",
+			"type": "url",
+			"view": "enhanced-fields:views/fields/url-with-icon"
+		},
+		"urlInstagram": {
+			"iconClassName": "fa-brands fa-instagram",
+			"iconColor": "#e4405f",
+			"type": "url",
+			"view": "enhanced-fields:views/fields/url-with-icon"
+		},
+		"urlLinkedIn": {
+			"iconClassName": "fa-brands fa-linkedin",
+			"iconColor": "#0a66c2",
+			"type": "url",
+			"view": "enhanced-fields:views/fields/url-with-icon"
+		},
+		"urlTwitter": {
+			"iconClassName": "fa-brands fa-twitter",
+			"iconColor": "#1da1f2",
+			"type": "url",
+			"view": "enhanced-fields:views/fields/url-with-icon"
+		},
 		"utmCampaign": {
-			"type": "text"
+			"pattern": "^[a-z]+(?:_[a-z]+)*$",
+			"type": "varchar"
 		},
 		"utmContent": {
 			"type": "text"
@@ -56,6 +81,42 @@
 				"Paid Web",
 				"Event App",
 				"Other"
+			],
+			"type": "enum"
+		},
+		"utmSource": {
+			"customizationDisabled": true,
+			"options": [
+				"",
+				"Google search",
+				"Referral",
+				"ReachOut",
+				"Directory",
+				"Construction site",
+				"Event",
+				"Hydroqc",
+				"Biddinggo",
+				"Seao",
+				"Saparriba",
+				"Villdeqc",
+				"Other bid portals",
+				"LinkedIn",
+				"Instagram",
+				"Facebook",
+				"Youtube",
+				"Pinterest",
+				"X",
+				"Pr channels",
+				"Google ads",
+				"Bing ads",
+				"Magazine ad",
+				"Brevo",
+				"Direct mail",
+				"Business card",
+				"Aupoint website",
+				"Imaginau website",
+				"Other",
+				"Unknown"
 			],
 			"type": "enum"
 		},

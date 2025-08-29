@@ -29,6 +29,26 @@
 		"style": "warning"
 	},
 	{
+		"customLabel": "Outbound configuration",
+		"rows": [
+			[
+				{
+					"name": "smtpAccount"
+				},
+				false
+			],
+			[
+				{
+					"name": "fromAddress"
+				},
+				{
+					"name": "fromName"
+				}
+			]
+		],
+		"style": "danger"
+	},
+	{
 		"rows": [
 			[
 				{

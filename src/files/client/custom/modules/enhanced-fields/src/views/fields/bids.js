@@ -43,6 +43,13 @@ define(['views/fields/link-multiple'], (Dep) => {
 						}
 					};
 				}
+				if (this.getFieldRelationType()) {
+					filters.type = {
+						type: 'in',
+						value: [this.getFieldRelationType()]
+					};
+				}
+
 				this.createView('modal', 'views/modals/select-records', {
 					entityType: 'OpportunityBid',
 					createButton: true,

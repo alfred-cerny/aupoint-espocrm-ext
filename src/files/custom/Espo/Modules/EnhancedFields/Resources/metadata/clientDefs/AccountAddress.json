@@ -1,5 +1,5 @@
 {
+	"color": "#ED9D55",
 	"controller": "controllers/record",
-	"color": "#edc755",
 	"iconClass": "fas fa-map-location"
 }

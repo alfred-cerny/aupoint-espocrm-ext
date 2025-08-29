@@ -1,5 +1,5 @@
 {
-	"acl": false,
+	"acl": true,
 	"aclPortal": false,
 	"customizable": true,
 	"disabled": false,
@@ -7,5 +7,6 @@
 	"module": "EnhancedFields",
 	"object": true,
 	"stream": true,
+	"tab": true,
 	"type": "Base"
 }

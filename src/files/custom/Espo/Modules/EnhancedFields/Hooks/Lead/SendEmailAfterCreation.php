@@ -52,13 +52,14 @@ readonly class SendEmailAfterCreation implements AfterSave {
 			$this->log->debug("Lead(id:$entityId) does not have emailAddress set, not sending informational email.");
 			return;
 		}
-		$outboundEmailAddress = $this->config->get('outboundEmailFromAddress');
-		if (empty($outboundEmailAddress)) {
-			$this->log->alert('Outbound email address is not configured, not sending information email to Lead after creation.');
-			return;
-		}
+
 		$leadCampaign = $this->getLeadCampaign($entity);
 		if (is_null($leadCampaign)) {
+			return;
+		}
+		$outboundEmailAddress = $leadCampaign->getFromAddress($entity->get('language')) ?? $this->config->get('outboundEmailFromAddress');
+		if (empty($outboundEmailAddress)) {
+			$this->log->alert('Outbound email address is not configured, not sending information email to Lead after creation.');
 			return;
 		}
 		$templateId = $leadCampaign->getEmailTemplateId($entity->get('language'));
@@ -76,6 +77,7 @@ readonly class SendEmailAfterCreation implements AfterSave {
 		$email = $this->entityManager->createEntity(Email::ENTITY_TYPE, [
 			'status' => Email::STATUS_DRAFT,
 			'from' => $outboundEmailAddress,
+			'fromName' => $leadCampaign->getFromName(),
 			'to' => $emailAddress,
 			'subject' => $result->getSubject(),
 			$result->isHtml() ? 'body' : 'bodyPlain' => $result->getBody(),
@@ -92,8 +94,10 @@ readonly class SendEmailAfterCreation implements AfterSave {
 	}
 
 	protected function getLeadCampaign(Entity $entity): ?LeadCampaign {
-		$campaign = $entity->get('utmCampaign');
-		if (empty($campaign)) {
+		$utmCampaign = $entity->get('utmCampaign');
+		$utmMedium = $entity->get('utmMedium');
+
+		if (empty($utmCampaign)) {
 			return null;
 		}
 		/** @var LeadCampaign|null $leadCampaign */
@@ -101,7 +105,7 @@ readonly class SendEmailAfterCreation implements AfterSave {
 			->getRDBRepository(LeadCampaign::ENTITY_TYPE)
 			->where(Cond::and(
 				Cond::equal(Expr::column('status'), Expr::value('Active')),
-				Cond::equal(Expr::column('type'), Expr::value(LeadCampaign::TYPE_EMAIL_CAMPAIGN)),
+				Cond::equal(Expr::column('type'), Expr::value($utmMedium)),
 			))
 			->join(
 				Join::createWithTableTarget(ArrayValue::ENTITY_TYPE, 'av')
@@ -109,7 +113,7 @@ readonly class SendEmailAfterCreation implements AfterSave {
 						Cond::equal(Expr::column('av.deleted'), Expr::value(false)),
 						Cond::equal(Expr::column('av.entityId'), Expr::column('id')),
 						Cond::equal(Expr::column('av.entityType'), Expr::value(LeadCampaign::ENTITY_TYPE)),
-						Cond::equal(Expr::column('av.value'), Expr::value((string)$campaign)),
+						Cond::equal(Expr::column('av.value'), Expr::value((string)$utmCampaign)),
 					))
 			)
 			->findOne();

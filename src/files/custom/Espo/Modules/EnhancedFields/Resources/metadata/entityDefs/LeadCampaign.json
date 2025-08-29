@@ -18,6 +18,16 @@
 			"tooltip": true,
 			"type": "link"
 		},
+		"fromAddress": {
+			"type": "varchar",
+			"view": "crm:views/mass-email/fields/from-address"
+		},
+		"fromName": {
+			"type": "varchar"
+		},
+		"inboundEmail": {
+			"type": "link"
+		},
 		"modifiedAt": {
 			"readOnly": true,
 			"type": "datetime"
@@ -28,6 +38,12 @@
 		},
 		"name": {
 			"type": "varchar"
+		},
+		"smtpAccount": {
+			"notStorable": true,
+			"orderDisabled": true,
+			"type": "base",
+			"view": "crm:views/mass-email/fields/smtp-account"
 		},
 		"sources": {
 			"allowCustomOptions": true,
@@ -49,17 +65,18 @@
 			"type": "enum"
 		},
 		"type": {
-			"default": "Email Campaign",
-			"options": [
-				"",
-				"Email Campaign"
-			],
+			"customizationDisabled": true,
+			"optionsReference": "Lead.utmMedium",
 			"type": "enum"
 		}
 	},
 	"links": {
 		"createdBy": {
 			"entity": "User",
+			"type": "belongsTo"
+		},
+		"inboundEmail": {
+			"entity": "InboundEmail",
 			"type": "belongsTo"
 		},
 		"modifiedBy": {

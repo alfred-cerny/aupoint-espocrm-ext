@@ -2,6 +2,9 @@
 	"fields": {
 		"emailTemplate": "Email template - default",
 		"emailTemplateFrench": "Email template - French",
+		"fromAddress": "From Address",
+		"fromName": "From Name",
+		"smtpAccount": "SMTP Account",
 		"sources": "Sources",
 		"status": "Status",
 		"type": "Type"
