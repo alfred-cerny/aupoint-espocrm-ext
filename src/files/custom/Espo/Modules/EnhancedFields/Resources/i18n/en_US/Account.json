@@ -19,7 +19,7 @@
 		"potentialTargets": "Business Targets",
 		"preferredLanguage": "Language Preference",
 		"registrationNumber": "Registration Number",
-		"relationType": "Relationship Type",
+		"relationType": "Relationship Type (current view)",
 		"relationshipAppreciation": "Business Relationship Appreciation Scale",
 		"relationshipDescription": "Description of the business relationship with AUpoint",
 		"riskLevel": "Account Risk Level",
@@ -192,5 +192,31 @@
 			"Partner": "Partner",
 			"Prospect": "Prospect"
 		}
+	},
+	"tooltips": {
+		"accountProjectsTotal": "Total number of projects completed or in progress with AUPoint.",
+		"accountProjectsTotalValue": "Estimated total amount of projects completed or in progress with AUPoint.",
+		"accountProjectsTypical": "Indicate the type(s) of projects typically performed for this client",
+		"accountStatus": "Check if this account is inactive",
+		"applicableTaxes": "Choose the applicable tax group according to the client's province or country. This field must correspond to the tax groups defined in Nutcache",
+		"assignedUser": "Person in authority to make decisions regarding this account at AU Point.",
+		"currency": "Indicates the primary currency used for transactions with this account (e.g. CAD, USD, EUR).",
+		"currentMarket": "Indicate the primary geographical scope of this organization's current market.",
+		"growthPerspective": "Estimation of the company's future growth according to your current assessment.",
+		"organizationSize": "Select the approximate size of the organization based on number of employees.",
+		"paymentTerms": "Specifies the payment terms agreed upon with this account",
+		"potentialLevel": "Estimation of business development potential for AUPoint with this account.",
+		"potentialTargets": "Describe the objectives, targets or business development opportunities to consider for this account.",
+		"preferredLanguage": "The preferred language that should be used in communications with this organization",
+		"registrationNumber": "The company's registration number (NEQ or other)",
+		"relationType": "Current view of the entity.\nIt is filled dynamically",
+		"relationshipAppreciation": "Overall assessment of the quality of the business relationship with this account.",
+		"relationshipDescription": "Add contextual information or significant events to better understand the relationship with AUpoint.",
+		"riskLevel": "Evaluates the financial risk associated with this account on a scale of 1 (very low) to 5 (very high), based on past experience, payment behavior or credit rating.",
+		"sector": "Choose the client's primary business sector",
+		"statusDetail": "Select the specific statuses that apply to this account",
+		"statusNotes": "Additional information about the status of this account",
+		"type": "Select one or more additional relationship types that this account maintains with the organization (e.g.: Partner and Competitor).",
+		"yearsOfRelationship": "Indicate the number of years of commercial activity with AU Point."
 	}
 }

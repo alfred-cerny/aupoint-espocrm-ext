@@ -226,6 +226,7 @@
 			"notStorable": true,
 			"optionsReference": "Account.type",
 			"readOnly": true,
+			"tooltip": true,
 			"type": "enum"
 		},
 		"relationshipAppreciation": {

@@ -3,7 +3,7 @@
 		"account": "Compte",
 		"city": "Ville",
 		"country": "Pays",
-		"description": "Nom",
+		"description": "Nom spécifique pour cet adresse",
 		"name": "Adresse",
 		"postalCode": "Code postal",
 		"state": "État/Région",
@@ -21,11 +21,12 @@
 	},
 	"options": {
 		"labels": {
+			"": "Inconnu",
 			"Billing Address": "Adresse de facturation",
 			"Construction Site": "Chantier",
 			"Distribution Center": "Centre de distribution",
 			"Factory": "Usine",
-			"Head Office": "Bureau chef",
+			"Head Office": "Siège social / Bureau chef",
 			"Regional Office": "Bureau régional",
 			"Satellite Office": "Bureau satellite"
 		}

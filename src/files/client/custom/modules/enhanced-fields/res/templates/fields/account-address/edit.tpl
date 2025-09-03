@@ -34,7 +34,9 @@
                     <div class="row" style="margin-top: 5px;">
                         <input type="hidden" class="account-address-account-id" value="{{accountId}}">
                         <input type="hidden" class="account-address-account-name" value="{{accountName}}">
+                        {{#if showAccountLink}}
                         <div class="col-sm-6" data-name="{{../name}}Account-{{@index}}"></div>
+                        {{/if}}
                         <input type="hidden" class="account-address-labels-val" value="{{labels}}">
                         <div class="col-sm-6 account-address-labels"></div>
                     </div>
@@ -54,8 +56,9 @@
     <span class="fas fa-plus"></span>
     {{translate 'Add'}}
 </button>
-
+{{#unless selectButtonDisabled}}
 <button type="button" class="btn btn-default" data-action="linkAccountAddress">
     <span class="fas fa-plus"></span>
     {{translate 'Select'}}
 </button>
+{{/unless}}

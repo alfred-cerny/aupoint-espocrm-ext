@@ -191,13 +191,19 @@ define('enhanced-fields:views/fields/account-address', ['views/fields/base', 'ui
 					if (labels && !Array.isArray(labels)) {
 						labels = [labels];
 					}
-					const accountId = $block.find(`div[data-name="${accountFieldName}"] input[data-name="accountId"]`).val() || null;
+
+					let accountId = $block.find(`div[data-name="${accountFieldName}"] input[data-name="accountId"]`).val() || null;
+					let accountName = $block.find(`div[data-name="${accountFieldName}"] input[data-name="accountName"]`).val() || null;
+					if (this.model.name === 'Account') {
+						accountId ??= this.model.get('id');
+						accountName ??= this.model.get('name');
+					}
 
 					return {
 						accountAddressId: $block.find('.account-address-id').val() || null,
 						description: $block.find('.account-address-description').val() || null,
 						accountId,
-						accountName: $block.find(`div[data-name="${accountFieldName}"] input[data-name="accountName"]`).val() || null,
+						accountName,
 						street: $block.find('.account-address-street').val().trim() || null,
 						city: $block.find('.account-address-city').val().trim() || null,
 						state: $block.find('.account-address-state').val().trim() || null,
@@ -227,12 +233,19 @@ define('enhanced-fields:views/fields/account-address', ['views/fields/base', 'ui
 				accountAddressData.forEach(address => {
 					const labels = address.labels ?? null;
 					address.hasLabels = Array.isArray(labels) && labels.length > 0;
-					address.showAccountInfo = this.model.name !== 'Account' || address.accountId !== this.model.get('id');
+					address.showAccountInfo =
+						this.model.name !== 'Account' ||
+						(
+							address.accountId &&
+							address.accountId !== this.model.get('id')
+						);
 				});
 
 				return {
 					accountAddressData,
 					name: this.name,
+					showAccountLink: this.model.name !== 'Account',
+					selectButtonDisabled: this.model.name === 'Account',
 				};
 			}
 
