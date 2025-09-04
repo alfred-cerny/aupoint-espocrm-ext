@@ -6,5 +6,6 @@
 	"postalCode",
 	"labels",
 	"country",
-	"description"
+	"description",
+	"account"
 ]

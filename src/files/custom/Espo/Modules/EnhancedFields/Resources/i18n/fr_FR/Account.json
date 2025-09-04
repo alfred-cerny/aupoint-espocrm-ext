@@ -11,8 +11,8 @@
 		"currentMarket": "Marche d'affaires actuel",
 		"growthPerspective": "Perspective de croissance de l'entreprise",
 		"opportunityBids": "Offres d'opportunité",
-		"opportunityBidsCompetitor": "Offres d'opportunité - Competitor",
-		"opportunityBidsPartner": "Offres d'opportunité - Partner",
+		"opportunityBidsCompetitor": "Compétiteur - Historique des offres concurrentes",
+		"opportunityBidsPartner": "Partenaires - Historique des consortiums",
 		"organizationSize": "Taille de l'organisation",
 		"paymentTerms": "Termes de paiement",
 		"potentialLevel": "Niveau de potentiel",
@@ -28,13 +28,14 @@
 		"statusNotes": "Information additionnels à propos du statut de ce compte",
 		"subsectors": "Sous-secteurs d’activité",
 		"type": "Type de relation",
-		"yearsOfRelationship": "Nombre d'années de relation d'affaires avec AU Point"
+		"yearsOfRelationship": "Nombre d'années de relation d'affaires avec AU Point",
+		"ownerNearRetirement": "Propriétaire près de la retraite - Acquisition/ fusion potentielle"
 	},
 	"links": {
 		"accountAddresses": "Adresses de l'organisation",
 		"opportunityBids": "Offres d'opportunité",
-		"opportunityBidsCompetitor": "Offres d'opportunité - Competitor",
-		"opportunityBidsPartner": "Offres d'opportunité - Partner"
+		"opportunityBidsCompetitor": "Compétiteur - Historique des offres concurrentes",
+		"opportunityBidsPartner": "Partenaires - Historique des consortiums"
 	},
 	"options": {
 		"applicableTaxes": {
@@ -122,14 +123,15 @@
 			"Tourism": "Tourisme"
 		},
 		"statusDetail": {
-			"Closed": "Entreprise fermé",
+			"Closed": "Organisation fermée/dissolue",
 			"Former Client": "Ancien Client",
 			"Former Partner": "Ancien Partenaire",
 			"Lost": "Prospect perdu",
-			"Merged": "Entreprise fusionné",
+			"Merged": "Organisation fusionnée",
 			"Not Converted": "Prospect non-converti",
-			"Planned Exit": "Propriétaires près de la retraite",
-			"Sold": "Entreprise vendue"
+			"Sold": "Organisation vendue",
+			"Active Client": "Client actif",
+			"Active Partner": "Partenaire actif"
 		},
 		"subsectors": {
 			"Aeronautics": "Aéronautique",

@@ -34,6 +34,17 @@
 					]
 				}
 			},
+			"accountStatus": {
+				"visible": {
+					"conditionGroup": [
+						{
+							"attribute": "type",
+							"type": "contains",
+							"value": "Client"
+						}
+					]
+				}
+			},
 			"assignedUser": {
 				"visible": {
 					"conditionGroup": [

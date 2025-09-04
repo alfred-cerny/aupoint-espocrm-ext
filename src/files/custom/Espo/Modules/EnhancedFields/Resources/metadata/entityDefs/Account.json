@@ -101,16 +101,19 @@
 			"type": "enum"
 		},
 		"opportunityBids": {
+			"clientReadOnly": true,
 			"type": "linkMultiple",
 			"view": "enhanced-fields:views/fields/bids"
 		},
 		"opportunityBidsCompetitor": {
+			"clientReadOnly": true,
 			"customizationDisabled": true,
 			"notStorable": true,
 			"type": "base",
 			"view": "enhanced-fields:views/fields/bids"
 		},
 		"opportunityBidsCompetitorData": {
+			"clientReadOnly": true,
 			"customizationDisabled": true,
 			"notStorable": true,
 			"orderDisabled": true,
@@ -297,6 +300,9 @@
 			],
 			"type": "enum"
 		},
+		"ownerNearRetirement": {
+			"type": "bool"
+		},
 		"statusDetail": {
 			"audited": true,
 			"options": [
@@ -304,10 +310,11 @@
 				"Lost",
 				"Former Client",
 				"Former Partner",
+				"Active Client",
+				"Active Partner",
 				"Sold",
 				"Merged",
-				"Closed",
-				"Planned Exit"
+				"Closed"
 			],
 			"storeArrayValues": true,
 			"style": {
@@ -317,7 +324,6 @@
 				"Lost": "danger",
 				"Merged": "info",
 				"NotConverted": "warning",
-				"PlannedExit": "warning",
 				"Sold": "info"
 			},
 			"tooltip": true,

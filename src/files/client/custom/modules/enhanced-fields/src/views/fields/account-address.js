@@ -121,17 +121,31 @@ define('enhanced-fields:views/fields/account-address', ['views/fields/base', 'ui
 			}
 
 			linkAccountAddress() {
-				const accountAddressesIds = this.model.get(this.dataFieldName)?.map(address => address.accountAddressId) || null;
 				let filters = {};
+				const relatedAccountsIds = this.model.get('accountsIds');
+				const linkedAccountAddressesIds = this.model.get(this.dataFieldName)?.map(address => address.accountAddressId) || null;
 
-				if (accountAddressesIds && accountAddressesIds.length > 0) {
+				if (linkedAccountAddressesIds && linkedAccountAddressesIds.length > 0) {
 					filters = {
 						id: {
 							type: 'notIn',
-							value: accountAddressesIds,
+							value: linkedAccountAddressesIds,
 						}
 					};
 				}
+
+				if (Array.isArray(relatedAccountsIds) && relatedAccountsIds.length > 0) {
+					filters.account = {
+						type: 'linkedWith',
+						value: relatedAccountsIds,
+						data: {
+							type: 'isOneOf',
+							oneOfIdList: relatedAccountsIds,
+							oneOfNameHash: this.model.get('accountsNames')
+						}
+					};
+				}
+
 				this.createView('linkAccountAddress', 'views/modals/select-records', {
 					scope: 'AccountAddress',
 					multiple: true,
@@ -191,19 +205,9 @@ define('enhanced-fields:views/fields/account-address', ['views/fields/base', 'ui
 					if (labels && !Array.isArray(labels)) {
 						labels = [labels];
 					}
-
-					let accountId = $block.find(`div[data-name="${accountFieldName}"] input[data-name="accountId"]`).val() || null;
-					let accountName = $block.find(`div[data-name="${accountFieldName}"] input[data-name="accountName"]`).val() || null;
-					if (this.model.name === 'Account') {
-						accountId ??= this.model.get('id');
-						accountName ??= this.model.get('name');
-					}
-
-					return {
+					const data = {
 						accountAddressId: $block.find('.account-address-id').val() || null,
 						description: $block.find('.account-address-description').val() || null,
-						accountId,
-						accountName,
 						street: $block.find('.account-address-street').val().trim() || null,
 						city: $block.find('.account-address-city').val().trim() || null,
 						state: $block.find('.account-address-state').val().trim() || null,
@@ -212,6 +216,17 @@ define('enhanced-fields:views/fields/account-address', ['views/fields/base', 'ui
 						labels,
 						primary: $block.find(`input[name="${this.name}-primary"]`).is(':checked'),
 					};
+
+					if (this.model.name === 'Account') {
+						data.accountId = this.model.get('id');
+						data.accountName = this.model.get('name');
+					} else if ($block.find(`div[data-name="${accountFieldName}"] input[data-name="accountId"]`).length) {
+						data.accountId = $block.find(`div[data-name="${accountFieldName}"] input[data-name="accountId"]`).val() || null;
+						data.accountName = $block.find(`div[data-name="${accountFieldName}"] input[data-name="accountName"]`).val() || null;
+					}
+					debugger;
+
+					return data;
 				}).get();
 			}
 

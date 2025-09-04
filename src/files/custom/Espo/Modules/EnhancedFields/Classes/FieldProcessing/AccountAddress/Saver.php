@@ -115,7 +115,7 @@ class Saver implements SaverInterface {
 				$type = $type[0];
 			}*/
 
-			$hash->$key = [
+			$data = [
 				'primary' => !empty($row->primary),
 				'labels' => $row->labels ?? null,
 				'street' => $row->street ?? '',
@@ -124,9 +124,14 @@ class Saver implements SaverInterface {
 				'postalCode' => $row->postalCode ?? '',
 				'country' => $row->country ?? '',
 				'invalid' => !empty($row->invalid),
-				'accountId' => $row->accountId ?? null,
 				'description' => $row->description ?? '',
 			];
+
+			if (property_exists($row, 'accountId')) {
+				$data['accountId'] = empty($row->accountId) ? null : $row->accountId;
+			}
+
+			$hash->$key = $data;
 
 			$keyList[] = $key;
 		}
@@ -202,8 +207,14 @@ class Saver implements SaverInterface {
 					$hash->{$key}['postalCode'] !== $hashPrevious->{$key}['postalCode'] ||
 					$hash->{$key}['country'] !== $hashPrevious->{$key}['country'] ||
 					$hash->{$key}['invalid'] !== $hashPrevious->{$key}['invalid'] ||
-					$hash->{$key}['accountId'] !== $hashPrevious->{$key}['accountId'] ||
 					$hash->{$key}['description'] !== $hashPrevious->{$key}['description'];
+
+				if (
+					!$changed &&
+					array_key_exists('accountId', $hash->{$key})
+				) {
+					$changed = $hash->{$key}['accountId'] !== $hashPrevious->{$key}['accountId'];
+				}
 
 				if (
 					$hash->{$key}['primary'] &&
@@ -253,7 +264,7 @@ class Saver implements SaverInterface {
 				$skipSave = $this->checkChangeIsForbidden($accountAddress, $entity);
 
 				if (!$skipSave) {
-					$accountAddress->set([
+					$accountAddress->setMultiple([
 						'labels' => $hash->{$name}['labels'],
 						'street' => $hash->{$name}['street'],
 						'city' => $hash->{$name}['city'],
@@ -261,9 +272,12 @@ class Saver implements SaverInterface {
 						'postalCode' => $hash->{$name}['postalCode'],
 						'country' => $hash->{$name}['country'],
 						'invalid' => $hash->{$name}['invalid'],
-						'accountId' => $hash->{$name}['accountId'],
 						'description' => $hash->{$name}['description'],
 					]);
+
+					if (array_key_exists('accountId', $hash->{$name})) {
+						$accountAddress->set('accountId', $hash->{$name}['accountId']);
+					}
 
 					$this->entityManager->saveEntity($accountAddress);
 				} else {

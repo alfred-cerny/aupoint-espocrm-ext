@@ -42,7 +42,7 @@ class AccountAddress extends BaseRepository {
 			])
 			->order('en.primary', true)
 			->find();
-
+		/** @var AccountAddressEntity $address */
 		foreach ($addressList as $address) {
 			$item = (object)[
 				//'accountAddress' => $address->get(Field::NAME),

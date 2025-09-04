@@ -28,7 +28,8 @@
 		"statusNotes": "Additional information about the status of this account",
 		"subsectors": "Sub-sectors of Activity",
 		"type": "Relationship Type",
-		"yearsOfRelationship": "Number of years of business relationship with AU Point"
+		"yearsOfRelationship": "Number of years of business relationship with AU Point",
+		"ownerNearRetirement": "Owner near retirement - Potential acquisition/merger"
 	},
 	"links": {
 		"accountAddresses": "Organization Addresses",
