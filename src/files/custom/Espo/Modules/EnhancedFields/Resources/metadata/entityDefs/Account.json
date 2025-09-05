@@ -51,6 +51,10 @@
 		"assignedUser": {
 			"tooltip": true
 		},
+		"contactDecisionRole": {
+			"optionsReference": "Contact.opportunityRole",
+			"type": "enum"
+		},
 		"currency": {
 			"audited": true,
 			"default": "",
@@ -151,14 +155,17 @@
 				"Large"
 			],
 			"style": {
+				"": "danger",
 				"Large": "primary",
 				"Medium": "primary",
 				"Micro": "primary",
-				"Small": "primary",
-				"": "danger"
+				"Small": "primary"
 			},
 			"tooltip": true,
 			"type": "enum"
+		},
+		"ownerNearRetirement": {
+			"type": "bool"
 		},
 		"paymentTerms": {
 			"audited": true,
@@ -201,13 +208,8 @@
 			"type": "enum"
 		},
 		"potentialTargets": {
-			"options": [
-				"",
-				"Association Agreement",
-				"Repurchase"
-			],
 			"tooltip": true,
-			"type": "multiEnum"
+			"type": "text"
 		},
 		"preferredLanguage": {
 			"default": null,
@@ -301,9 +303,6 @@
 				"Religious and Spiritual"
 			],
 			"type": "enum"
-		},
-		"ownerNearRetirement": {
-			"type": "bool"
 		},
 		"statusDetail": {
 			"audited": true,
@@ -446,6 +445,11 @@
 			"foreign": "accountsPointContact",
 			"relationName": "accountUserPointContact",
 			"type": "hasMany"
+		},
+		"contacts": {
+			"columnAttributeMap": {
+				"decisionRole": "contactDecisionRole"
+			}
 		},
 		"opportunityBids": {
 			"entity": "OpportunityBid",

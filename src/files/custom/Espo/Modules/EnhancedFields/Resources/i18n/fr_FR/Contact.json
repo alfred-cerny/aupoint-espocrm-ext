@@ -23,6 +23,11 @@
 		"referredLeads": "Prospects référés"
 	},
 	"options": {
+		"accountDecisionRole": {
+			"Decision Maker": "Décisionnaire",
+			"Evaluator": "Évaluateur",
+			"Influencer": "Influenceur"
+		},
 		"individualRelationshipAppreciation": {
 			"bonne": "Bonne",
 			"excellente": "Excellente",

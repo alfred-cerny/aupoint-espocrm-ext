@@ -10,7 +10,11 @@
 			"type": "accountAddress"
 		},
 		"accounts": {
-			"audited": true
+			"audited": true,
+			"view": "enhanced-fields:views/contact/fields/accounts",
+			"columns": {
+				"decisionRole": "contactDecisionRole"
+			}
 		},
 		"expertise": {
 			"cutHeight": 200,
@@ -107,9 +111,38 @@
 			"max": 50,
 			"tooltip": true,
 			"type": "int"
+		},
+		"accountDecisionRole": {
+			"type": "enum",
+			"optionsReference": "Contact.opportunityRole",
+			"notStorable": true,
+			"orderDisabled": true,
+			"directUpdateDisabled": true,
+			"layoutDetailDisabled": true,
+			"layoutMassUpdateDisabled": true,
+			"layoutFiltersDisabled": true,
+			"layoutAvailabilityList": [
+				"listForAccount"
+			],
+			"exportDisabled": true,
+			"importDisabled": true,
+			"view": "crm:views/contact/fields/account-role",
+			"customizationOptionsDisabled": true,
+			"textFilterDisabled": true
 		}
 	},
 	"links": {
+		"accounts": {
+			"additionalColumns": {
+				"decisionRole": {
+					"type": "varchar",
+					"len": 100
+				}
+			},
+			"columnAttributeMap": {
+				"decisionRole": "accountDecisionRole"
+			}
+		},
 		"opportunityBids": {
 			"entity": "OpportunityBid",
 			"foreign": "contact",

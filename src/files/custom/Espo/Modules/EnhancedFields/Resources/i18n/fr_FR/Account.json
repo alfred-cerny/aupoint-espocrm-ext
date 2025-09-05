@@ -14,6 +14,7 @@
 		"opportunityBidsCompetitor": "Compétiteur - Historique des offres concurrentes",
 		"opportunityBidsPartner": "Partenaires - Historique des consortiums",
 		"organizationSize": "Taille de l'organisation",
+		"ownerNearRetirement": "Propriétaire près de la retraite - Acquisition/ fusion potentielle",
 		"paymentTerms": "Termes de paiement",
 		"potentialLevel": "Niveau de potentiel",
 		"potentialTargets": "Cibles d'affaires",
@@ -28,8 +29,7 @@
 		"statusNotes": "Information additionnels à propos du statut de ce compte",
 		"subsectors": "Sous-secteurs d’activité",
 		"type": "Type de relation",
-		"yearsOfRelationship": "Nombre d'années de relation d'affaires avec AU Point",
-		"ownerNearRetirement": "Propriétaire près de la retraite - Acquisition/ fusion potentielle"
+		"yearsOfRelationship": "Nombre d'années de relation d'affaires avec AU Point"
 	},
 	"links": {
 		"accountAddresses": "Adresses de l'organisation",
@@ -47,6 +47,11 @@
 			"OutsideCanada": "Hors Canada (exonéré)",
 			"QuebecTaxes": "Taxes Quebec",
 			"SaskatchewanTaxes": "Taxes Saskatchewan"
+		},
+		"contactDecisionRole": {
+			"Decision Maker": "Décisionnaire",
+			"Evaluator": "Évaluateur",
+			"Influencer": "Influenceur"
 		},
 		"currency": {
 			"CAD": "CDN",
@@ -66,11 +71,11 @@
 			"Limited": "Limitée"
 		},
 		"organizationSize": {
+			"": "Sans objet",
 			"Large": "Grande entreprise (+ de 500 employés)",
 			"Medium": "Moyenne entreprise (Entre 100 et 499 employés)",
 			"Micro": "Micro-entreprise (Entre 1 à 4 employés)",
-			"Small": "Petite entreprise (Entre 5 à 99 employés)",
-			"": "Sans objet"
+			"Small": "Petite entreprise (Entre 5 à 99 employés)"
 		},
 		"paymentTerms": {
 			"Fifteen Days": "En deça de 15 jours",
@@ -124,15 +129,15 @@
 			"Tourism": "Tourisme"
 		},
 		"statusDetail": {
+			"Active Client": "Client actif",
+			"Active Partner": "Partenaire actif",
 			"Closed": "Organisation fermée/dissolue",
 			"Former Client": "Ancien Client",
 			"Former Partner": "Ancien Partenaire",
 			"Lost": "Prospect perdu",
 			"Merged": "Organisation fusionnée",
 			"Not Converted": "Prospect non-converti",
-			"Sold": "Organisation vendue",
-			"Active Client": "Client actif",
-			"Active Partner": "Partenaire actif"
+			"Sold": "Organisation vendue"
 		},
 		"subsectors": {
 			"Aeronautics": "Aéronautique",
