@@ -67,7 +67,8 @@
 			"Large": "Large enterprise (500+ employees)",
 			"Medium": "Medium enterprise (Between 100 and 499 employees)",
 			"Micro": "Micro-enterprise (Between 1 to 4 employees)",
-			"Small": "Small enterprise (Between 5 to 99 employees)"
+			"Small": "Small enterprise (Between 5 to 99 employees)",
+			"": "Not applicable"
 		},
 		"paymentTerms": {
 			"Fifteen Days": "Within 15 days",

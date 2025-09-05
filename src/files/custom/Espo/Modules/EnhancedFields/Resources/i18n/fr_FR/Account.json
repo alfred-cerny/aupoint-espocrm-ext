@@ -69,7 +69,8 @@
 			"Large": "Grande entreprise (+ de 500 employés)",
 			"Medium": "Moyenne entreprise (Entre 100 et 499 employés)",
 			"Micro": "Micro-entreprise (Entre 1 à 4 employés)",
-			"Small": "Petite entreprise (Entre 5 à 99 employés)"
+			"Small": "Petite entreprise (Entre 5 à 99 employés)",
+			"": "Sans objet"
 		},
 		"paymentTerms": {
 			"Fifteen Days": "En deça de 15 jours",

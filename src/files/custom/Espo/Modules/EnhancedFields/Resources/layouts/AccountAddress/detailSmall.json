@@ -33,6 +33,9 @@
 				},
 				{
 					"name": "labels"
+				},
+				{
+					"name": "labelOtherDescription"
 				}
 			],
 			[

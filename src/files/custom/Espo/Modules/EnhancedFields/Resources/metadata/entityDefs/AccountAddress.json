@@ -27,7 +27,7 @@
 			"type": "bool"
 		},
 		"labels": {
-			"allowCustomOptions": true,
+			"allowCustomOptions": false,
 			"displayAsLabel": true,
 			"maxCount": 1,
 			"options": [
@@ -38,9 +38,14 @@
 				"Factory",
 				"Distribution Center",
 				"Construction Site",
-				"Billing Address"
+				"Billing Address",
+				"Personal Address",
+				"Other"
 			],
 			"type": "multiEnum"
+		},
+		"labelOtherDescription": {
+			"type": "text"
 		},
 		"modifiedAt": {
 			"readOnly": true,

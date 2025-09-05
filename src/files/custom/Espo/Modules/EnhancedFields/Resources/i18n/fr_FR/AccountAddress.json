@@ -8,7 +8,8 @@
 		"postalCode": "Code postal",
 		"state": "État/Région",
 		"street": "Rue",
-		"labels": "Étiquettes"
+		"labels": "Étiquettes",
+		"labelOtherDescription": "Étiquette Autre Description"
 	},
 	"labels": {
 		"Create AccountAddress": "Créer une adresse de compte"
@@ -23,12 +24,14 @@
 		"labels": {
 			"": "Inconnu",
 			"Billing Address": "Adresse de facturation",
+			"Personal Address": "Adresse personelle",
 			"Construction Site": "Chantier",
 			"Distribution Center": "Centre de distribution",
 			"Factory": "Usine",
 			"Head Office": "Siège social / Bureau chef",
 			"Regional Office": "Bureau régional",
-			"Satellite Office": "Bureau satellite"
+			"Satellite Office": "Bureau satellite",
+			"Other": "Autre"
 		}
 	}
 }

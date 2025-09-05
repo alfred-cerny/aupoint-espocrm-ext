@@ -38,7 +38,10 @@
                         <div class="col-sm-6" data-name="{{../name}}Account-{{@index}}"></div>
                         {{/if}}
                         <input type="hidden" class="account-address-labels-val" value="{{labels}}">
-                        <div class="col-sm-6 account-address-labels"></div>
+                        <div class="col-sm-7 account-address-labels"></div>
+                        <div class="col-sm-5">
+                            <input type="text" class="form-control account-address-labels-other-description" placeholder="{{translate 'labelOtherDescription' category='fields' scope='AccountAddress'}}" value="{{labelOtherDescription}}">
+                        </div>
                     </div>
                 </div>
                 <div class="col-sm-1">

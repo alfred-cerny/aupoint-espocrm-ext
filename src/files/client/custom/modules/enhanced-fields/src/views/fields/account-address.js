@@ -42,6 +42,9 @@ define('enhanced-fields:views/fields/account-address', ['views/fields/base', 'ui
 
 			afterRender() {
 				super.afterRender();
+				/**
+				 * @todo: replace this with account address's model
+				 */
 				this.$el.find('.account-address-block').each((i, el) => {
 					const $block = $(el);
 					if (this.mode === 'edit') {
@@ -68,6 +71,20 @@ define('enhanced-fields:views/fields/account-address', ['views/fields/base', 'ui
 							view.render();
 						});
 
+						this.listenTo(model, 'change:labels', () => {
+							const $labelOtherDescription = $($block.find('.account-address-labels-other-description'));
+							const labels = model.get('labels');
+							if (!Array.isArray(labels)) {
+								$labelOtherDescription.addClass('hidden');
+								return;
+							}
+							if (labels.includes('Other')) {
+								$labelOtherDescription.removeClass('hidden');
+							} else {
+								$labelOtherDescription.addClass('hidden');
+							}
+						});
+
 						let labels = $block.find('.account-address-labels-val').val() || null;
 						if (labels && !Array.isArray(labels)) {
 							labels = [labels];
@@ -83,7 +100,7 @@ define('enhanced-fields:views/fields/account-address', ['views/fields/base', 'ui
 							defs: {
 								params: {
 									maxCount: 1,
-									allowCustomOptions: true,
+									allowCustomOptions: false,
 									optionsReference: 'AccountAddress.labels',
 								}
 							}
@@ -217,6 +234,10 @@ define('enhanced-fields:views/fields/account-address', ['views/fields/base', 'ui
 						primary: $block.find(`input[name="${this.name}-primary"]`).is(':checked'),
 					};
 
+					if (Array.isArray(labels) && labels.includes('Other')) {
+						data.labelOtherDescription = $block.find('.account-address-labels-other-description').val().trim() || null;
+					}
+
 					if (this.model.name === 'Account') {
 						data.accountId = this.model.get('id');
 						data.accountName = this.model.get('name');
@@ -224,7 +245,6 @@ define('enhanced-fields:views/fields/account-address', ['views/fields/base', 'ui
 						data.accountId = $block.find(`div[data-name="${accountFieldName}"] input[data-name="accountId"]`).val() || null;
 						data.accountName = $block.find(`div[data-name="${accountFieldName}"] input[data-name="accountName"]`).val() || null;
 					}
-					debugger;
 
 					return data;
 				}).get();

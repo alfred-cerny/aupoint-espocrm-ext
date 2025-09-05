@@ -1,5 +1,29 @@
 {
 	"color": "#ED9D55",
 	"controller": "controllers/record",
+	"dynamicLogic": {
+		"fields": {
+			"labelOtherDescription": {
+				"required": {
+					"conditionGroup": [
+						{
+							"attribute": "labels",
+							"type": "contains",
+							"value": "Other"
+						}
+					]
+				},
+				"visible": {
+					"conditionGroup": [
+						{
+							"attribute": "labels",
+							"type": "contains",
+							"value": "Other"
+						}
+					]
+				}
+			}
+		}
+	},
 	"iconClass": "fas fa-map-location"
 }

@@ -8,7 +8,8 @@
 		"postalCode": "Postal Code",
 		"state": "State",
 		"street": "Street",
-		"labels": "Labels"
+		"labels": "Labels",
+		"labelOtherDescription": "Label 'Other' description"
 	},
 	"labels": {
 		"Create AccountAddress": "Create Account Address"

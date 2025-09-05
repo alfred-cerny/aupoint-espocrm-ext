@@ -144,6 +144,7 @@
 			"audited": true,
 			"maxLength": 100,
 			"options": [
+				"",
 				"Micro",
 				"Small",
 				"Medium",
@@ -153,7 +154,8 @@
 				"Large": "primary",
 				"Medium": "primary",
 				"Micro": "primary",
-				"Small": "primary"
+				"Small": "primary",
+				"": "danger"
 			},
 			"tooltip": true,
 			"type": "enum"

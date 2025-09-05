@@ -18,7 +18,8 @@ class AccountAddress extends Entity {
 		'invalid',
 		'description',
 		'accountId',
-		'accountName'
+		'accountName',
+		'labelOtherDescription'
 	];
 
 	public function getCity(): ?string {

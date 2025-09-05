@@ -29,8 +29,12 @@
                     {{#if hasLabels}}
                         {{#if showAccountInfo}}<span style="margin: 0 8px;">|</span>{{/if}}
                         {{#each labels as | label |}}
-                        <span>{{translate 'Labels'}}: {{label}}</span>
+                        <span>{{translate 'Labels' category='fields' scope='AccountAddress'}}: {{label}}</span>
                         {{/each}}
+                        {{#if labelOtherDescription}}
+                        <span style="margin: 0 8px;">⇒</span>
+                        <span>{{labelOtherDescription}}</span>
+                        {{/if}}
                     {{/if}}
                 </div>
             </div>

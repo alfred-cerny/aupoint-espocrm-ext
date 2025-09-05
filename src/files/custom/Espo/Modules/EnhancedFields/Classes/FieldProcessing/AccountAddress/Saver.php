@@ -29,7 +29,6 @@ class Saver implements SaverInterface {
 	public function __construct(
 		private readonly \Espo\ORM\EntityManager $entityManager,
 		private readonly ApplicationState        $applicationState,
-		private readonly AccessChecker           $accessChecker,
 		private readonly Metadata                $metadata
 	) {}
 
@@ -131,6 +130,10 @@ class Saver implements SaverInterface {
 				$data['accountId'] = empty($row->accountId) ? null : $row->accountId;
 			}
 
+			if (property_exists($row, 'labelOtherDescription')) {
+				$data['labelOtherDescription'] = empty($row->labelOtherDescription) ? null : $row->labelOtherDescription;
+			}
+
 			$hash->$key = $data;
 
 			$keyList[] = $key;
@@ -174,6 +177,7 @@ class Saver implements SaverInterface {
 				'country' => $row->country ?? '',
 				'invalid' => (bool)$row->invalid,
 				'accountId' => $row->accountId ?? null,
+				'labelOtherDescription' => $row->labelOtherDescription ?? null,
 				'description' => $row->description ?? '',
 			];
 
@@ -214,6 +218,13 @@ class Saver implements SaverInterface {
 					array_key_exists('accountId', $hash->{$key})
 				) {
 					$changed = $hash->{$key}['accountId'] !== $hashPrevious->{$key}['accountId'];
+				}
+
+				if (
+					!$changed &&
+					array_key_exists('labelOtherDescription', $hash->{$key})
+				) {
+					$changed = $hash->{$key}['labelOtherDescription'] !== $hashPrevious->{$key}['labelOtherDescription'];
 				}
 
 				if (
@@ -264,7 +275,7 @@ class Saver implements SaverInterface {
 				$skipSave = $this->checkChangeIsForbidden($accountAddress, $entity);
 
 				if (!$skipSave) {
-					$accountAddress->setMultiple([
+					$updateData = [
 						'labels' => $hash->{$name}['labels'],
 						'street' => $hash->{$name}['street'],
 						'city' => $hash->{$name}['city'],
@@ -273,11 +284,17 @@ class Saver implements SaverInterface {
 						'country' => $hash->{$name}['country'],
 						'invalid' => $hash->{$name}['invalid'],
 						'description' => $hash->{$name}['description'],
-					]);
+					];
 
 					if (array_key_exists('accountId', $hash->{$name})) {
-						$accountAddress->set('accountId', $hash->{$name}['accountId']);
+						$updateData['accountId'] = $hash->{$name}['accountId'];
 					}
+
+					if (array_key_exists('labelOtherDescription', $hash->{$name})) {
+						$updateData['labelOtherDescription'] = $hash->{$name}['labelOtherDescription'];
+					}
+
+					$accountAddress->setMultiple($updateData);
 
 					$this->entityManager->saveEntity($accountAddress);
 				} else {
@@ -290,6 +307,7 @@ class Saver implements SaverInterface {
 						'country' => $accountAddress->get('country'),
 						'invalid' => $accountAddress->get('invalid'),
 						'accountId' => $accountAddress->get('accountId'),
+						'labelOtherDescription' => $accountAddress->get('labelOtherDescription'),
 						'description' => $accountAddress->get('description'),
 					];
 				}
@@ -300,9 +318,7 @@ class Saver implements SaverInterface {
 			$accountAddress = $this->getById($name);
 
 			if (!$accountAddress) {
-				$accountAddress = $this->entityManager->getNewEntity(AccountAddress::ENTITY_TYPE);
-
-				$accountAddress->set([
+				$createData = [
 					'name' => $name,
 					'labels' => $hash->{$name}['labels'],
 					'street' => $hash->{$name}['street'],
@@ -311,9 +327,19 @@ class Saver implements SaverInterface {
 					'postalCode' => $hash->{$name}['postalCode'],
 					'country' => $hash->{$name}['country'],
 					'invalid' => $hash->{$name}['invalid'],
-					'accountId' => $hash->{$name}['accountId'],
 					'description' => $hash->{$name}['description'],
-				]);
+				];
+
+				if (array_key_exists('accountId', $hash->{$name})) {
+					$createData['accountId'] = $hash->{$name}['accountId'];
+				}
+
+				if (array_key_exists('labelOtherDescription', $hash->{$name})) {
+					$createData['labelOtherDescription'] = $hash->{$name}['labelOtherDescription'];
+				}
+
+				$accountAddress = $this->entityManager->getNewEntity(AccountAddress::ENTITY_TYPE);
+				$accountAddress->set($createData);
 
 				$this->entityManager->saveEntity($accountAddress);
 			} else {
@@ -329,9 +355,10 @@ class Saver implements SaverInterface {
 						$accountAddress->get('country') !== $hash->{$name}['country'] ||
 						$accountAddress->get('invalid') !== $hash->{$name}['invalid'] ||
 						$accountAddress->get('accountId') !== $hash->{$name}['accountId'] ||
+						$accountAddress->get('labelOtherDescription') !== $hash->{$name}['labelOtherDescription'] ||
 						$accountAddress->get('description') !== $hash->{$name}['description']
 					) {
-						$accountAddress->set([
+						$updateData = [
 							'labels' => $hash->{$name}['labels'],
 							'street' => $hash->{$name}['street'],
 							'city' => $hash->{$name}['city'],
@@ -339,9 +366,18 @@ class Saver implements SaverInterface {
 							'postalCode' => $hash->{$name}['postalCode'],
 							'country' => $hash->{$name}['country'],
 							'invalid' => $hash->{$name}['invalid'],
-							'accountId' => $hash->{$name}['accountId'],
 							'description' => $hash->{$name}['description'],
-						]);
+						];
+
+						if (array_key_exists('accountId', $hash->{$name})) {
+							$updateData['accountId'] = $hash->{$name}['accountId'];
+						}
+
+						if (array_key_exists('labelOtherDescription', $hash->{$name})) {
+							$updateData['labelOtherDescription'] = $hash->{$name}['labelOtherDescription'];
+						}
+
+						$accountAddress->set($updateData);
 
 						$this->entityManager->saveEntity($accountAddress);
 					}
@@ -356,6 +392,7 @@ class Saver implements SaverInterface {
 						'invalid' => $accountAddress->get('invalid'),
 						'description' => $accountAddress->get('description'),
 						'accountId' => $accountAddress->get('accountId'),
+						'labelOtherDescription' => $accountAddress->get('labelOtherDescription'),
 					];
 				}
 			}
@@ -432,6 +469,7 @@ class Saver implements SaverInterface {
 				$row->invalid = $revertData[$row->accountAddressId]['invalid'];
 				$row->description = $revertData[$row->accountAddressId]['description'];
 				$row->accountId = $revertData[$row->accountAddressId]['accountId'];
+				$row->labelOtherDescription = $revertData[$row->accountAddressId]['labelOtherDescription'];
 			}
 
 			$entity->set(self::ATTR_ACCOUNT_ADDRESS_DATA, $accountAddressData);
