@@ -57,6 +57,7 @@ define(['views/fields/link-multiple'], (Dep) => {
 					createButton: true,
 					multiple: true,
 					filters,
+					forceSelectAllAttributes: true,
 					onSelect: models => {
 						models.forEach(model => {
 							this.addBid(model.attributes);

@@ -4,5 +4,7 @@
 	"contact",
 	"account",
 	"amount",
-	"status"
+	"status",
+	"description",
+	"outcomeReason"
 ]

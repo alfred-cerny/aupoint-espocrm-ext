@@ -15,7 +15,7 @@
 		"optinUnsubscribe": "Désabonner",
 		"preferredLanguage": "Langue préféré",
 		"referredLeads": "Prospects référés",
-		"title": "Fonction",
+		"title": "Titre ou Fonction",
 		"yearsOfIndividualRelationship": "NbAnneesRelationindividuel",
 		"yearsOfRelationshipWithCompany": "Nombre d’années de relation d’affaires avec AUPoint"
 	},
@@ -29,16 +29,16 @@
 			"Influencer": "Influenceur"
 		},
 		"individualRelationshipAppreciation": {
-			"bonne": "Bonne",
-			"excellente": "Excellente",
-			"mauvaise": "Mauvaise",
-			"mediocre": "Médiocre",
-			"moyenne": "Moyenne"
+			"Average": "Moyenne",
+			"Bad": "Mauvaise",
+			"Excellent": "Excellente",
+			"Good": "Bonne",
+			"Mediocre": "Médiocre"
 		},
 		"optinChannels": {
-			"email": "Courriel",
-			"phone": "Téléphone",
-			"sms": "SMS"
+			"Email": "Courriel",
+			"Phone": "Téléphone",
+			"SMS": "SMS"
 		},
 		"preferredLanguage": {
 			"English": "Anglais",

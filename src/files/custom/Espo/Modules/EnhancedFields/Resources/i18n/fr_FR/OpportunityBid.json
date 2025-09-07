@@ -1,8 +1,9 @@
 {
 	"fields": {
-		"account": "Compte",
+		"account": "Organisation",
 		"amount": "Montant déposé",
 		"contact": "Contact",
+		"description": "Note",
 		"opportunity": "Opportunité",
 		"outcomeReason": "Raison du résultat",
 		"partnershipNature": "Nature du partenariat",
@@ -15,7 +16,7 @@
 	},
 	"options": {
 		"status": {
-			"Disqualified": "Disqualitfié",
+			"Disqualified": "Disqualifié / Non conforme",
 			"Lose": "Perdant",
 			"Win": "Gagnant"
 		},

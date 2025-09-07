@@ -94,6 +94,16 @@ define(['views/fields/multi-enum'], (Dep) => {
 				this.listenTo(this.model, 'change:sector', () => {
 					this.model.set(this.name, null);
 					this.setupOptions();
+
+					if (this.params.isSorted && this.translatedOptions) {
+						this.params.options = Espo.Utils.clone(this.params.options) || [];
+
+						this.params.options = this.params.options.sort((v1, v2) => {
+							return (this.translatedOptions[v1] || v1)
+								.localeCompare(this.translatedOptions[v2] || v2);
+						});
+					}
+
 					this.reRender();
 				});
 			}

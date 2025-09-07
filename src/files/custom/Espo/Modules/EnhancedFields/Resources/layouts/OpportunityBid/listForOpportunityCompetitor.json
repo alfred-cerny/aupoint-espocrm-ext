@@ -4,16 +4,13 @@
 		"name": "account"
 	},
 	{
-		"link": true,
-		"name": "contact"
-	},
-	{
-		"name": "amount"
+		"name": "amount",
+		"width": 20
 	},
 	{
 		"name": "status"
 	},
 	{
-		"name": "outcomeReason"
+		"name": "description"
 	}
 ]

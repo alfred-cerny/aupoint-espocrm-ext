@@ -24,6 +24,12 @@
 			],
 			[
 				{
+					"fullWidth": true,
+					"name": "description"
+				}
+			],
+			[
+				{
 					"name": "opportunity"
 				},
 				{

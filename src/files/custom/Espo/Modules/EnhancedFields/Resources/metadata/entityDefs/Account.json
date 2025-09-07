@@ -286,6 +286,7 @@
 			"type": "enum"
 		},
 		"sector": {
+			"isSorted": true,
 			"options": [
 				"",
 				"Industrial",
@@ -337,6 +338,7 @@
 			"type": "text"
 		},
 		"subsectors": {
+			"isSorted": true,
 			"options": [
 				"Agriculture, livestock and fishing",
 				"Aeronautics",

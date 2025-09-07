@@ -167,6 +167,7 @@ define('enhanced-fields:views/fields/account-address', ['views/fields/base', 'ui
 					scope: 'AccountAddress',
 					multiple: true,
 					filters,
+					forceSelectAllAttributes: true
 				}).then((view) => {
 					view.render();
 					view.listenTo(view, 'select', (models) => {
