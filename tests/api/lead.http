@@ -16,6 +16,13 @@ X-Api-Key: {{apiUserToken}}
 		"status": "In Process",
 		"source": "Cold Call",
 		"optinDate": "2025-08-27 12:33:05",
+        "utmContent": "OntarioGeneric",
+		"utmMedium": "Online Form",
+		"utmTerm": "",
+		"optinSource": "ontario-childcare-architects",
+		"optinChannels": [
+			"Courriel"
+		],
 		"referredByContact": {
 			"firstName": "Mike",
 			"lastName": "Johnson",

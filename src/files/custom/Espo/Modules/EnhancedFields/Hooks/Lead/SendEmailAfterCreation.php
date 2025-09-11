@@ -36,11 +36,6 @@ readonly class SendEmailAfterCreation implements AfterSave {
 		protected User                 $user,
 	) {}
 
-	/**
-	 * @throws ForbiddenSilent
-	 * @throws NotFound
-	 * @throws SendingError
-	 */
 	public function afterSave(Entity $entity, SaveOptions $options): void {
 		if (!$entity->isNew()) {
 			return;
@@ -55,6 +50,7 @@ readonly class SendEmailAfterCreation implements AfterSave {
 
 		$leadCampaign = $this->getLeadCampaign($entity);
 		if (is_null($leadCampaign)) {
+			$this->log->warning("No LeadCampaign found for Lead(id:$entityId).");
 			return;
 		}
 		$outboundEmailAddress = $leadCampaign->getFromAddress($entity->get('language')) ?? $this->config->get('outboundEmailFromAddress');
@@ -72,7 +68,16 @@ readonly class SendEmailAfterCreation implements AfterSave {
 		$data = EmailTemplateData::create()
 			->withEmailAddress($emailAddress)
 			->withParent($entity);
-		$result = $this->emailTemplateService->process($templateId, $data);
+		try {
+			$result = $this->emailTemplateService->process($templateId, $data);
+		} catch (ForbiddenSilent $ex) {
+			$this->log->error("Failed to send email. User does not have permission to EmailTemplate entity. Lead(id:$entityId)'. " . $ex->getTraceAsString());
+			return;
+		} catch (NotFound $ex) {
+			$this->log->error("Failed to send email. Email template not found(id:$templateId), Lead(id:$entityId), LeadCampaign(id:'." . $leadCampaign->get('id') . ') ' . $ex->getTraceAsString());
+			return;
+		}
+
 		/** @var Email $email */
 		$email = $this->entityManager->createEntity(Email::ENTITY_TYPE, [
 			'status' => Email::STATUS_DRAFT,
@@ -85,7 +90,13 @@ readonly class SendEmailAfterCreation implements AfterSave {
 			'attachmentsIds' => $result->getAttachmentIdList(),
 			'assignedUserId' => $this->user->isSystem() ? null : $this->user->getId(),
 		]);
-		$this->emailSender->send($email);
+		try {
+			$this->emailSender->send($email);
+		} catch (SendingError $ex) {
+			$this->log->error("Failed to send email to Lead(id:$entityId), LeadCampaign(id:'." . $leadCampaign->get('id') . '). ' . $ex->getTraceAsString());
+			return;
+		}
+
 		$this->entityManager->saveEntity($email);
 		$emailId = $email->getId();
 		$this->log->info("Lead(id:$entityId) has been sent an informational email(id:$emailId).");
