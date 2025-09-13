@@ -57,6 +57,7 @@
 			"default": "",
 			"maxLength": 100,
 			"options": [
+				"",
 				"Multipurpose Room",
 				"Locker Room Layout Or Remodeling",
 				"Cafeteria",
@@ -120,6 +121,7 @@
 			"default": "",
 			"maxLength": 100,
 			"options": [
+				"",
 				"Price",
 				"Technical Quality",
 				"Conformity"
@@ -191,6 +193,7 @@
 			"default": "",
 			"maxLength": 100,
 			"options": [
+				"",
 				"Authorized",
 				"Not Authorized",
 				"Not Applicable"
@@ -316,6 +319,7 @@
 			"default": "",
 			"maxLength": 100,
 			"options": [
+				"",
 				"Public Institutional",
 				"Private"
 			],
@@ -333,6 +337,7 @@
 			"default": "",
 			"maxLength": 100,
 			"options": [
+				"",
 				"Multi Residential",
 				"Industrial",
 				"Commercial",
@@ -386,6 +391,7 @@
 			"default": "",
 			"maxLength": 100,
 			"options": [
+				"",
 				"Portfolio Fit",
 				"Too Complex"
 			],
@@ -470,6 +476,7 @@
 			"isSorted": true,
 			"maxLength": 100,
 			"options": [
+				"",
 				"Quality",
 				"Quality And Price",
 				"Price"
@@ -500,6 +507,7 @@
 			"default": "",
 			"maxLength": 100,
 			"options": [
+				"",
 				"Electronic",
 				"Paper"
 			],
@@ -515,6 +523,7 @@
 			"default": "",
 			"maxLength": 100,
 			"options": [
+				"",
 				"Public",
 				"Invitation Only",
 				"Direct Contract"

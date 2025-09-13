@@ -64,7 +64,6 @@
 			"view": "enhanced-fields:views/fields/url-with-icon"
 		},
 		"utmCampaign": {
-			"pattern": "^[a-z]+(?:_[a-z]+)*$",
 			"type": "varchar"
 		},
 		"utmContent": {
